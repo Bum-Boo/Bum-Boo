@@ -47,11 +47,7 @@ Bum-Boo is a portfolio of practical tools for managing local information, reduci
 
 ## Links
 
-- **Portfolio site:** TODO: add public portfolio URL.
-- **Case studies:** [featured project case-study index](docs/case-studies.md).
-- **GitHub:** [github.com/Bum-Boo](https://github.com/Bum-Boo).
-- **Contact:** [bumboo.fun](https://bumboo.fun).
-- **Blog / writeups:** TODO: add external writeup links.
+- [bumboo.fun](https://bumboo.fun)
 
 ## Notes
 
