@@ -1,30 +1,55 @@
 # Bum-Boo
 
-> 実際のユーザー向けに、local-first の生産性ツール、AI 支援ワークフロー、デスクトップユーティリティを作っています。
+> 実際のユーザーのために、local-first の生産性ツール、AI-assisted workflow system、Windows デスクトップユーティリティを作っています。
 
 [Overview](../../README.md) | [English](README.en.md) | [한국어](README.ko.md) | [中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-Bum-Boo は、情報整理、反復作業の自動化、そしてユーザーが自分のツールとデータをコントロールし続けられる実用的なソフトウェアに関心があります。
+見栄えのよいデモだけではなく、実際の作業で使える実用的なソフトウェアを重視しています。主な関心領域は local-first automation、AI-assisted workflow system、Windows デスクトップユーティリティです。
 
-## 関心領域
+## 作っているもの
 
-- 個人とチームのための local-first 自動化
-- ユーザーが主導権を持てる human-AI ワークフロー
-- Windows とクリエイター向けのデスクトップ生産性ツール
-- 非エンジニア向けのコンテンツ運用ツール
-- 状態が明確で、操作を戻せて、制約を正直に示す HCI 指向のソフトウェア
+| 領域 | 焦点 |
+| --- | --- |
+| Local-first AI workflow | Codex や MCP 形式のシステムが、ユーザーデータをローカルに保ったまま調査、整理、変更提案を行えるようにするツール。 |
+| デスクトップ生産性 | ショートカット、検索、コントローラー入力、メディア操作、日常の摩擦を減らす Windows ユーティリティ。 |
+| コンテンツ運用 | 非エンジニアでもコンテンツを収集、確認、整理、再利用できる内部ツール。 |
+| 安全性を意識したツール | 見える状態、範囲を限定した自動化、戻せる操作、正直な制限説明。 |
 
 ## 代表プロジェクト
 
-- [Vaultwright](https://github.com/Bum-Boo/Vaultwright): Codex/MCP ワークフロー向け Obsidian vault メンテナンスツール
-- [BBCC](https://github.com/Bum-Boo/BBCC): クリエイティブショートカットとメディア操作向け Windows コントローラーマッピングツール
-- [BBTxT](https://github.com/Bum-Boo/BBTxT): ソースコード、ログ、設定ファイル向けの高速ローカルテキスト検索
-- [Naver-Cafe-Posts-Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader): Naver Cafe 投稿のローカルアーカイブ管理ツール
-- [BTS_sec](https://github.com/Bum-Boo/BTS_sec): 許可されたプロジェクト向けの防御的セキュリティ監査ツール
+| プロジェクト | 示しているもの |
+| --- | --- |
+| [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | Codex/MCP workflow 向けの local-first Obsidian vault メンテナンス層。 |
+| [BBCC](https://github.com/Bum-Boo/BBCC) | クリエイティブ workflow とメディア操作向けの Windows コントローラーショートカットマッピング。 |
+| [BBTxT](https://github.com/Bum-Boo/BBTxT) | ソースコード、ログ、設定、読み取り可能なファイルを対象にした高速なローカルテキスト検索。 |
+| [Naver-Cafe-Posts-Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | Naver Cafe 投稿向けのローカル Windows アーカイブ管理ツール。 |
+| [BIGLOADEB](https://github.com/Bum-Boo/BIGLOADEB) | Windows 向けのアカウント中心 Instagram 投稿収集とローカルメディア管理。 |
+| [BTS_sec](https://github.com/Bum-Boo/BTS_sec) | 許可された Web/ローカルプロジェクト向けの防御的セキュリティ監査ツールキット。 |
 
-## 作業方針
+## プロジェクトグループ
 
-- 不要なアカウント、クラウド同期、見えないデータ移動を減らします。
-- 自動化は範囲が明確で、ユーザーが確認できるべきです。
-- デモ映えよりも実際の作業フローを重視します。
-- 制限、実験段階、安全上の境界を README に明記します。
+- **Local-first AI workflow:** Vaultwright, BTS_sec.
+- **デスクトップ生産性:** BBCC, BBTxT.
+- **コンテンツ運用:** Naver-Cafe-Posts-Downloader, BIGLOADEB.
+- **安全性を意識したツール:** BTS_sec, Vaultwright, CheeseKit.
+
+## 進行中 / クリエイターツール
+
+**[CheeseKit](https://github.com/Bum-Boo/BumBoo-Cheese-Kit)** は、CHZZK ライブ配信ツールと安全な bot library のためのローカルデスクトップ root app です。まだ v0.1 の creator-tooling プロジェクトなので、release、preview、demo flow がより整うまでは secondary project として扱います。
+
+## 設計価値
+
+- **見える状態:** ツールが何をしていて、何が変わったのかをユーザーが把握できること。
+- **範囲を限定した自動化:** 自動化はユーザーが承認した境界内にとどまること。
+- **戻せる操作:** 破壊的または不可逆な作業を自動化の背後に隠さないこと。
+- **Local-first data handling:** ユーザーが明示的に選ばない限り、個人データや workflow データをローカルに保つこと。
+- **正直な制限:** 実験的、内部用、mock、未完成の機能は明確に表示すること。
+
+## リンク
+
+- GitHub: [github.com/Bum-Boo](https://github.com/Bum-Boo)
+- ポートフォリオは pinned repositories から読むのが最も早いです。
+
+## メモ
+
+一部のプロジェクトは実験的、内部用、または初期段階です。公開説明では、ツールが何をするのか、誰に役立つのか、安全境界はどこか、まだ実装されていないものは何かを実用的に示します。
