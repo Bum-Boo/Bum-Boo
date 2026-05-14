@@ -24,7 +24,7 @@ Bum-Boo is a portfolio of practical tools for managing local information, reduci
 | [BB TxT](https://github.com/Bum-Boo/BBTxT) | Desktop productivity | Fast local text search for source code, logs, configs, and readable files. |
 | [Naver-Cafe-Posts-Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | Local archive | Windows archive manager for Naver Cafe posts, framed around personal authorized access and local review. |
 | [BIGLOADEB](https://github.com/Bum-Boo/BIGLOADEB) | Content operations | Account-first Instagram post collection and local media management for internal non-technical workflows. |
-| [BTS Sec / BTS_sec](https://github.com/Bum-Boo/BTS_sec) | Safety-aware tooling | Defensive audit toolkit for authorized web and local projects with passive/static checks and redacted evidence. |
+| [BTS Sec](https://github.com/Bum-Boo/BTS_sec) | Safety-aware tooling | Defensive audit toolkit for authorized web and local projects with passive/static checks and redacted evidence. |
 
 ## Project Groups
 
@@ -44,6 +44,14 @@ Bum-Boo is a portfolio of practical tools for managing local information, reduci
 - **Reversible actions:** prefer proposals, review notes, local folders, and clear stop/reset controls.
 - **Local-first data handling:** avoid unnecessary accounts, cloud sync, hidden telemetry, or remote indexing.
 - **Honest limitations:** label internal-use, experimental, mock, v0.1, platform-limited, and authorized-use-only status directly.
+
+## Links
+
+- **Portfolio site:** TODO: add public portfolio URL.
+- **Case studies:** [featured project case-study index](docs/case-studies.md).
+- **GitHub:** [github.com/Bum-Boo](https://github.com/Bum-Boo).
+- **Contact:** TODO: add public contact method.
+- **Blog / writeups:** TODO: add external writeup links.
 
 ## Notes
 

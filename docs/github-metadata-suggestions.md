@@ -2,6 +2,18 @@
 
 Use these copy-pasteable entries for GitHub repository About settings. Topics are comma-separated for easier UI entry.
 
+GitHub About metadata, pinned order, website/demo URLs, and social preview images are GitHub UI settings. They cannot be changed reliably from repository files alone; use this document as a copy-paste checklist.
+
+## Manual Application Steps
+
+1. Open the repository page on GitHub.
+2. Click the gear/settings icon next to the About panel.
+3. Paste the description.
+4. Add the topics.
+5. Add a website/demo URL if one is available.
+6. Add a social preview image if one is available.
+7. Save.
+
 ## Vaultwright
 
 - Description: `Local-first Obsidian vault maintenance layer for Codex/MCP workflows.`
@@ -44,6 +56,7 @@ Use these copy-pasteable entries for GitHub repository About settings. Topics ar
 
 ## BTS_sec
 
+- Public display name: `BTS Sec`
 - Description: `Defensive security audit toolkit for authorized web and local projects.`
 - Topics: `security`, `defensive-security`, `audit`, `web-security`, `static-analysis`, `dependency-scanning`, `secrets-scanning`, `sarif`, `owasp`
 - Pinned position: `6`

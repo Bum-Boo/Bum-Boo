@@ -103,3 +103,13 @@ Before publishing or sharing, check that public copy does not claim:
 2. Add or verify social preview images.
 3. Verify release assets for BBCC, BB TxT, Naver-Cafe-Posts-Downloader, and BIGLOADEB.
 4. Keep CheeseKit secondary until its public release/demo path is stronger.
+
+## Last Mile Checklist
+
+- Apply GitHub About descriptions and topics manually from [github-metadata-suggestions.md](github-metadata-suggestions.md).
+- Set pinned repo order: Vaultwright, BBCC, BBTxT, Naver-Cafe-Posts-Downloader, BIGLOADEB, BTS_sec.
+- Add social preview images for the six pinned repos.
+- Publish or verify release assets for BBCC, BBTxT, Naver-Cafe-Posts-Downloader, and BIGLOADEB.
+- Add portfolio site links once a public URL exists.
+- Write one external case-study or blog post for each of the top three repos: Vaultwright, BBCC, and BBTxT.
+- Keep CheeseKit secondary until its real-adapter, release, and demo boundaries are stronger.
