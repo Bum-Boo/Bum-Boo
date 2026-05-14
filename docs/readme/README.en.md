@@ -2,7 +2,7 @@
 
 > Local-first productivity tools, AI-assisted workflow systems, and Windows desktop utilities for real users.
 
-[Overview](../../README.md) | [English](README.en.md) | [?쒓뎅??(README.ko.md) | [訝?뻼](README.zh-CN.md) | [?ζ쑍沃?(README.ja.md)
+[Overview](../../README.md) | [English](README.en.md) | [Korean](README.ko.md) | [Chinese](README.zh-CN.md) | [Japanese](README.ja.md)
 
 I build practical software for people who need useful tools more than polished demos: local-first automation, AI-assisted workflow systems, and Windows desktop utilities.
 
@@ -21,7 +21,7 @@ I build practical software for people who need useful tools more than polished d
 | --- | --- |
 | [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | Local-first Obsidian vault maintenance for Codex/MCP workflows. |
 | [BBCC](https://github.com/Bum-Boo/BBCC) | Windows controller shortcut mapping for creative workflows and media control. |
-| [BBTxT](https://github.com/Bum-Boo/BBTxT) | Fast local text search for source code, logs, configs, and readable files. |
+| [BB TxT](https://github.com/Bum-Boo/BBTxT) | Fast local text search for source code, logs, configs, and readable files. |
 | [Naver-Cafe-Posts-Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | Local Windows archive manager for Naver Cafe posts. |
 | [BIGLOADEB](https://github.com/Bum-Boo/BIGLOADEB) | Account-first Instagram post collection and local media management for Windows. |
 | [BTS Sec](https://github.com/Bum-Boo/BTS_sec) | Defensive security audit toolkit for authorized web and local projects. |
@@ -29,13 +29,13 @@ I build practical software for people who need useful tools more than polished d
 ## Project Groups
 
 - **Local-first AI workflow:** Vaultwright, BTS Sec.
-- **Desktop productivity:** BBCC, BBTxT.
+- **Desktop productivity:** BBCC, BB TxT.
 - **Content operations:** Naver-Cafe-Posts-Downloader, BIGLOADEB.
 - **Safety-aware tooling:** BTS Sec, Vaultwright, CheeseKit.
 
 ## In Progress / Creator Tooling
 
-**[CheeseKit](https://github.com/Bum-Boo/BumBoo-Cheese-Kit)** is a local desktop root app for CHZZK live-streaming tools and safe bot libraries. It is still a v0.1 creator-tooling project, so it is listed as secondary work until its release, preview, and demo flow are more complete.
+**[CheeseKit](https://github.com/Bum-Boo/BumBoo-Cheese-Kit)** is a local desktop root app for CHZZK live-streaming tools and safe bot libraries. It is still a v0.1/mock-first creator-tooling project, so it stays secondary until the release path, preview, and real-adapter boundary are stronger.
 
 ## Design Values
 
@@ -47,8 +47,7 @@ I build practical software for people who need useful tools more than polished d
 
 ## Links
 
-- GitHub: [github.com/Bum-Boo](https://github.com/Bum-Boo)
-- Start with the pinned repositories for the fastest portfolio read.
+- [bumboo.fun](https://bumboo.fun)
 
 ## Notes
 

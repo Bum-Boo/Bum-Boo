@@ -1,54 +1,54 @@
 # Bum-Boo
 
-> ?ㅼ젣 ?ъ슜?먮? ?꾪븳 local-first ?앹궛???꾧뎄, AI-assisted workflow system, Windows ?곗뒪?ы넲 ?좏떥由ы떚瑜?留뚮벊?덈떎.
+> 실제 사용자를 위한 local-first 생산성 도구, AI-assisted workflow system, Windows 데스크톱 유틸리티를 만듭니다.
 
-[Overview](../../README.md) | [English](README.en.md) | [?쒓뎅??(README.ko.md) | [訝?뻼](README.zh-CN.md) | [?ζ쑍沃?(README.ja.md)
+[Overview](../../README.md) | [English](README.en.md) | [Korean](README.ko.md) | [Chinese](README.zh-CN.md) | [Japanese](README.ja.md)
 
-???蹂닿린 醫뗭? ?곕え蹂대떎 ?ㅼ젣濡??????덈뒗 ?꾧뎄??珥덉젏???〓땲?? 二쇱슂 愿?ъ궗??local-first ?먮룞?? AI-assisted workflow system, Windows ?곗뒪?ы넲 ?좏떥由ы떚?낅땲??
+저는 보기 좋은 데모보다 실제로 쓸 수 있는 도구에 초점을 둡니다. 주요 관심사는 local-first 자동화, AI-assisted workflow system, Windows 데스크톱 유틸리티입니다.
 
-## 臾댁뾿??留뚮뱶?붽?
+## 무엇을 만드는가
 
-| ?곸뿭 | 珥덉젏 |
+| 영역 | 초점 |
 | --- | --- |
-| Local-first AI workflow | Codex??MCP ?ㅽ????쒖뒪?쒖씠 ?ъ슜?먯쓽 ?곗씠?곕? 濡쒖뺄????梨??쎄퀬, ?뺣━?섍퀬, 蹂寃쎌븞???쒖븞?섎룄濡??뺣뒗 ?꾧뎄. |
-| ?곗뒪?ы넲 ?앹궛??| ?⑥텞?? 寃?? 而⑦듃濡ㅻ윭 ?낅젰, 誘몃뵒???쒖뼱, 諛섎났 ?묒뾽??以꾩씠??Windows ?좏떥由ы떚. |
-| 肄섑뀗痢??댁쁺 | 鍮꾧컻諛쒖옄??肄섑뀗痢좊? ?섏쭛, 寃?? ?뺣━, ?ъ궗?⑺븷 ???덇쾶 ?섎뒗 ?대? ?댁쁺 ?꾧뎄. |
-| ?덉쟾??怨좊젮???꾧뎄 | 蹂댁씠???곹깭, 紐낇솗???먮룞??踰붿쐞, ?섎룎由????덈뒗 ?묒뾽, ?붿쭅???쒓퀎 ?쒖떆. |
+| Local-first AI workflow | Codex나 MCP 스타일 시스템이 사용자의 데이터를 로컬에 둔 채 읽고, 정리하고, 변경안을 제안하도록 돕는 도구. |
+| 데스크톱 생산성 | 단축키, 검색, 컨트롤러 입력, 미디어 제어, 반복 작업을 줄이는 Windows 유틸리티. |
+| 콘텐츠 운영 | 비개발자도 콘텐츠를 수집, 검토, 정리, 재사용할 수 있게 하는 내부 운영 도구. |
+| 안전을 고려한 도구 | 보이는 상태, 명확한 자동화 범위, 되돌릴 수 있는 작업, 솔직한 한계 표시. |
 
-## ????꾨줈?앺듃
+## 대표 프로젝트
 
-| ?꾨줈?앺듃 | 蹂댁뿬二쇰뒗 寃?|
+| 프로젝트 | 보여주는 것 |
 | --- | --- |
-| [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | Codex/MCP workflow瑜??꾪븳 local-first Obsidian vault ?좎?愿由?怨꾩링. |
-| [BBCC](https://github.com/Bum-Boo/BBCC) | 李쎌옉 workflow? 誘몃뵒???쒖뼱瑜??꾪븳 Windows 而⑦듃濡ㅻ윭 ?⑥텞??留ㅽ븨 ?꾧뎄. |
-| [BBTxT](https://github.com/Bum-Boo/BBTxT) | ?뚯뒪 肄붾뱶, 濡쒓렇, ?ㅼ젙, ?쎌쓣 ???덈뒗 ?뚯씪??鍮좊Ⅴ寃?李얜뒗 濡쒖뺄 ?띿뒪??寃???꾧뎄. |
-| [Naver-Cafe-Posts-Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | ?ㅼ씠踰?移댄럹 寃뚯떆湲??濡쒖뺄?먯꽌 愿由ы븯??Windows ?꾩뭅?대툕 留ㅻ땲?. |
-| [BIGLOADEB](https://github.com/Bum-Boo/BIGLOADEB) | Windows??怨꾩젙 以묒떖 Instagram 寃뚯떆臾??섏쭛 諛?濡쒖뺄 誘몃뵒??愿由??꾧뎄. |
-| [BTS Sec](https://github.com/Bum-Boo/BTS_sec) | ?덇?????濡쒖뺄 ?꾨줈?앺듃瑜??꾪븳 諛⑹뼱??蹂댁븞 媛먯궗 ?댄궥. |
+| [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | Codex/MCP workflow를 위한 local-first Obsidian vault 유지관리 계층. |
+| [BBCC](https://github.com/Bum-Boo/BBCC) | 창작 workflow와 미디어 제어를 위한 Windows 컨트롤러 단축키 매핑 도구. |
+| [BB TxT](https://github.com/Bum-Boo/BBTxT) | 소스 코드, 로그, 설정, 읽을 수 있는 파일을 빠르게 찾는 로컬 텍스트 검색 도구. |
+| [Naver-Cafe-Posts-Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | 네이버 카페 게시글을 로컬에서 관리하는 Windows 아카이브 매니저. |
+| [BIGLOADEB](https://github.com/Bum-Boo/BIGLOADEB) | Windows용 계정 중심 Instagram 게시물 수집 및 로컬 미디어 관리 도구. |
+| [BTS Sec](https://github.com/Bum-Boo/BTS_sec) | 허가된 웹/로컬 프로젝트를 위한 방어적 보안 감사 툴킷. |
 
-## ?꾨줈?앺듃 洹몃９
+## 프로젝트 그룹
 
 - **Local-first AI workflow:** Vaultwright, BTS Sec.
-- **?곗뒪?ы넲 ?앹궛??** BBCC, BBTxT.
-- **肄섑뀗痢??댁쁺:** Naver-Cafe-Posts-Downloader, BIGLOADEB.
-- **?덉쟾??怨좊젮???꾧뎄:** BTS Sec, Vaultwright, CheeseKit.
+- **데스크톱 생산성:** BBCC, BB TxT.
+- **콘텐츠 운영:** Naver-Cafe-Posts-Downloader, BIGLOADEB.
+- **안전을 고려한 도구:** BTS Sec, Vaultwright, CheeseKit.
 
-## 吏꾪뻾 以?/ ?щ━?먯씠???꾧뎄
+## 진행 중 / 크리에이터 도구
 
-**[CheeseKit](https://github.com/Bum-Boo/BumBoo-Cheese-Kit)**? CHZZK ?쇱씠釉??ㅽ듃由щ컢 ?꾧뎄? ?덉쟾??bot library瑜??꾪븳 濡쒖뺄 ?곗뒪?ы넲 root app?낅땲?? ?꾩쭅 v0.1 ?④퀎??creator-tooling ?꾨줈?앺듃?대?濡?release, preview, demo flow媛 ???ㅻ벉?댁쭏 ?뚭퉴吏 蹂댁“ ?꾨줈?앺듃濡??〓땲??
+**[CheeseKit](https://github.com/Bum-Boo/BumBoo-Cheese-Kit)**은 CHZZK 라이브 스트리밍 도구와 안전한 bot library를 위한 로컬 데스크톱 root app입니다. 아직 v0.1/mock-first creator-tooling 프로젝트이므로 release path, preview, real-adapter boundary가 더 단단해질 때까지 보조 프로젝트로 둡니다.
 
-## ?ㅺ퀎 媛移?
-- **蹂댁씠???곹깭:** ?꾧뎄媛 臾댁뾿???섍퀬 臾댁뾿??諛붾뚯뿀?붿? ?ъ슜?먭? ?????덉뼱???⑸땲??
-- **踰붿쐞媛 紐낇솗???먮룞??** ?먮룞?붾뒗 ?ъ슜?먭? ?뱀씤??寃쎄퀎 ?덉뿉?쒕쭔 ?숈옉?댁빞 ?⑸땲??
-- **?섎룎由????덈뒗 ?묒뾽:** ?뚭눼?곸씠嫄곕굹 ?섎룎由ш린 ?대젮???묒뾽???먮룞???ㅼ뿉 ?④린吏 ?딆뒿?덈떎.
-- **Local-first ?곗씠??泥섎━:** 媛쒖씤 ?곗씠?곗? workflow ?곗씠?곕뒗 ?ъ슜?먭? 紐낆떆?곸쑝濡??좏깮?섏? ?딅뒗 ??濡쒖뺄??癒몃Ъ?ъ빞 ?⑸땲??
-- **?붿쭅???쒓퀎:** ?ㅽ뿕?? ?대??? mock, 誘몄셿??湲곕뒫? 吏곸젒 ?쒖떆?⑸땲??
+## 설계 가치
 
-## 留곹겕
+- **보이는 상태:** 도구가 무엇을 하고 무엇이 바뀌었는지 사용자가 알 수 있어야 합니다.
+- **범위가 명확한 자동화:** 자동화는 사용자가 승인한 경계 안에서만 동작해야 합니다.
+- **되돌릴 수 있는 작업:** 파괴적이거나 되돌리기 어려운 작업을 자동화 뒤에 숨기지 않습니다.
+- **Local-first 데이터 처리:** 개인 데이터와 workflow 데이터는 사용자가 명시적으로 선택하지 않는 한 로컬에 머물러야 합니다.
+- **솔직한 한계:** 실험적, 내부용, mock, 미완성 기능은 직접 표시합니다.
 
-- GitHub: [github.com/Bum-Boo](https://github.com/Bum-Boo)
-- ?ы듃?대━?ㅻ뒗 pinned repository遺??蹂대㈃ 媛??鍮좊Ⅴ寃??댄빐?????덉뒿?덈떎.
+## 링크
 
-## 硫붾え
+- [bumboo.fun](https://bumboo.fun)
 
-?쇰? ?꾨줈?앺듃???ㅽ뿕?곸씠嫄곕굹 ?대??⑹씠嫄곕굹 珥덇린 ?④퀎?낅땲?? 怨듦컻 ?ㅻ챸?먯꽌???꾧뎄媛 ?섎뒗 ?? ?꾧뎄?먭쾶 ?꾩????섎뒗吏, ?덉쟾 寃쎄퀎媛 ?대뵒?몄?, ?꾩쭅 援ы쁽?섏? ?딆? 寃껋씠 臾댁뾿?몄? ?ㅼ슜?곸쑝濡?諛앺엳??寃껋쓣 ?곗꽑?⑸땲??
+## 메모
+
+일부 프로젝트는 실험적이거나 내부용이거나 초기 단계입니다. 공개 설명에서는 도구가 하는 일, 누구에게 도움이 되는지, 안전 경계가 어디인지, 아직 구현되지 않은 것이 무엇인지 실용적으로 밝히는 것을 우선합니다.

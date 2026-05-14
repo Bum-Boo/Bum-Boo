@@ -1,43 +1,54 @@
 # Bum-Boo
 
-> 訝븀쐿若욅뵪?룡엫兩?local-first ?잋벨?쎾램?룔갂I-assisted 藥δ퐳役곭내瀯잌뭽 Windows 旅뚪씊若욅뵪藥ε끁??
-[Overview](../../README.md) | [English](README.en.md) | [?쒓뎅??(README.ko.md) | [訝?뻼](README.zh-CN.md) | [?ζ쑍沃?(README.ja.md)
+> 为真实用户构建 local-first 生产力工具、AI-assisted 工作流系统和 Windows 桌面实用工具。
 
-?묈뀽力①쉪??꺗?잍?瓦쎾뀯藥δ퐳役곭쉪饔?뻑竊뚩뚥툖?ゆ삸也썹쐦?꾣폇鹽뷩귚말誤곫뼶?묉삸 local-first ?ゅ뒯?뽧갂I-assisted 藥δ퐳役곭내瀯잌뭽 Windows 旅뚪씊藥ε끁??
-## ?묉엫兩뷰?阿?
-| 窯녶윜 | ?띸궧 |
+[Overview](../../README.md) | [English](README.en.md) | [Korean](README.ko.md) | [Chinese](README.zh-CN.md) | [Japanese](README.ja.md)
+
+我关注的是能真正进入工作流的软件，而不只是好看的演示。主要方向是 local-first 自动化、AI-assisted 工作流系统和 Windows 桌面工具。
+
+## 我构建什么
+
+| 领域 | 重点 |
 | --- | --- |
-| Local-first AI workflow | 溫?Codex ??MCP 繇롦졏楹사퍨?ⓩ빊??퍖?쇿쑉?у쑑?꾢뎺?먧툔瓦쏂죱汝?γ곫빐?녶뭽?섉쎍兩븃???|
-| 旅뚪씊?잋벨??| ?℡릲 Windows ?꾢엮?룬뵰?곫맂榮㏂곫렒?뜹솳渦볟뀯?곩첅鵝볠렒?뜹뭽?ε만藥δ퐳役곩뇧兀잌램?룔?|
-| ?끻?瓦먫맓 | 躍?뒰?욄???뵪?룡뵸?녴곩??멥곫빐?녶뭽鸚띸뵪?끻??꾢냵?ⓨ램?룔?|
-| 若됧뀲渦밭븣歷끾솻?꾢램??| ??쭅?뜻곥곫삇簾?똽?당쉪?ゅ뒯?뽧곩룾?욇?띴퐳?뚩캏若욅쉪?먨댍瑥닸삇??|
+| Local-first AI workflow | 让 Codex 或 MCP 风格系统在数据仍留在本地的前提下进行检查、整理和变更建议。 |
+| 桌面生产力 | 面向 Windows 的快捷键、搜索、控制器输入、媒体控制和日常工作流减负工具。 |
+| 内容运营 | 帮助非技术用户收集、审核、整理和复用内容的内部工具。 |
+| 安全边界清晰的工具 | 可见状态、明确范围的自动化、可回退操作和诚实的限制说明。 |
 
-## 餓ｈ〃窈밭쎅
+## 代表项目
 
-| 窈밭쎅 | 掠뺟ㅊ?끻? |
+| 项目 | 展示内容 |
 | --- | --- |
-| [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | ?℡릲 Codex/MCP 藥δ퐳役곭쉪 local-first Obsidian vault 瀯닸뒪掠귙?|
-| [BBCC](https://github.com/Bum-Boo/BBCC) | ?℡릲?쎽퐳藥δ퐳役곩뭽揶믢퐪?㎩댍??Windows ?㎩댍?ⓨ엮?룬뵰?졾컙藥ε끁??|
-| [BBTxT](https://github.com/Bum-Boo/BBTxT) | ?덂?繹먧빰?곥곫뿥恙쀣곲뀓營?뭽????뉏뻑?꾢엮?잍쑍?경뻼?ф맂榮㏂?|
-| [Naver-Cafe-Posts-Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | ?℡릲 Naver Cafe 躍뽩춴?꾣쑍??Windows 壤믤。嶸←릤?ⓦ?|
-| [BIGLOADEB](https://github.com/Bum-Boo/BIGLOADEB) | ?℡릲 Windows ?꾥뇹?룝폍??Instagram 躍뽩춴?띌썓訝롦쑍?겼첅鵝볡??녶램?룔?|
-| [BTS Sec](https://github.com/Bum-Boo/BTS_sec) | ?℡릲?덃쓢 Web ?뚧쑍?곈」??쉪?꿨쐴?㎩츎?ⓨ?溫▼램?룟똿??|
+| [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | 面向 Codex/MCP 工作流的 local-first Obsidian vault 维护层。 |
+| [BBCC](https://github.com/Bum-Boo/BBCC) | 面向创作工作流和媒体控制的 Windows 控制器快捷键映射工具。 |
+| [BB TxT](https://github.com/Bum-Boo/BBTxT) | 针对源代码、日志、配置和可读文件的快速本地文本搜索。 |
+| [Naver-Cafe-Posts-Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | 面向 Naver Cafe 帖子的本地 Windows 归档管理器。 |
+| [BIGLOADEB](https://github.com/Bum-Boo/BIGLOADEB) | 面向 Windows 的账号优先 Instagram 帖子收集与本地媒体管理工具。 |
+| [BTS Sec](https://github.com/Bum-Boo/BTS_sec) | 面向授权 Web 和本地项目的防御性安全审计工具包。 |
 
-## 窈밭쎅?녺퍍
+## 项目分组
 
 - **Local-first AI workflow:** Vaultwright, BTS Sec.
-- **旅뚪씊?잋벨??** BBCC, BBTxT.
-- **?끻?瓦먫맓:** Naver-Cafe-Posts-Downloader, BIGLOADEB.
-- **若됧뀲渦밭븣歷끾솻?꾢램??** BTS Sec, Vaultwright, CheeseKit.
+- **桌面生产力:** BBCC, BB TxT.
+- **内容运营:** Naver-Cafe-Posts-Downloader, BIGLOADEB.
+- **安全边界清晰的工具:** BTS Sec, Vaultwright, CheeseKit.
 
-## 瓦쏂죱訝?/ ?쎽퐳?끻램??
-**[CheeseKit](https://github.com/Bum-Boo/BumBoo-Cheese-Kit)** ???訝ら씊??CHZZK ?닸뮡藥ε끁?뚦츎??bot library ?꾣쑍?경죱??root app?귛츆餓띶쨪雅?v0.1 ??creator-tooling ?뜻?竊뚦썱閭ㅵ쑉 release?걈review ??demo flow ?닷츑?답퉳?띴폏鵝쒍맏轝←벨窈밭쎅掠뺟ㅊ??
-## 溫얕?餓룟?
-- **??쭅?뜻?** ?ⓩ댎佯붻??ι걪藥ε끁閭ｅ쑉?싦?阿덌펽餓ε룋?묊뵟雅녵?阿덂룜?뽧?- **?됭똽?당쉪?ゅ뒯??** ?ゅ뒯?뽩틪?쒐븰?①뵪?룡삇簾?돶?녺쉪渦밭븣?끹?- **??썮??띴퐳:** 訝띷뒍?닷쓯?㎪닑訝띶룾?녶램鵝쒒쉺?뤷쑉?ゅ뒯?뽩릮?㏂?- **Local-first ?경뜮鸚꾤릤:** ?ㅹ씆?ⓩ댎?롧‘?됪떓竊뚦맔?숂쭅?됪빊??뭽藥δ퐳役곫빊??틪?쇿쑉?у쑑??- **瑥싧츩瑥닸삇?먨댍:** 若욇챿?㎯곩냵?ⓧ슴?ⓦ걅ock ?뽪쑋若뚧닇?꾢뒣?썲틪?닸렏?뉑낏??
-## ?얏렏
+## 进行中 / 创作者工具
 
-- GitHub: [github.com/Bum-Boo](https://github.com/Bum-Boo)
-- 兩븃??덁퍗 pinned repositories ?낁?鵝쒎뱚?녴?
-## 瑥닸삇
+**[CheeseKit](https://github.com/Bum-Boo/BumBoo-Cheese-Kit)** 是一个面向 CHZZK 直播工具和安全 bot library 的本地桌面 root app。它仍处于 v0.1/mock-first 的 creator-tooling 阶段，因此在 release path、preview 和 real-adapter boundary 更完整之前会作为次级项目展示。
 
-?ⓨ늽窈밭쎅餓띷삸若욇챿?㎯곩냵?ⓧ슴?ⓩ닑?⒵쐿?뜻??귛뀶凉瑥닸삇鴉싦폍?덅?歷끾쪡藥ε끁?싦?阿덀곩리?⑵컖?곩츎?②씁?뚦쑉?ら뇤竊뚥빳?듿벆雅쎾냵若밧컶?ゅ츩?겹?
+## 设计价值
+
+- **可见状态:** 用户应该知道工具正在做什么，以及发生了什么变化。
+- **有范围的自动化:** 自动化应停留在用户明确批准的边界内。
+- **可回退操作:** 不把破坏性或不可逆工作隐藏在自动化后面。
+- **Local-first 数据处理:** 除非用户明确选择，否则私有数据和工作流数据应留在本地。
+- **诚实说明限制:** 实验性、内部使用、mock 或未完成的功能应直接标注。
+
+## 链接
+
+- [bumboo.fun](https://bumboo.fun)
+
+## 说明
+
+部分项目仍是实验性、内部使用或早期阶段。公开说明会优先讲清楚工具做什么、帮助谁、安全边界在哪里，以及哪些内容尚未实现。
