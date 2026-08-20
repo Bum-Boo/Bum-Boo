@@ -31,3 +31,7 @@ This note records the criteria used to avoid generic AI-generated frontend patte
 - web.dev, “Typography”: https://web.dev/learn/design/typography/
 
 The goal is not minimalism for its own sake. The goal is a specific, authored interface whose visual language follows the work rather than imitating a generic futuristic dashboard.
+
+## Generated visual assets
+
+The Material Study images were generated on 2026-08-20 with OpenAI `gpt-image-2-low`, then reviewed for the absence of readable text, logos, people, and generic futuristic UI imagery. They are stored as optimized WebP files and used as editorial material studies rather than evidence of physical prototypes.

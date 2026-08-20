@@ -62,6 +62,22 @@ const nodePosition = (node) => {
       </div>
     </section>
 
+    <section class="material-study">
+      <figure class="material-field">
+        <img src="/assets/material-field.webp" alt="Tactile collage of paper, copper wire, circuit traces, and colored material samples">
+        <figcaption>Material study 01 · Signals, surfaces, and imperfect connections</figcaption>
+      </figure>
+      <figure class="material-sample">
+        <img src="/assets/material-study.webp" alt="Tabletop study of vellum, graphite, thread, circuit fragments, and hand-cut paper">
+      </figure>
+      <div class="material-copy">
+        <p class="eyebrow">Working with more than screens</p>
+        <h2>An interface can begin as paper, resistance, rhythm, or a misplaced object.</h2>
+        <p>These material studies keep the lab from treating every question as another software dashboard. Digital behavior is one possible outcome, not the starting assumption.</p>
+      </div>
+      <p class="material-index" aria-hidden="true">01—02</p>
+    </section>
+
     <section id="experiments" class="experiment-section">
       <div class="section-intro projects-intro">
         <h2>Selected experiments</h2>
