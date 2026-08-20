@@ -1,29 +1,28 @@
 # Bum-Boo
 
-> ローカルファーストのAIエージェント、承認ベースの自動化、実用的なWindowsワークフローツールを開発しています。
+> ローカルファーストのAIエージェント、承認を重視した自動化、実務に役立つWindowsツールを開発しています。
 
-[Overview](../../README.md) | [English](README.en.md) | [한국어](README.ko.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
+[概要](../../README.md) | [English](README.en.md) | [한국어](README.ko.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-データの所有権や作業のコントロールを失わずにAIを活用できるソフトウェアを作っています。現在はHermes Agentの拡張、書き込み前レビュー、ローカルファースト自動化、Windows向け実務ツールに注力しています。
+AIを活用しながらも、ユーザーがデータの所有権や作業の主導権を失わないソフトウェアを目指しています。現在は、Hermes Agentの拡張、変更前に内容を確認できるワークフロー、ローカルファーストの自動化、Windows向けの実用ツールを中心に開発しています。
 
-## 代表プロジェクト
+## 主なプロジェクト
 
-- [BIGLOADER with AI Agent](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent) — Windows向けInstagram収集、ローカルメディア管理、Hermes対応CLI。
-- [Hermes Skill Library](https://github.com/Bum-Boo/hermes-skill-library) — 実用的なHermesワークフロー向けの再利用可能なスキル集。
-- [Agent Change Gate](https://github.com/Bum-Boo/agent-change-gate) — 範囲を限定したObsidian変更をレビュー後に書き込むACPチャット。
-- [Hermes Desktop Korean](https://github.com/Bum-Boo/hermes-desktop-korean) — 自動カバレッジと型検証を備えた韓国語ローカライズ。
-- [BBCC](https://github.com/Bum-Boo/BBCC) — クリエイティブ作業とメディア操作向けのWindowsコントローラーショートカットマッパー。
-- [BTS Sec](https://github.com/Bum-Boo/BTS_sec) — 許可されたプロジェクト向けの防御的監査ツールキット。
+- [BIGLOADER with AI Agent](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent) — Instagramの投稿収集とローカルでのメディア管理を行うWindowsアプリ。Hermesから扱いやすいCLIも備えています。
+- [Hermes Skill Library](https://github.com/Bum-Boo/hermes-skill-library) — 実際のHermes運用で再利用できるスキルを整理したライブラリです。
+- [Agent Change Gate](https://github.com/Bum-Boo/agent-change-gate) — Obsidianへの変更内容を事前に確認し、承認された範囲だけを書き込むACPチャットです。
+- [Hermes Desktop Korean](https://github.com/Bum-Boo/hermes-desktop-korean) — 翻訳範囲の自動検査と型検証を備えたHermes Desktopの韓国語ローカライズです。
+- [BBCC](https://github.com/Bum-Boo/BBCC) — クリエイティブ作業やメディア操作を効率化するWindows向けコントローラーショートカットツールです。
+- [BTS Sec](https://github.com/Bum-Boo/BTS_sec) — 許可を得たWeb・ローカルプロジェクトを対象とする防御的な監査ツールキットです。
 
-## 設計原則
+## 開発方針
 
-- 非公開のワークフローデータは原則としてローカルに保持します。
-- 永続的な書き込みの前に調査と提案を行います。
-- 自動化はユーザーが明示的に承認した範囲内で実行します。
-- バックアップ、ブランチ、下書き、明確なロールバック経路を優先します。
-- 実験段階や現在の制限を正直に明示します。
+- 個人データや作業データは、明示的な選択がない限りローカルに保持します。
+- 永続的な変更を行う前に、まず調査結果と変更案を提示します。
+- 自動化の対象を、ユーザーが承認したフォルダー、アカウント、キューなどに限定します。
+- バックアップ、ブランチ、下書き、分かりやすい復元手段を優先します。
+- 実験段階の機能やプラットフォーム上の制約、未完成の部分を明確に示します。
 
 ## リンク
 
 - [bumboo.fun](https://bumboo.fun)
-- [YouTube](https://www.youtube.com/@Bum_boo-b8k)

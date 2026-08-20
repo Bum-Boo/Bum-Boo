@@ -26,4 +26,3 @@
 ## 링크
 
 - [bumboo.fun](https://bumboo.fun)
-- [YouTube](https://www.youtube.com/@Bum_boo-b8k)

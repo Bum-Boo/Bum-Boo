@@ -26,4 +26,3 @@ I build software that helps people use AI without giving up visibility, control,
 ## Links
 
 - [bumboo.fun](https://bumboo.fun)
-- [YouTube](https://www.youtube.com/@Bum_boo-b8k)
