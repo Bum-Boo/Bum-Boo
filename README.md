@@ -20,6 +20,14 @@
   <img src="https://komarev.com/ghpvc/?username=Bum-Boo&style=flat-square&color=800020&label=LAB+VISITORS" alt="Profile views" />
 </div>
 
+<br />
+
+<div align="center">
+  <a href="https://bum-boo.github.io/Bum-Boo/">
+    <img src="assets/live-lab-entry.svg" width="100%" alt="Enter the interactive AI Design Live Lab" />
+  </a>
+</div>
+
 ---
 
 ## The Lab
@@ -54,6 +62,33 @@ I move freely across design, cognition, technology, media, and unfamiliar fields
 <div align="center">
   <img src="assets/research-orbit-map.svg" width="100%" alt="Boundaryless research map connecting AI, cognition, design, tools, play, and daily life" />
 </div>
+
+<details>
+<summary><strong>Open Lab Notebook · hypotheses, tensions, and unfinished questions</strong></summary>
+
+### Active hypotheses
+
+- AI becomes more useful when its state, scope, and uncertainty stay visible.
+- Non-developers do not need simplified intelligence; they need better interaction contracts.
+- A playful interface can reduce fear without hiding operational seriousness.
+- Local-first architecture is not only privacy infrastructure—it is an experience-design choice.
+
+### Productive tensions
+
+| Tension | What the lab explores |
+|---|---|
+| Automation ↔ agency | How much should happen automatically before control becomes invisible? |
+| Intelligence ↔ legibility | Can a powerful system still explain what it is doing in human-scale terms? |
+| Utility ↔ delight | Can a serious workflow feel playful without becoming distracting? |
+| Breadth ↔ coherence | How can boundaryless exploration still produce focused, useful artifacts? |
+
+### Unfinished questions
+
+- What does an AI interface look like when conversation is only one material among many?
+- How can tools support cognitive growth instead of replacing effort indiscriminately?
+- Which everyday frustrations are small enough to overlook but meaningful enough to redesign?
+
+</details>
 
 ## Selected Experiments
 
@@ -110,6 +145,10 @@ I move freely across design, cognition, technology, media, and unfamiliar fields
 <p align="center"><em>Tools are materials, not identity. I choose them according to the experience I want to create.</em></p>
 
 ## Lab Signals
+
+<div align="center">
+  <img src="assets/lab-status.svg" width="100%" alt="Live lab status generated from public GitHub activity" />
+</div>
 
 <div align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Bum-Boo&theme=github_dark" alt="Bum-Boo GitHub profile summary" />

@@ -17,6 +17,8 @@
       .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:1px}
       .label{font-size:13px;fill:#9f938d}.title{font-size:22px;font-weight:700;fill:#f0e8e2}.copy{font-size:14px;fill:#cfc5bf}
       .panel{fill:#171317;stroke:#5b4b4e;stroke-width:1}.node{fill:#171317;stroke-width:2}
+      .flow{stroke-dasharray:10 8;animation:signalMove 2.2s linear infinite}.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 1.8s ease-in-out infinite}
+      @keyframes signalMove{to{stroke-dashoffset:-36}}@keyframes pulse{50%{transform:scale(1.55);opacity:.45}}
     </style>
   </defs>
   <rect width="1200" height="360" rx="24" fill="url(#bg)"/>
@@ -31,20 +33,20 @@
   <path d="M64 205 C86 170 106 240 128 205 S170 240 196 195 S224 225 236 190" fill="none" stroke="#800020" stroke-width="3" filter="url(#glow)"/>
   <text x="64" y="250" class="copy">Notice what feels</text><text x="64" y="271" class="copy">heavy, hidden, or dull.</text>
 
-  <path d="M252 180 H316" stroke="url(#signal)" stroke-width="3"/><path d="M306 170 L320 180 L306 190" fill="none" stroke="#40826d" stroke-width="3"/>
+  <path d="M252 180 H316" class="flow" stroke="url(#signal)" stroke-width="3"/><path d="M306 170 L320 180 L306 190" fill="none" stroke="#40826d" stroke-width="3"/>
 
   <rect x="320" y="70" width="560" height="220" rx="16" class="panel"/>
   <text x="344" y="100" class="mono label">PROCESS / OPEN-ENDED LOOP</text>
-  <path d="M414 184 C450 95 580 95 620 184 C660 273 790 273 824 184 C790 96 660 96 620 184 C580 272 450 272 414 184Z" fill="none" stroke="url(#signal)" stroke-width="3" opacity=".8"/>
+  <path d="M414 184 C450 95 580 95 620 184 C660 273 790 273 824 184 C790 96 660 96 620 184 C580 272 450 272 414 184Z" class="flow" fill="none" stroke="url(#signal)" stroke-width="3" opacity=".8"/>
   <circle cx="414" cy="184" r="35" class="node" stroke="#800020"/><circle cx="620" cy="184" r="35" class="node" stroke="#40826d"/><circle cx="824" cy="184" r="35" class="node" stroke="#e34234"/>
   <text x="414" y="189" text-anchor="middle" class="mono copy">EXPLORE</text><text x="620" y="189" text-anchor="middle" class="mono copy">DESIGN</text><text x="824" y="189" text-anchor="middle" class="mono copy">BUILD</text>
   <text x="344" y="265" class="copy">Cross disciplines. Change the medium. Test the boundary. Keep the useful surprise.</text>
 
-  <path d="M880 180 H944" stroke="url(#signal)" stroke-width="3"/><path d="M934 170 L948 180 L934 190" fill="none" stroke="#e34234" stroke-width="3"/>
+  <path d="M880 180 H944" class="flow" stroke="url(#signal)" stroke-width="3"/><path d="M934 170 L948 180 L934 190" fill="none" stroke="#e34234" stroke-width="3"/>
 
   <rect x="948" y="70" width="210" height="220" rx="16" class="panel"/>
   <text x="970" y="100" class="mono label">OUTPUT / ∞</text>
-  <circle cx="1053" cy="177" r="54" fill="none" stroke="#40826d" stroke-width="2"/><circle cx="1053" cy="177" r="38" fill="none" stroke="#800020"/><circle cx="1053" cy="177" r="8" fill="#e34234" filter="url(#glow)"/>
+  <circle cx="1053" cy="177" r="54" fill="none" stroke="#40826d" stroke-width="2"/><circle cx="1053" cy="177" r="38" fill="none" stroke="#800020"/><circle cx="1053" cy="177" r="8" class="pulse" fill="#e34234" filter="url(#glow)"/>
   <path d="M1000 177 H1106 M1053 124 V230" stroke="#6d5b5d" stroke-dasharray="3 7"/>
   <text x="970" y="250" class="title">EVERYDAY</text><text x="970" y="276" class="title" fill="#e34234">DELIGHT</text>
 

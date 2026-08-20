@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="230" viewBox="0 0 1200 230" role="img" aria-labelledby="title desc">
+  <title id="title">Enter the Bum-Boo AI Design Live Lab</title>
+  <desc id="desc">Open an interactive React laboratory of research nodes, protocols, and public experiments.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2c0f19"/><stop offset=".55" stop-color="#10231d"/><stop offset="1" stop-color="#2a110f"/></linearGradient>
+    <linearGradient id="signal"><stop stop-color="#800020"/><stop offset=".5" stop-color="#40826d"/><stop offset="1" stop-color="#e34234"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.small{font-size:13px;fill:#b7aaa4;letter-spacing:1.5px}.title{font-size:36px;font-weight:700;fill:#f2e9e3}.copy{font-size:16px;fill:#cfc3bd}</style>
+  </defs>
+  <rect width="1200" height="230" rx="24" fill="url(#bg)"/><rect x="1" y="1" width="1198" height="228" rx="23" fill="none" stroke="#70454e"/>
+  <circle cx="36" cy="34" r="6" fill="#e34234" filter="url(#glow)"/><text x="55" y="39" class="mono small">INTERACTIVE REACT ENVIRONMENT / ONLINE</text>
+  <text x="55" y="105" class="mono title">ENTER THE AI DESIGN LIVE LAB</text>
+  <text x="55" y="142" class="copy">Touch the research orbit · shift the protocol · filter the prototype archive</text>
+  <rect x="55" y="174" width="560" height="4" rx="2" fill="url(#signal)"/>
+  <g transform="translate(1005 115)" fill="none" stroke="#e34234" stroke-width="3" filter="url(#glow)"><circle r="56"/><path d="M-20 0 H22 M8-14 L22 0 L8 14"/></g>
+  <text x="1120" y="205" text-anchor="end" class="mono small">OPEN LAB ↗</text>
+</svg>

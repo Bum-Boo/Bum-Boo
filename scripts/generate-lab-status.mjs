@@ -1,0 +1,69 @@
+import { mkdir, writeFile } from "node:fs/promises";
+
+const username = process.env.GITHUB_PROFILE_USER || "Bum-Boo";
+const output = new URL("../assets/lab-status.svg", import.meta.url);
+const headers = {
+  Accept: "application/vnd.github+json",
+  "User-Agent": "bum-boo-profile-lab-status",
+  ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
+};
+
+const escapeXml = (value) => String(value)
+  .replaceAll("&", "&amp;")
+  .replaceAll("<", "&lt;")
+  .replaceAll(">", "&gt;")
+  .replaceAll('"', "&quot;");
+
+async function github(path) {
+  const response = await fetch(`https://api.github.com${path}`, { headers });
+  if (!response.ok) throw new Error(`GitHub API ${response.status}: ${path}`);
+  return response.json();
+}
+
+const [profile, repositories] = await Promise.all([
+  github(`/users/${encodeURIComponent(username)}`),
+  github(`/users/${encodeURIComponent(username)}/repos?type=owner&sort=pushed&per_page=100`),
+]);
+
+const publicRepos = repositories.filter((repo) => !repo.private && !repo.fork && !repo.archived);
+const now = Date.now();
+const active = publicRepos.filter((repo) => now - Date.parse(repo.pushed_at) < 30 * 86400000);
+const latest = publicRepos.slice(0, 3);
+const languages = new Map();
+for (const repo of publicRepos) {
+  if (repo.language) languages.set(repo.language, (languages.get(repo.language) || 0) + 1);
+}
+const topLanguages = [...languages.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4);
+const updated = new Intl.DateTimeFormat("en-CA", { timeZone: "UTC", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+const recentRows = latest.map((repo, index) => `
+  <g transform="translate(48 ${232 + index * 38})">
+    <circle cx="5" cy="-5" r="5" fill="${["#e34234", "#40826d", "#800020"][index]}"/>
+    <text x="24" y="0" class="name">${escapeXml(repo.name)}</text>
+    <text x="430" y="0" text-anchor="end" class="meta">${escapeXml(repo.language || "mixed")}</text>
+  </g>`).join("");
+const languageText = topLanguages.map(([name, count]) => `${name} ${count}`).join("  ·  ") || "exploring";
+
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="390" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
+  <title id="title">Bum-Boo live lab status</title>
+  <desc id="desc">Current public repository activity generated from GitHub data.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171014"/><stop offset=".55" stop-color="#10231d"/><stop offset="1" stop-color="#22100f"/></linearGradient>
+    <linearGradient id="bar"><stop stop-color="#800020"/><stop offset=".52" stop-color="#40826d"/><stop offset="1" stop-color="#e34234"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.label{font:13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#988d88;letter-spacing:1.4px}.value{font:700 34px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#f1e7e0}.name{font:600 15px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#e8ddd6}.meta{font:13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#8e817e}</style>
+  </defs>
+  <rect width="1200" height="390" rx="24" fill="url(#bg)"/><rect x="1" y="1" width="1198" height="388" rx="23" fill="none" stroke="#56383d"/>
+  <circle cx="30" cy="28" r="5" fill="#e34234" filter="url(#glow)"/><text x="48" y="33" class="label">LIVE LAB STATUS / GENERATED ${escapeXml(updated)} UTC</text>
+  <rect x="48" y="68" width="1104" height="5" rx="2.5" fill="url(#bar)"/>
+  <g transform="translate(48 116)"><text class="label">PUBLIC EXPERIMENTS</text><text y="48" class="value">${publicRepos.length}</text></g>
+  <g transform="translate(350 116)"><text class="label">ACTIVE / 30 DAYS</text><text y="48" class="value">${active.length}</text></g>
+  <g transform="translate(650 116)"><text class="label">FOLLOWERS</text><text y="48" class="value">${profile.followers}</text></g>
+  <g transform="translate(930 116)"><text class="label">LAB MODE</text><text y="48" class="value" fill="#e34234">OPEN</text></g>
+  <text x="48" y="205" class="label">LATEST PUBLIC SIGNALS</text>${recentRows}
+  <text x="650" y="244" class="label">LANGUAGE CONSTELLATION</text><text x="650" y="280" class="name">${escapeXml(languageText)}</text>
+  <text x="650" y="326" class="label">CURRENT HYPOTHESIS</text><text x="650" y="356" class="name">AI should expand capability without hiding human choice.</text>
+</svg>`;
+
+await mkdir(new URL("../assets/", import.meta.url), { recursive: true });
+await writeFile(output, svg, "utf8");
+console.log(`generated ${output.pathname}`);

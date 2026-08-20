@@ -1,0 +1,42 @@
+name: Refresh Live Lab Status
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lab-status
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out profile source
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Use Node.js 22
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Generate status panel from public GitHub data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PROFILE_USER: Bum-Boo
+        run: node scripts/generate-lab-status.mjs
+      - name: Commit only when the panel changed
+        run: |
+          if git diff --quiet -- assets/lab-status.svg; then
+            echo "Lab status is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/lab-status.svg
+          git commit -m "chore: refresh live lab status"
+          git push
