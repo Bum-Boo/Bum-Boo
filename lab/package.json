@@ -9,10 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "latest",
+    "@vitejs/plugin-vue": "latest",
     "vite": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "vue": "latest"
   },
   "devDependencies": {}
 }
