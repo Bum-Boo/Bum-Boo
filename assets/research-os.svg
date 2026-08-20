@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Bum-Boo Research Operating System</title>
+  <desc id="desc">An experimental process from everyday friction through exploration and prototyping to everyday delight.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#160f13"/>
+      <stop offset="0.55" stop-color="#10231d"/>
+      <stop offset="1" stop-color="#24110f"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#800020"/>
+      <stop offset="0.5" stop-color="#40826d"/>
+      <stop offset="1" stop-color="#e34234"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>
+      .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:1px}
+      .label{font-size:13px;fill:#9f938d}.title{font-size:22px;font-weight:700;fill:#f0e8e2}.copy{font-size:14px;fill:#cfc5bf}
+      .panel{fill:#171317;stroke:#5b4b4e;stroke-width:1}.node{fill:#171317;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1200" height="360" rx="24" fill="url(#bg)"/>
+  <rect x="1" y="1" width="1198" height="358" rx="23" fill="none" stroke="#5d3739"/>
+  <circle cx="32" cy="28" r="5" fill="#800020"/><circle cx="50" cy="28" r="5" fill="#40826d"/><circle cx="68" cy="28" r="5" fill="#e34234"/>
+  <text x="92" y="33" class="mono label">BUM-BOO / RESEARCH_OS / LIVE PROTOTYPE</text>
+  <text x="1060" y="33" class="mono label">SIGNAL 01</text>
+
+  <rect x="42" y="70" width="210" height="220" rx="16" class="panel"/>
+  <text x="64" y="100" class="mono label">INPUT / 00</text>
+  <text x="64" y="138" class="title">EVERYDAY</text><text x="64" y="166" class="title">FRICTION</text>
+  <path d="M64 205 C86 170 106 240 128 205 S170 240 196 195 S224 225 236 190" fill="none" stroke="#800020" stroke-width="3" filter="url(#glow)"/>
+  <text x="64" y="250" class="copy">Notice what feels</text><text x="64" y="271" class="copy">heavy, hidden, or dull.</text>
+
+  <path d="M252 180 H316" stroke="url(#signal)" stroke-width="3"/><path d="M306 170 L320 180 L306 190" fill="none" stroke="#40826d" stroke-width="3"/>
+
+  <rect x="320" y="70" width="560" height="220" rx="16" class="panel"/>
+  <text x="344" y="100" class="mono label">PROCESS / OPEN-ENDED LOOP</text>
+  <path d="M414 184 C450 95 580 95 620 184 C660 273 790 273 824 184 C790 96 660 96 620 184 C580 272 450 272 414 184Z" fill="none" stroke="url(#signal)" stroke-width="3" opacity=".8"/>
+  <circle cx="414" cy="184" r="35" class="node" stroke="#800020"/><circle cx="620" cy="184" r="35" class="node" stroke="#40826d"/><circle cx="824" cy="184" r="35" class="node" stroke="#e34234"/>
+  <text x="414" y="189" text-anchor="middle" class="mono copy">EXPLORE</text><text x="620" y="189" text-anchor="middle" class="mono copy">DESIGN</text><text x="824" y="189" text-anchor="middle" class="mono copy">BUILD</text>
+  <text x="344" y="265" class="copy">Cross disciplines. Change the medium. Test the boundary. Keep the useful surprise.</text>
+
+  <path d="M880 180 H944" stroke="url(#signal)" stroke-width="3"/><path d="M934 170 L948 180 L934 190" fill="none" stroke="#e34234" stroke-width="3"/>
+
+  <rect x="948" y="70" width="210" height="220" rx="16" class="panel"/>
+  <text x="970" y="100" class="mono label">OUTPUT / ∞</text>
+  <circle cx="1053" cy="177" r="54" fill="none" stroke="#40826d" stroke-width="2"/><circle cx="1053" cy="177" r="38" fill="none" stroke="#800020"/><circle cx="1053" cy="177" r="8" fill="#e34234" filter="url(#glow)"/>
+  <path d="M1000 177 H1106 M1053 124 V230" stroke="#6d5b5d" stroke-dasharray="3 7"/>
+  <text x="970" y="250" class="title">EVERYDAY</text><text x="970" y="276" class="title" fill="#e34234">DELIGHT</text>
+
+  <text x="42" y="330" class="mono label">HYPOTHESIS: AI SHOULD EXPAND HUMAN CAPABILITY WITHOUT HIDING HUMAN CHOICE.</text>
+</svg>

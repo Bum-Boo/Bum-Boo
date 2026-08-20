@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Boundaryless research orbit map</title>
+  <desc id="desc">AI experience design connects cognition, design, tools, play, media, and everyday life.</desc>
+  <defs>
+    <radialGradient id="space"><stop stop-color="#18241f"/><stop offset="1" stop-color="#110d11"/></radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>
+      .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.small{font-size:13px;fill:#988c89;letter-spacing:1.5px}.nodeText{font-size:15px;fill:#eee5de;font-weight:600}.orbit{fill:none;stroke:#6d5458;stroke-width:1;stroke-dasharray:4 9}.ray{stroke:#58484b;stroke-width:1}.node{fill:#171217;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1200" height="500" rx="24" fill="url(#space)"/>
+  <rect x="1" y="1" width="1198" height="498" rx="23" fill="none" stroke="#533a3f"/>
+  <text x="38" y="42" class="mono small">BOUNDARYLESS RESEARCH MAP / QUESTIONS CHOOSE THE MEDIUM</text>
+  <text x="1034" y="42" class="mono small">MAP 02</text>
+
+  <ellipse cx="600" cy="265" rx="430" ry="166" class="orbit"/>
+  <ellipse cx="600" cy="265" rx="300" ry="120" class="orbit" transform="rotate(-18 600 265)"/>
+  <ellipse cx="600" cy="265" rx="220" ry="220" class="orbit" transform="rotate(35 600 265)"/>
+
+  <g class="ray">
+    <line x1="600" y1="265" x2="250" y2="155"/><line x1="600" y1="265" x2="370" y2="382"/><line x1="600" y1="265" x2="600" y2="92"/><line x1="600" y1="265" x2="830" y2="382"/><line x1="600" y1="265" x2="950" y2="155"/><line x1="600" y1="265" x2="600" y2="442"/>
+  </g>
+
+  <circle cx="600" cy="265" r="88" fill="#1c1519" stroke="#e34234" stroke-width="3" filter="url(#glow)"/>
+  <circle cx="600" cy="265" r="67" fill="none" stroke="#40826d"/>
+  <text x="600" y="252" text-anchor="middle" class="mono small">CORE PRACTICE</text>
+  <text x="600" y="280" text-anchor="middle" class="mono nodeText" font-size="20">AI EXPERIENCE</text>
+  <text x="600" y="303" text-anchor="middle" class="mono nodeText" font-size="20">DESIGN</text>
+
+  <g class="mono nodeText" text-anchor="middle">
+    <circle cx="250" cy="155" r="48" class="node" stroke="#800020"/><text x="250" y="160">COGNITION</text>
+    <circle cx="370" cy="382" r="48" class="node" stroke="#40826d"/><text x="370" y="387">DESIGN</text>
+    <circle cx="600" cy="92" r="48" class="node" stroke="#e34234"/><text x="600" y="97">AI</text>
+    <circle cx="830" cy="382" r="48" class="node" stroke="#800020"/><text x="830" y="387">TOOLS</text>
+    <circle cx="950" cy="155" r="48" class="node" stroke="#40826d"/><text x="950" y="160">PLAY</text>
+    <circle cx="600" cy="442" r="48" class="node" stroke="#e34234"/><text x="600" y="447">DAILY LIFE</text>
+  </g>
+
+  <g fill="#e34234" filter="url(#glow)"><circle cx="330" cy="105" r="4"/><circle cx="780" cy="114" r="4"/><circle cx="1012" cy="268" r="4"/></g>
+  <g fill="#40826d"><circle cx="189" cy="275" r="5"/><circle cx="500" cy="421" r="5"/><circle cx="884" cy="307" r="5"/></g>
+  <g fill="#800020"><circle cx="443" cy="152" r="6"/><circle cx="714" cy="418" r="6"/><circle cx="934" cy="343" r="6"/></g>
+
+  <text x="38" y="468" class="mono small">NO FIXED CATEGORY · NO FIXED MEDIUM · HUMAN CHOICE REMAINS VISIBLE</text>
+</svg>

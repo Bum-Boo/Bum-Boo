@@ -30,6 +30,10 @@ I move freely across design, cognition, technology, media, and unfamiliar fields
 
 > **My question is simple:** how can AI help people feel more capable, less burdened, and a little more delighted in ordinary life?
 
+<div align="center">
+  <img src="assets/research-os.svg" width="100%" alt="Research operating system from everyday friction to everyday delight" />
+</div>
+
 <table>
   <tr>
     <td width="33%"><strong>EXPLORE</strong><br />Follow questions across disciplines without treating existing categories as walls.</td>
@@ -46,6 +50,10 @@ I move freely across design, cognition, technology, media, and unfamiliar fields
 - Local-first systems for private, durable, and reversible work
 - Playful interfaces that make serious tools less intimidating
 - Cross-disciplinary experiments without a fixed medium or product category
+
+<div align="center">
+  <img src="assets/research-orbit-map.svg" width="100%" alt="Boundaryless research map connecting AI, cognition, design, tools, play, and daily life" />
+</div>
 
 ## Selected Experiments
 
@@ -91,15 +99,12 @@ I move freely across design, cognition, technology, media, and unfamiliar fields
 ## Tools on the Workbench
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Python-1A1114?style=flat-square&logo=python&logoColor=E34234" alt="Python" />
-  <img src="https://img.shields.io/badge/TypeScript-1A1114?style=flat-square&logo=typescript&logoColor=40826D" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/JavaScript-1A1114?style=flat-square&logo=javascript&logoColor=E34234" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/Node.js-1A1114?style=flat-square&logo=nodedotjs&logoColor=40826D" alt="Node.js" />
-  <img src="https://img.shields.io/badge/Electron-1A1114?style=flat-square&logo=electron&logoColor=40826D" alt="Electron" />
-  <img src="https://img.shields.io/badge/PowerShell-1A1114?style=flat-square&logo=powershell&logoColor=E34234" alt="PowerShell" />
-  <img src="https://img.shields.io/badge/GitHub%20Actions-1A1114?style=flat-square&logo=githubactions&logoColor=40826D" alt="GitHub Actions" />
+  <img src="https://skillicons.dev/icons?i=python,ts,js,nodejs,electron,powershell,git,github,githubactions,vscode&theme=dark&perline=10" alt="Tools and languages used in the lab" />
+  <br /><br />
   <img src="https://img.shields.io/badge/Hermes%20Agent-1A1114?style=flat-square&logoColor=E34234" alt="Hermes Agent" />
   <img src="https://img.shields.io/badge/MCP-1A1114?style=flat-square&logoColor=40826D" alt="Model Context Protocol" />
+  <img src="https://img.shields.io/badge/Obsidian-1A1114?style=flat-square&logo=obsidian&logoColor=E34234" alt="Obsidian" />
+  <img src="https://img.shields.io/badge/ComfyUI-1A1114?style=flat-square&logoColor=40826D" alt="ComfyUI" />
 </div>
 
 <p align="center"><em>Tools are materials, not identity. I choose them according to the experience I want to create.</em></p>
