@@ -1,54 +1,50 @@
 # Bum-Boo
 
-> I build local-first productivity tools, AI-assisted workflow systems, and Windows desktop utilities for real users.
+> Local-first AI agents, safety-gated automation, and practical Windows workflow tools.
 
-Bum-Boo is a portfolio of practical tools for managing local information, reducing repeated workflow friction, and keeping automation visible and scoped. The strongest projects are small, direct utilities: vault maintenance, controller shortcuts, local search, content archiving, content operations, and defensive review tooling.
+I build software that helps people use AI without giving up visibility, control, or ownership of their data. My current work focuses on Hermes Agent extensions, review-before-write workflows, local-first automation, and focused Windows utilities.
 
-[English](docs/readme/README.en.md) | [Korean](docs/readme/README.ko.md) | [Chinese](docs/readme/README.zh-CN.md) | [Japanese](docs/readme/README.ja.md)
+[English](docs/readme/README.en.md) | [한국어](docs/readme/README.ko.md) | [简体中文](docs/readme/README.zh-CN.md) | [日本語](docs/readme/README.ja.md)
 
-## What I Build
+## Current Focus
 
-| Area | What it means here |
+| Area | What I build |
 |---|---|
-| Local-first automation | Tools that keep source files, settings, archives, and review outputs on the user's machine. |
-| Human-AI workflow tools | Codex/MCP-style systems where AI can inspect, summarize, and propose work without hidden destructive actions. |
-| Windows desktop utilities | Focused desktop apps for controller shortcuts, local search, archive review, and operator workflows. |
-| Safety-aware tooling | Clear boundaries around authorization, credentials, private data, platform content, and incomplete v0.1 features. |
+| AI agent systems | Hermes Agent skills, integrations, localization, and operator workflows. |
+| Review-before-write automation | Tools that inspect and propose first, then change data only inside explicit user-approved boundaries. |
+| Local-first software | Workflows that keep source files, archives, settings, and evidence on the user's machine. |
+| Windows productivity | Focused desktop tools for media, controllers, search, content operations, and creator workflows. |
 
 ## Featured Projects
 
-| Project | Theme | What to notice |
-|---|---|---|
-| [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | Local-first AI workflow | Obsidian vault maintenance through a deterministic MCP tool layer; existing notes stay read-only in v0.1. |
-| [BBCC](https://github.com/Bum-Boo/BBCC) | Desktop productivity | Windows controller shortcut mapper for creative workflows, desktop navigation, and media control. |
-| [BB TxT](https://github.com/Bum-Boo/BBTxT) | Desktop productivity | Fast local text search for source code, logs, configs, and readable files. |
-| [Naver-Cafe-Posts-Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | Local archive | Windows archive manager for Naver Cafe posts, framed around personal authorized access and local review. |
-| [BIGLOADEB](https://github.com/Bum-Boo/BIGLOADEB) | Content operations | Account-first Instagram post collection and local media management for internal non-technical workflows. |
-| [BTS Sec](https://github.com/Bum-Boo/BTS_sec) | Safety-aware tooling | Defensive audit toolkit for authorized web and local projects with passive/static checks and redacted evidence. |
+| Project | Focus |
+|---|---|
+| [BIGLOADER with AI Agent](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent) | Windows Instagram collector with local media management and a Hermes-friendly CLI. |
+| [Hermes Skill Library](https://github.com/Bum-Boo/hermes-skill-library) | Curated, reusable skills for practical Hermes Agent workflows. |
+| [Agent Change Gate](https://github.com/Bum-Boo/agent-change-gate) | Review-before-write ACP chat for scoped Obsidian changes, with first-class Hermes support. |
+| [Hermes Desktop Korean](https://github.com/Bum-Boo/hermes-desktop-korean) | Complete Korean localization with automated coverage and type verification. |
+| [BBCC](https://github.com/Bum-Boo/BBCC) | Windows controller shortcut mapper for creative workflows and media control. |
+| [BTS Sec](https://github.com/Bum-Boo/BTS_sec) | Defensive audit toolkit for authorized web and local projects. |
 
-## Project Groups
+## More Public Work
 
-- **Local-first AI workflow:** Vaultwright, BTS Sec.
-- **Desktop productivity:** BBCC, BB TxT.
-- **Content operations:** Naver-Cafe-Posts-Downloader, BIGLOADEB.
-- **Safety-aware tooling:** BTS Sec, Vaultwright, BBCC safety boundaries.
+- [Hermes ComfyUI Maker](https://github.com/Bum-Boo/hermes-comfyui-maker) — use ComfyUI through Hermes agents across chat platforms.
+- [Vaultwright](https://github.com/Bum-Boo/Vaultwright) — local-first Obsidian vault maintenance for Codex/MCP workflows.
+- [BB TxT](https://github.com/Bum-Boo/BBTxT) — fast local text search for code, logs, configs, and readable files.
+- [Naver Cafe Posts Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) — local Windows archive manager for authorized personal use.
+- [Bumboo Build Inspector](https://github.com/Bum-Boo/bumboo-build-inspector) — post-build review kit for AI-built and fast-prototyped apps.
 
-## In Progress / Creator Tooling
+## Design Principles
 
-[CheeseKit](https://github.com/Bum-Boo/BumBoo-Cheese-Kit) is a local desktop root app for CHZZK live-streaming tools and safe bot libraries. It is still v0.1/mock-first, so it stays secondary until the README, preview, release path, and real-adapter boundary are more polished.
-
-## Design Values
-
-- **Visible state:** show what is connected, selected, queued, skipped, or generated.
-- **Scoped automation:** keep automation inside explicit user-selected folders, targets, queues, or profiles.
-- **Reversible actions:** prefer proposals, review notes, local folders, and clear stop/reset controls.
-- **Local-first data handling:** avoid unnecessary accounts, cloud sync, hidden telemetry, or remote indexing.
-- **Honest limitations:** label internal-use, experimental, mock, v0.1, platform-limited, and authorized-use-only status directly.
+- **Local-first:** keep private workflow data local unless the user explicitly chooses otherwise.
+- **Review before write:** inspect and propose before making durable changes.
+- **Explicit authorization:** keep automation inside clear folders, targets, accounts, and queues.
+- **Reversible operations:** prefer backups, branches, drafts, and visible rollback paths.
+- **Honest maturity:** label experiments, platform limits, mocks, and unfinished work directly.
 
 ## Links
 
 - [bumboo.fun](https://bumboo.fun)
+- [YouTube](https://www.youtube.com/@Bum_boo-b8k)
 
-## Notes
-
-Some projects are early, internal, or intentionally narrow. I keep limitations visible because practical software is easier to trust when the workflow, safety boundary, and current maturity are clear.
+> Some repositories are intentionally narrow or experimental. Their READMEs describe current limitations and authorization boundaries.

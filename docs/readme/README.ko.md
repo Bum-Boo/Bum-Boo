@@ -1,54 +1,29 @@
 # Bum-Boo
 
-> 실제 사용자를 위한 local-first 생산성 도구, AI-assisted workflow system, Windows 데스크톱 유틸리티를 만듭니다.
+> 로컬 우선 AI 에이전트, 승인 기반 자동화, 실용적인 Windows 워크플로 도구를 만들어요.
 
-[Overview](../../README.md) | [English](README.en.md) | [Korean](README.ko.md) | [Chinese](README.zh-CN.md) | [Japanese](README.ja.md)
+[Overview](../../README.md) | [English](README.en.md) | [한국어](README.ko.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
 
-저는 보기 좋은 데모보다 실제로 쓸 수 있는 도구에 초점을 둡니다. 주요 관심사는 local-first 자동화, AI-assisted workflow system, Windows 데스크톱 유틸리티입니다.
-
-## 무엇을 만드는가
-
-| 영역 | 초점 |
-| --- | --- |
-| Local-first AI workflow | Codex나 MCP 스타일 시스템이 사용자의 데이터를 로컬에 둔 채 읽고, 정리하고, 변경안을 제안하도록 돕는 도구. |
-| 데스크톱 생산성 | 단축키, 검색, 컨트롤러 입력, 미디어 제어, 반복 작업을 줄이는 Windows 유틸리티. |
-| 콘텐츠 운영 | 비개발자도 콘텐츠를 수집, 검토, 정리, 재사용할 수 있게 하는 내부 운영 도구. |
-| 안전을 고려한 도구 | 보이는 상태, 명확한 자동화 범위, 되돌릴 수 있는 작업, 솔직한 한계 표시. |
+사용자가 데이터의 소유권과 작업 통제권을 잃지 않으면서 AI를 활용할 수 있는 소프트웨어를 만들어요. 현재는 Hermes Agent 확장, 수정 전 검토 워크플로, 로컬 우선 자동화, Windows 실무 도구에 집중하고 있어요.
 
 ## 대표 프로젝트
 
-| 프로젝트 | 보여주는 것 |
-| --- | --- |
-| [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | Codex/MCP workflow를 위한 local-first Obsidian vault 유지관리 계층. |
-| [BBCC](https://github.com/Bum-Boo/BBCC) | 창작 workflow와 미디어 제어를 위한 Windows 컨트롤러 단축키 매핑 도구. |
-| [BB TxT](https://github.com/Bum-Boo/BBTxT) | 소스 코드, 로그, 설정, 읽을 수 있는 파일을 빠르게 찾는 로컬 텍스트 검색 도구. |
-| [Naver-Cafe-Posts-Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | 네이버 카페 게시글을 로컬에서 관리하는 Windows 아카이브 매니저. |
-| [BIGLOADEB](https://github.com/Bum-Boo/BIGLOADEB) | Windows용 계정 중심 Instagram 게시물 수집 및 로컬 미디어 관리 도구. |
-| [BTS Sec](https://github.com/Bum-Boo/BTS_sec) | 허가된 웹/로컬 프로젝트를 위한 방어적 보안 감사 툴킷. |
+- [BIGLOADER with AI Agent](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent) — Windows용 Instagram 수집기, 로컬 미디어 관리자, Hermes 친화형 CLI예요.
+- [Hermes Skill Library](https://github.com/Bum-Boo/hermes-skill-library) — 실제 Hermes 업무에 재사용할 수 있는 스킬 모음이에요.
+- [Agent Change Gate](https://github.com/Bum-Boo/agent-change-gate) — Obsidian 변경을 먼저 검토하고 승인된 범위만 수정하는 ACP 채팅 도구예요.
+- [Hermes Desktop Korean](https://github.com/Bum-Boo/hermes-desktop-korean) — 자동 커버리지와 타입 검증을 포함한 Hermes Desktop 한국어화예요.
+- [BBCC](https://github.com/Bum-Boo/BBCC) — 창작·미디어 작업을 위한 Windows 컨트롤러 단축키 매퍼예요.
+- [BTS Sec](https://github.com/Bum-Boo/BTS_sec) — 승인된 웹·로컬 프로젝트를 위한 방어적 감사 도구예요.
 
-## 프로젝트 그룹
+## 설계 원칙
 
-- **Local-first AI workflow:** Vaultwright, BTS Sec.
-- **데스크톱 생산성:** BBCC, BB TxT.
-- **콘텐츠 운영:** Naver-Cafe-Posts-Downloader, BIGLOADEB.
-- **안전을 고려한 도구:** BTS Sec, Vaultwright, CheeseKit.
-
-## 진행 중 / 크리에이터 도구
-
-**[CheeseKit](https://github.com/Bum-Boo/BumBoo-Cheese-Kit)**은 CHZZK 라이브 스트리밍 도구와 안전한 bot library를 위한 로컬 데스크톱 root app입니다. 아직 v0.1/mock-first creator-tooling 프로젝트이므로 release path, preview, real-adapter boundary가 더 단단해질 때까지 보조 프로젝트로 둡니다.
-
-## 설계 가치
-
-- **보이는 상태:** 도구가 무엇을 하고 무엇이 바뀌었는지 사용자가 알 수 있어야 합니다.
-- **범위가 명확한 자동화:** 자동화는 사용자가 승인한 경계 안에서만 동작해야 합니다.
-- **되돌릴 수 있는 작업:** 파괴적이거나 되돌리기 어려운 작업을 자동화 뒤에 숨기지 않습니다.
-- **Local-first 데이터 처리:** 개인 데이터와 workflow 데이터는 사용자가 명시적으로 선택하지 않는 한 로컬에 머물러야 합니다.
-- **솔직한 한계:** 실험적, 내부용, mock, 미완성 기능은 직접 표시합니다.
+- 민감한 워크플로 데이터는 기본적으로 로컬에 둬요.
+- 영구 수정 전에 먼저 조사하고 제안해요.
+- 자동화는 사용자가 승인한 폴더·대상·계정·큐 안에서만 실행해요.
+- 백업, 브랜치, 초안, 명확한 롤백 경로를 우선해요.
+- 실험 단계와 플랫폼 제한, 미완성 기능을 숨기지 않아요.
 
 ## 링크
 
 - [bumboo.fun](https://bumboo.fun)
-
-## 메모
-
-일부 프로젝트는 실험적이거나 내부용이거나 초기 단계입니다. 공개 설명에서는 도구가 하는 일, 누구에게 도움이 되는지, 안전 경계가 어디인지, 아직 구현되지 않은 것이 무엇인지 실용적으로 밝히는 것을 우선합니다.
+- [YouTube](https://www.youtube.com/@Bum_boo-b8k)
