@@ -1,49 +1,139 @@
-# Bum-Boo
+<div align="center">
+  <img src="assets/ai-design-lab-banner.webp" width="100%" alt="Abstract AI design laboratory in burgundy, viridian, and vermilion" />
 
-> Local-first AI agents, safety-gated automation, and practical Windows workflow tools.
+  <h1>BUM-BOO · AI DESIGN LAB</h1>
+  <p><strong>Designing AI experiences that make everyday life lighter, clearer, and more playful.</strong></p>
+  <p>AI experience design · Human-centered automation · Boundaryless research</p>
 
-I build software that helps people use AI without giving up visibility, control, or ownership of their data. My current work focuses on Hermes Agent extensions, review-before-write workflows, local-first automation, and focused Windows utilities.
+  <a href="docs/readme/README.en.md">English</a> ·
+  <a href="docs/readme/README.ko.md">한국어</a> ·
+  <a href="docs/readme/README.zh-CN.md">简体中文</a> ·
+  <a href="docs/readme/README.ja.md">日本語</a>
 
-[English](docs/readme/README.en.md) | [한국어](docs/readme/README.ko.md) | [简体中文](docs/readme/README.zh-CN.md) | [日本語](docs/readme/README.ja.md)
+  <br /><br />
 
-## Current Focus
+  <img src="https://img.shields.io/badge/AI%20EXPERIENCE%20DESIGN-800020?style=for-the-badge&labelColor=1A1114" alt="AI Experience Design" />
+  <img src="https://img.shields.io/badge/LOCAL--FIRST%20SYSTEMS-40826D?style=for-the-badge&labelColor=101A17" alt="Local-first Systems" />
+  <img src="https://img.shields.io/badge/EXPERIMENTAL%20WORKSHOP-E34234?style=for-the-badge&labelColor=21100E" alt="Experimental Workshop" />
 
-| Area | What I build |
-|---|---|
-| AI agent systems | Hermes Agent skills, integrations, localization, and operator workflows. |
-| Review-before-write automation | Tools that inspect and propose first, then change data only inside explicit user-approved boundaries. |
-| Local-first software | Workflows that keep source files, archives, settings, and evidence on the user's machine. |
-| Windows productivity | Focused desktop tools for media, controllers, search, content operations, and creator workflows. |
+  <br />
+  <img src="https://komarev.com/ghpvc/?username=Bum-Boo&style=flat-square&color=800020&label=LAB+VISITORS" alt="Profile views" />
+</div>
 
-## Featured Projects
+---
 
-| Project | Focus |
-|---|---|
-| [BIGLOADER with AI Agent](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent) | Windows Instagram collector with local media management and a Hermes-friendly CLI. |
-| [Hermes Skill Library](https://github.com/Bum-Boo/hermes-skill-library) | Curated, reusable skills for practical Hermes Agent workflows. |
-| [Agent Change Gate](https://github.com/Bum-Boo/agent-change-gate) | Review-before-write ACP chat for scoped Obsidian changes, with first-class Hermes support. |
-| [Hermes Desktop Korean](https://github.com/Bum-Boo/hermes-desktop-korean) | Complete Korean localization with automated coverage and type verification. |
-| [BBCC](https://github.com/Bum-Boo/BBCC) | Windows controller shortcut mapper for creative workflows and media control. |
-| [BTS Sec](https://github.com/Bum-Boo/BTS_sec) | Defensive audit toolkit for authorized web and local projects. |
+## The Lab
 
-## More Public Work
+I want to become an **AI designer**: someone who explores, designs, and builds useful AI experiences—not only for developers, but for anyone whose day could become easier or more enjoyable.
 
-- [Hermes ComfyUI Maker](https://github.com/Bum-Boo/hermes-comfyui-maker) — use ComfyUI through Hermes agents across chat platforms.
-- [Vaultwright](https://github.com/Bum-Boo/Vaultwright) — local-first Obsidian vault maintenance for Codex/MCP workflows.
-- [BB TxT](https://github.com/Bum-Boo/BBTxT) — fast local text search for code, logs, configs, and readable files.
-- [Naver Cafe Posts Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) — local Windows archive manager for authorized personal use.
-- [Bumboo Build Inspector](https://github.com/Bum-Boo/bumboo-build-inspector) — post-build review kit for AI-built and fast-prototyped apps.
+I move freely across design, cognition, technology, media, and unfamiliar fields. The medium is never fixed. A desktop utility, an agent workflow, a local archive, a controller, or a small interface can all become ways to improve an everyday experience.
 
-## Design Principles
+> **My question is simple:** how can AI help people feel more capable, less burdened, and a little more delighted in ordinary life?
 
-- **Local-first:** keep private workflow data local unless the user explicitly chooses otherwise.
-- **Review before write:** inspect and propose before making durable changes.
-- **Explicit authorization:** keep automation inside clear folders, targets, accounts, and queues.
-- **Reversible operations:** prefer backups, branches, drafts, and visible rollback paths.
-- **Honest maturity:** label experiments, platform limits, mocks, and unfinished work directly.
+<table>
+  <tr>
+    <td width="33%"><strong>EXPLORE</strong><br />Follow questions across disciplines without treating existing categories as walls.</td>
+    <td width="33%"><strong>DESIGN</strong><br />Turn complex systems into visible, understandable, human-scale experiences.</td>
+    <td width="33%"><strong>BUILD</strong><br />Prototype real tools, test their boundaries, and keep what genuinely helps.</td>
+  </tr>
+</table>
 
-## Links
+## Current Research Threads
 
-- [bumboo.fun](https://bumboo.fun)
+- AI experience design for people without a development background
+- Cognition, learning, attention, and the ways tools reshape everyday behavior
+- Review-before-write agents that keep humans in control
+- Local-first systems for private, durable, and reversible work
+- Playful interfaces that make serious tools less intimidating
+- Cross-disciplinary experiments without a fixed medium or product category
 
-> Some repositories are intentionally narrow or experimental. Their READMEs describe current limitations and authorization boundaries.
+## Selected Experiments
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/Bum-Boo/hermes-skill-library">Hermes Skill Library</a></h3>
+      <p>A growing collection of reusable skills for turning Hermes Agent into a practical, grounded collaborator.</p>
+      <p><code>agent design</code> <code>workflow research</code> <code>toolmaking</code></p>
+    </td>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent">BIGLOADER with AI Agent</a></h3>
+      <p>A Windows Instagram collector and local media workspace designed for useful, non-developer-friendly content operations.</p>
+      <p><code>everyday utility</code> <code>local-first</code> <code>AI workflow</code></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/Bum-Boo/agent-change-gate">Agent Change Gate</a></h3>
+      <p>A review-before-write interface that makes AI changes inspectable, scoped, and reversible.</p>
+      <p><code>human control</code> <code>Obsidian</code> <code>ACP</code></p>
+    </td>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/Bum-Boo/hermes-desktop-korean">Hermes Desktop Korean</a></h3>
+      <p>A complete Korean localization effort backed by automated coverage and type verification.</p>
+      <p><code>accessibility</code> <code>localization</code> <code>Hermes</code></p>
+    </td>
+  </tr>
+</table>
+
+<details>
+<summary><strong>More tools from the workshop</strong></summary>
+
+- [BBCC](https://github.com/Bum-Boo/BBCC) — controller shortcuts for creative and media workflows
+- [BTS Sec](https://github.com/Bum-Boo/BTS_sec) — defensive auditing for authorized projects
+- [Hermes ComfyUI Maker](https://github.com/Bum-Boo/hermes-comfyui-maker) — image workflows through conversational agents
+- [Vaultwright](https://github.com/Bum-Boo/Vaultwright) — local-first Obsidian maintenance
+- [BB TxT](https://github.com/Bum-Boo/BBTxT) — fast local text search
+- [Bumboo Build Inspector](https://github.com/Bum-Boo/bumboo-build-inspector) — structured review for rapidly built software
+
+</details>
+
+## Tools on the Workbench
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Python-1A1114?style=flat-square&logo=python&logoColor=E34234" alt="Python" />
+  <img src="https://img.shields.io/badge/TypeScript-1A1114?style=flat-square&logo=typescript&logoColor=40826D" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/JavaScript-1A1114?style=flat-square&logo=javascript&logoColor=E34234" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/Node.js-1A1114?style=flat-square&logo=nodedotjs&logoColor=40826D" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Electron-1A1114?style=flat-square&logo=electron&logoColor=40826D" alt="Electron" />
+  <img src="https://img.shields.io/badge/PowerShell-1A1114?style=flat-square&logo=powershell&logoColor=E34234" alt="PowerShell" />
+  <img src="https://img.shields.io/badge/GitHub%20Actions-1A1114?style=flat-square&logo=githubactions&logoColor=40826D" alt="GitHub Actions" />
+  <img src="https://img.shields.io/badge/Hermes%20Agent-1A1114?style=flat-square&logoColor=E34234" alt="Hermes Agent" />
+  <img src="https://img.shields.io/badge/MCP-1A1114?style=flat-square&logoColor=40826D" alt="Model Context Protocol" />
+</div>
+
+<p align="center"><em>Tools are materials, not identity. I choose them according to the experience I want to create.</em></p>
+
+## Lab Signals
+
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Bum-Boo&theme=github_dark" alt="Bum-Boo GitHub profile summary" />
+</div>
+
+<div align="center">
+  <img height="165" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Bum-Boo&theme=github_dark" alt="Repositories by language" />
+  <img height="165" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Bum-Boo&theme=github_dark" alt="GitHub statistics" />
+</div>
+
+<div align="center">
+  <img src="https://streak-stats.demolab.com?user=Bum-Boo&hide_border=true&background=1A1114&ring=E34234&fire=E34234&currStreakLabel=40826D&sideLabels=E7DED7&dates=9A8F89&currStreakNum=E7DED7&sideNums=E7DED7" alt="GitHub contribution streak" />
+</div>
+
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Bum-Boo&bg_color=1A1114&color=E7DED7&line=40826D&point=E34234&area=true&area_color=800020&hide_border=true" alt="GitHub activity graph" />
+</div>
+
+## Studio Principles
+
+```text
+LOCAL FIRST       Keep personal data close to the person who owns it.
+REVIEW BEFORE WRITE  Make changes visible before they become durable.
+REVERSIBLE BY DESIGN  Prefer drafts, branches, backups, and clear exits.
+OPEN-ENDED RESEARCH   Let the question choose the discipline and medium.
+EVERYDAY DELIGHT      Serious technology can still feel playful and humane.
+```
+
+<div align="center">
+  <h3>Still exploring. Still prototyping. Still crossing boundaries.</h3>
+  <p><a href="https://bumboo.fun">bumboo.fun</a></p>
+</div>
