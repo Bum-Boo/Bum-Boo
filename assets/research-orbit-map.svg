@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
   <title id="title">Bum-Boo research map</title>
   <desc id="desc">AI experience design connects cognition, development, design, tools, media, play, and daily life.</desc>
   <style>
@@ -6,35 +6,36 @@
     .sans{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#5b554d}
     .small{font-size:15px}.title{font-size:38px}.node{font-size:18px;font-weight:600}.note{font-size:16px}
   </style>
-  <rect x="1" y="1" width="1198" height="518" rx="6" fill="#f3efe6" stroke="#cec5b8" stroke-width="2"/>
+  <rect x="1" y="1" width="1198" height="598" rx="6" fill="#f3efe6" stroke="#cec5b8" stroke-width="2"/>
   <text x="58" y="54" class="sans small">Research map</text>
   <text x="58" y="100" class="serif title">Questions choose the discipline and the medium</text>
   <line x1="58" y1="128" x2="1142" y2="128" stroke="#c9c0b4"/>
 
   <g fill="none" stroke="#b8afa3" stroke-width="2">
-    <path d="M600 292 C480 220 355 200 230 190"/>
-    <path d="M600 292 C500 320 390 380 280 418"/>
-    <path d="M600 292 C570 215 565 170 570 154"/>
-    <path d="M600 292 C700 220 805 180 932 184"/>
-    <path d="M600 292 C710 310 810 370 930 418"/>
-    <path d="M600 292 C620 350 615 405 600 456"/>
-    <path d="M600 292 C690 270 790 276 1042 298" stroke-dasharray="5 8"/>
+    <path d="M600 285 C480 220 355 200 230 190"/>
+    <path d="M600 285 C500 320 390 370 280 402"/>
+    <path d="M600 285 C570 215 565 174 570 158"/>
+    <path d="M600 285 C700 220 805 188 932 190"/>
+    <path d="M600 285 C710 320 820 370 930 402"/>
+    <path d="M600 285 C620 345 615 395 600 438"/>
+    <path d="M600 285 C690 270 790 278 1042 300" stroke-dasharray="5 8"/>
   </g>
 
-  <ellipse cx="600" cy="292" rx="142" ry="82" fill="#7b2d3e"/>
-  <text x="600" y="280" text-anchor="middle" font-family="Georgia,serif" font-size="25" fill="#fffaf2">AI experience</text>
-  <text x="600" y="313" text-anchor="middle" font-family="Georgia,serif" font-size="25" fill="#fffaf2">design</text>
+  <ellipse cx="600" cy="285" rx="142" ry="82" fill="#7b2d3e"/>
+  <text x="600" y="273" text-anchor="middle" font-family="Georgia,serif" font-size="25" fill="#fffaf2">AI experience</text>
+  <text x="600" y="306" text-anchor="middle" font-family="Georgia,serif" font-size="25" fill="#fffaf2">design</text>
 
   <g>
     <circle cx="230" cy="190" r="60" fill="#eee7dc" stroke="#7b2d3e" stroke-width="3"/><text x="230" y="196" text-anchor="middle" class="sans node">Cognition</text>
-    <circle cx="280" cy="418" r="60" fill="#eee7dc" stroke="#315b4e" stroke-width="3"/><text x="280" y="424" text-anchor="middle" class="sans node">Development</text>
-    <circle cx="570" cy="154" r="58" fill="#eee7dc" stroke="#b7523a" stroke-width="3"/><text x="570" y="160" text-anchor="middle" class="sans node">AI</text>
-    <circle cx="932" cy="184" r="60" fill="#eee7dc" stroke="#315b4e" stroke-width="3"/><text x="932" y="190" text-anchor="middle" class="sans node">Design</text>
-    <circle cx="930" cy="418" r="60" fill="#eee7dc" stroke="#7b2d3e" stroke-width="3"/><text x="930" y="424" text-anchor="middle" class="sans node">Tools</text>
-    <circle cx="600" cy="456" r="46" fill="#eee7dc" stroke="#3d5365" stroke-width="3"/><text x="600" y="462" text-anchor="middle" class="sans node">Media</text>
-    <circle cx="1042" cy="298" r="47" fill="#eee7dc" stroke="#b7523a" stroke-width="3"/><text x="1042" y="304" text-anchor="middle" class="sans node">Play</text>
+    <circle cx="280" cy="402" r="58" fill="#eee7dc" stroke="#315b4e" stroke-width="3"/><text x="280" y="408" text-anchor="middle" class="sans node" font-size="16">Development</text>
+    <circle cx="570" cy="158" r="58" fill="#eee7dc" stroke="#b7523a" stroke-width="3"/><text x="570" y="164" text-anchor="middle" class="sans node">AI</text>
+    <circle cx="932" cy="190" r="60" fill="#eee7dc" stroke="#315b4e" stroke-width="3"/><text x="932" y="196" text-anchor="middle" class="sans node">Design</text>
+    <circle cx="930" cy="402" r="58" fill="#eee7dc" stroke="#7b2d3e" stroke-width="3"/><text x="930" y="408" text-anchor="middle" class="sans node">Tools</text>
+    <circle cx="600" cy="438" r="46" fill="#eee7dc" stroke="#3d5365" stroke-width="3"/><text x="600" y="444" text-anchor="middle" class="sans node">Media</text>
+    <circle cx="1042" cy="300" r="47" fill="#eee7dc" stroke="#b7523a" stroke-width="3"/><text x="1042" y="306" text-anchor="middle" class="sans node">Play</text>
   </g>
 
-  <text x="58" y="472" class="serif" font-size="20">Daily life is the testing ground.</text>
-  <text x="58" y="499" class="sans note">The category can shift; the obligation to make the work understandable does not.</text>
+  <line x1="58" y1="514" x2="1142" y2="514" stroke="#c9c0b4"/>
+  <text x="58" y="550" class="serif" font-size="20">Daily life is the testing ground.</text>
+  <text x="58" y="578" class="sans note">The category can shift; the obligation to make the work understandable does not.</text>
 </svg>
