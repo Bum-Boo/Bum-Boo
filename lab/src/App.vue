@@ -11,6 +11,13 @@ const researchNodes = [
   { id: "daily-life", label: "Daily life", angle: 210, color: "viridian", question: "What small friction is worth redesigning today?" },
 ];
 
+const practiceModes = [
+  { id: "observe", index: "01", label: "Observe", statement: "Notice the friction before naming the technology.", accent: "#ef7f6d", x: 75, y: 20 },
+  { id: "connect", index: "02", label: "Connect", statement: "Let cognition, material, and code inform one another.", accent: "#79a48f", x: 88, y: 40 },
+  { id: "prototype", index: "03", label: "Prototype", statement: "Make the question tangible enough to test.", accent: "#e7b35d", x: 76, y: 68 },
+  { id: "return", index: "04", label: "Return", statement: "Keep choice visible and hand control back.", accent: "#ce7e87", x: 51, y: 80 },
+];
+
 const assetUrl = (file) => new URL(`${import.meta.env.BASE_URL}assets/${file}`, document.baseURI).href;
 const experiments = [
   { id: "skill-library", title: "Hermes Skill Library", category: "agents", status: "Growing library", description: "Reusable behaviors that turn an agent into a practical collaborator.", url: "https://github.com/Bum-Boo/hermes-skill-library", signal: "Workflow intelligence", motionWord: "COMPOSE", accent: "#ef7f6d", video: assetUrl("experiment-material-loop.mp4"), videoFull: assetUrl("experiment-material-scroll-1080.mp4"), poster: assetUrl("experiment-material-loop-poster.webp"), visualPosition: "center", frames: 240 },
@@ -23,6 +30,7 @@ const experiments = [
 
 const filters = ["all", "agents", "everyday", "access", "safety"];
 const activeNode = ref("daily-life");
+const activePracticeMode = ref(practiceModes[0].id);
 const activeFilter = ref("all");
 const activeExperiment = ref(experiments[0].id);
 const prefersReducedMotion = ref(false);
@@ -30,10 +38,14 @@ const viewportWidth = ref(1280);
 const scrubTrack = ref(null);
 const scrubVideo = ref(null);
 const scrubCanvas = ref(null);
+const heroSection = ref(null);
+const materialStudy = ref(null);
+const manifestoSection = ref(null);
 const scrubProgress = ref(0);
 const compositorReady = ref(false);
 const compositorBackend = ref("media");
 let motionPreference;
+let pointerMotionPreference;
 let scrollAnimationFrame = 0;
 let trackObserver = null;
 let trackInRange = true;
@@ -55,6 +67,13 @@ let webCodecInFlight = false;
 let webCodecInitializing = false;
 let webCodecSource = null;
 let webCodecLastFrame = -1;
+let heroPointerFrame = 0;
+let materialPointerFrame = 0;
+let manifestoPointerFrame = 0;
+let pageMotionFrame = 0;
+let heroPointerTarget = { x: 0, y: 0 };
+let materialPointerTarget = { x: 0, y: 0 };
+let manifestoPointerTarget = { x: 0, y: 0 };
 
 const SEEK_THRESHOLD = 1 / 48;
 const STALE_FRAME_TOLERANCE = 0.45;
@@ -64,6 +83,25 @@ const SPRING_DAMPING = 2 * Math.sqrt(SPRING_STIFFNESS);
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const selectedNode = computed(() => researchNodes.find((node) => node.id === activeNode.value));
+const selectedPracticeMode = computed(() => practiceModes.find((mode) => mode.id === activePracticeMode.value) ?? practiceModes[0]);
+const heroStyle = computed(() => ({
+  "--hero-image": `url(${assetUrl("banner.webp")})`,
+  "--hero-accent": selectedPracticeMode.value.accent,
+  "--hero-mode-x": `${selectedPracticeMode.value.x}%`,
+  "--hero-mode-y": `${selectedPracticeMode.value.y}%`,
+}));
+const orbitStageStyle = computed(() => {
+  const angle = selectedNode.value.angle;
+  const radians = angle * Math.PI / 180;
+  const accents = { viridian: "#4b8e78", vermilion: "#ee695d", burgundy: "#8b2345" };
+  return {
+    "--orbit-a": `${-12 + angle * 0.07}deg`,
+    "--orbit-b": `${28 - angle * 0.05}deg`,
+    "--orbit-core-x": `${Math.cos(radians) * 10}px`,
+    "--orbit-core-y": `${Math.sin(radians) * 10}px`,
+    "--orbit-accent": accents[selectedNode.value.color],
+  };
+});
 const visibleExperiments = computed(() => experiments.filter((item) => activeFilter.value === "all" || item.category === activeFilter.value));
 const featuredExperiment = computed(() => visibleExperiments.value.find((item) => item.id === activeExperiment.value) ?? visibleExperiments.value[0]);
 const hasScrubVideo = computed(() => !prefersReducedMotion.value && Boolean(featuredExperiment.value.video));
@@ -401,15 +439,144 @@ const scheduleScrub = () => {
   }
 };
 
+const sectionProgress = (element) => {
+  if (!element) return 0;
+  const rect = element.getBoundingClientRect();
+  return clamp((window.innerHeight - rect.top) / (window.innerHeight + rect.height), 0, 1);
+};
+
+const updatePageMotion = () => {
+  pageMotionFrame = 0;
+  const hero = heroSection.value;
+  if (hero) {
+    const rect = hero.getBoundingClientRect();
+    const progress = clamp(-rect.top / Math.max(1, rect.height), 0, 1);
+    hero.style.setProperty("--hero-scroll-y", `${progress * 22}px`);
+    hero.style.setProperty("--hero-copy-y", `${progress * -20}px`);
+    hero.style.setProperty("--hero-practice-y", `${progress * -10}px`);
+  }
+
+  const material = materialStudy.value;
+  if (material) {
+    const progress = sectionProgress(material);
+    material.style.setProperty("--material-field-y", `${(0.48 - progress) * 70}px`);
+    material.style.setProperty("--material-sample-y", `${(0.52 - progress) * -82}px`);
+    material.style.setProperty("--material-copy-y", `${(0.6 - progress) * 46}px`);
+    material.style.setProperty("--material-index-x", `${(progress - 0.5) * -44}px`);
+  }
+
+  const manifesto = manifestoSection.value;
+  if (manifesto) {
+    const progress = sectionProgress(manifesto);
+    manifesto.style.setProperty("--manifesto-left-y", `${(0.5 - progress) * 44}px`);
+    manifesto.style.setProperty("--manifesto-right-y", `${(0.5 - progress) * -44}px`);
+  }
+};
+
+const schedulePageMotion = () => {
+  if (!pageMotionFrame) pageMotionFrame = window.requestAnimationFrame(updatePageMotion);
+};
+
+const pointerCoordinates = (event) => {
+  const rect = event.currentTarget.getBoundingClientRect();
+  return {
+    x: clamp(((event.clientX - rect.left) / Math.max(1, rect.width)) * 2 - 1, -1, 1),
+    y: clamp(((event.clientY - rect.top) / Math.max(1, rect.height)) * 2 - 1, -1, 1),
+  };
+};
+
+const allowsPointerMotion = (event) => !prefersReducedMotion.value
+  && event.pointerType !== "touch"
+  && (pointerMotionPreference?.matches ?? false);
+
+const renderHeroPointer = () => {
+  heroPointerFrame = 0;
+  const hero = heroSection.value;
+  if (!hero) return;
+  const { x, y } = heroPointerTarget;
+  hero.style.setProperty("--hero-bg-x", `${x * -12}px`);
+  hero.style.setProperty("--hero-bg-y", `${y * -8}px`);
+  hero.style.setProperty("--hero-lens-x", `${x * 34}px`);
+  hero.style.setProperty("--hero-lens-y", `${y * 26}px`);
+  hero.style.setProperty("--hero-thread-x", `${x * 18}px`);
+  hero.style.setProperty("--hero-thread-y", `${y * 12}px`);
+  hero.style.setProperty("--hero-point-x", `${x * -9}px`);
+  hero.style.setProperty("--hero-point-y", `${y * -7}px`);
+};
+
+const updateHeroPointer = (event) => {
+  if (!allowsPointerMotion(event)) return;
+  heroPointerTarget = pointerCoordinates(event);
+  if (!heroPointerFrame) heroPointerFrame = window.requestAnimationFrame(renderHeroPointer);
+};
+
+const resetHeroPointer = () => {
+  heroPointerTarget = { x: 0, y: 0 };
+  if (!heroPointerFrame) heroPointerFrame = window.requestAnimationFrame(renderHeroPointer);
+};
+
+const renderMaterialPointer = () => {
+  materialPointerFrame = 0;
+  const material = materialStudy.value;
+  if (!material) return;
+  const { x, y } = materialPointerTarget;
+  material.style.setProperty("--material-field-x", `${x * -8}px`);
+  material.style.setProperty("--material-field-pointer-y", `${y * -7}px`);
+  material.style.setProperty("--material-sample-x", `${x * 15}px`);
+  material.style.setProperty("--material-sample-pointer-y", `${y * 12}px`);
+};
+
+const updateMaterialPointer = (event) => {
+  if (!allowsPointerMotion(event)) return;
+  materialPointerTarget = pointerCoordinates(event);
+  if (!materialPointerFrame) materialPointerFrame = window.requestAnimationFrame(renderMaterialPointer);
+};
+
+const resetMaterialPointer = () => {
+  materialPointerTarget = { x: 0, y: 0 };
+  if (!materialPointerFrame) materialPointerFrame = window.requestAnimationFrame(renderMaterialPointer);
+};
+
+const renderManifestoPointer = () => {
+  manifestoPointerFrame = 0;
+  const manifesto = manifestoSection.value;
+  if (!manifesto) return;
+  const { x, y } = manifestoPointerTarget;
+  manifesto.style.setProperty("--manifesto-seam-x", `${50 + x * 7}%`);
+  manifesto.style.setProperty("--manifesto-glow-x", `${50 + x * 32}%`);
+  manifesto.style.setProperty("--manifesto-left-x", `${x * -9}px`);
+  manifesto.style.setProperty("--manifesto-right-x", `${x * 9}px`);
+  manifesto.style.setProperty("--manifesto-glow-y", `${50 + y * 24}%`);
+};
+
+const updateManifestoPointer = (event) => {
+  if (!allowsPointerMotion(event)) return;
+  manifestoPointerTarget = pointerCoordinates(event);
+  if (!manifestoPointerFrame) manifestoPointerFrame = window.requestAnimationFrame(renderManifestoPointer);
+};
+
+const resetManifestoPointer = () => {
+  manifestoPointerTarget = { x: 0, y: 0 };
+  if (!manifestoPointerFrame) manifestoPointerFrame = window.requestAnimationFrame(renderManifestoPointer);
+};
+
+const activateResearchNode = (node, event) => {
+  if (event.type === "focus" || event.type === "click" || event.pointerType !== "touch") activeNode.value = node.id;
+};
+
 const syncMotionPreference = (event) => {
   resetFrameCompositor();
   prefersReducedMotion.value = event?.matches ?? motionPreference?.matches ?? false;
-  nextTick(scheduleScrub);
+  nextTick(() => {
+    scheduleScrub();
+    schedulePageMotion();
+  });
 };
 
 const syncViewport = () => {
   viewportWidth.value = window.innerWidth;
   scheduleScrub();
+  schedulePageMotion();
 };
 
 const onVideoMetadata = () => {
@@ -452,11 +619,13 @@ watch(() => [featuredExperiment.value.id, activeVideoSource.value], async () => 
 
 onMounted(() => {
   motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  pointerMotionPreference = window.matchMedia("(hover: hover) and (pointer: fine)");
   syncMotionPreference(motionPreference);
   if (motionPreference.addEventListener) motionPreference.addEventListener("change", syncMotionPreference);
   else motionPreference.addListener(syncMotionPreference);
   viewportWidth.value = window.innerWidth;
   window.addEventListener("scroll", scheduleScrub, { passive: true });
+  window.addEventListener("scroll", schedulePageMotion, { passive: true });
   window.addEventListener("resize", syncViewport, { passive: true });
   trackObserver = new IntersectionObserver(([entry]) => {
     trackInRange = entry.isIntersecting;
@@ -469,12 +638,18 @@ onMounted(() => {
   }, { rootMargin: "100% 0px" });
   if (scrubTrack.value) trackObserver.observe(scrubTrack.value);
   scheduleScrub();
+  schedulePageMotion();
 });
 
 onBeforeUnmount(() => {
   resetFrameCompositor();
   if (scrollAnimationFrame) window.cancelAnimationFrame(scrollAnimationFrame);
+  if (heroPointerFrame) window.cancelAnimationFrame(heroPointerFrame);
+  if (materialPointerFrame) window.cancelAnimationFrame(materialPointerFrame);
+  if (manifestoPointerFrame) window.cancelAnimationFrame(manifestoPointerFrame);
+  if (pageMotionFrame) window.cancelAnimationFrame(pageMotionFrame);
   window.removeEventListener("scroll", scheduleScrub);
+  window.removeEventListener("scroll", schedulePageMotion);
   window.removeEventListener("resize", syncViewport);
   trackObserver?.disconnect();
   if (!motionPreference) return;
@@ -485,13 +660,37 @@ onBeforeUnmount(() => {
 
 <template>
   <main>
-    <header class="hero" :style="{ '--hero-image': `url(${assetUrl('banner.webp')})` }">
+    <header ref="heroSection" class="hero" :style="heroStyle" @pointermove="updateHeroPointer" @pointerleave="resetHeroPointer">
+      <div class="hero-response-field" aria-hidden="true">
+        <span class="hero-lens" />
+        <span class="hero-thread hero-thread-a" />
+        <span class="hero-thread hero-thread-b" />
+        <span v-for="mode in practiceModes" :key="`${mode.id}-point`" class="hero-field-point" :class="{ active: activePracticeMode === mode.id }" :style="{ '--point-x': `${mode.x}%`, '--point-y': `${mode.y}%`, '--point-accent': mode.accent }" />
+      </div>
       <nav><a href="https://github.com/Bum-Boo">Bum-Boo on GitHub</a></nav>
       <div class="hero-copy">
         <p class="eyebrow">Independent AI design practice</p>
         <h1>AI tools should feel useful before they feel futuristic.</h1>
         <p class="lede">I explore cognition, design, technology, and playful tools to make everyday work lighter without hiding human choice.</p>
         <div class="hero-actions"><a class="primary" href="#experiments">Browse experiments</a><a href="#research">How I think</a></div>
+      </div>
+      <div class="hero-practice">
+        <div class="hero-practice-copy">
+          <span class="hero-practice-index">{{ selectedPracticeMode.index }}</span>
+          <div>
+            <p class="hero-practice-label">Current move · {{ selectedPracticeMode.label }}</p>
+            <div id="hero-practice-response" class="hero-practice-response" aria-live="polite">
+              <Transition name="hero-mode" mode="out-in">
+                <p :key="selectedPracticeMode.id" class="hero-practice-statement">{{ selectedPracticeMode.statement }}</p>
+              </Transition>
+            </div>
+          </div>
+        </div>
+        <div class="hero-mode-list" role="group" aria-label="Explore the design practice">
+          <button v-for="mode in practiceModes" :key="mode.id" class="hero-mode-button" :class="{ active: activePracticeMode === mode.id }" :style="{ '--mode-accent': mode.accent }" :aria-pressed="activePracticeMode === mode.id" aria-describedby="hero-practice-response" @pointerenter="activePracticeMode = mode.id" @focus="activePracticeMode = mode.id" @click="activePracticeMode = mode.id">
+            <span>{{ mode.index }}</span><strong>{{ mode.label }}</strong>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -501,20 +700,24 @@ onBeforeUnmount(() => {
         <p>Select a subject to see the question I am currently asking around it.</p>
       </div>
       <div class="research-grid">
-        <div class="orbit-stage" aria-label="Interactive research orbit">
+        <div class="orbit-stage" :style="orbitStageStyle" aria-label="Interactive research orbit">
           <div class="orbit-line orbit-line-a" /><div class="orbit-line orbit-line-b" />
           <div class="core"><span>AI experience design</span></div>
-          <button v-for="node in researchNodes" :key="node.id" class="orbit-node" :class="[node.color, { active: activeNode === node.id }]" :style="nodePosition(node)" @click="activeNode = node.id">{{ node.label }}</button>
+          <button v-for="node in researchNodes" :key="node.id" class="orbit-node" :class="[node.color, { active: activeNode === node.id }]" :style="nodePosition(node)" :aria-pressed="activeNode === node.id" @pointerenter="activateResearchNode(node, $event)" @focus="activateResearchNode(node, $event)" @click="activateResearchNode(node, $event)">{{ node.label }}</button>
         </div>
-        <article class="question-panel">
-          <p class="eyebrow">Current question · {{ selectedNode.label }}</p>
-          <blockquote>{{ selectedNode.question }}</blockquote>
+        <article class="question-panel" aria-live="polite">
+          <Transition name="question-shift" mode="out-in">
+            <div :key="selectedNode.id" class="question-content">
+              <p class="eyebrow">Current question · {{ selectedNode.label }}</p>
+              <blockquote>{{ selectedNode.question }}</blockquote>
+            </div>
+          </Transition>
           <dl><div><dt>Method</dt><dd>Explore, design, build</dd></div><div><dt>Medium</dt><dd>Chosen by the question</dd></div><div><dt>Boundary</dt><dd>Human choice stays visible</dd></div></dl>
         </article>
       </div>
     </section>
 
-    <section class="material-study">
+    <section ref="materialStudy" class="material-study" @pointermove="updateMaterialPointer" @pointerleave="resetMaterialPointer">
       <figure class="material-field">
         <img :src="assetUrl('material-field.webp')" alt="Tactile collage of paper, copper wire, circuit traces, and colored material samples">
         <figcaption>Material study 01 · Signals, surfaces, and imperfect connections</figcaption>
@@ -587,9 +790,10 @@ onBeforeUnmount(() => {
       </article>
     </section>
 
-    <section id="after-experiments" class="manifesto">
-      <p>I do not begin by asking which field a problem belongs to.</p>
-      <p>I begin by asking what experience should exist.</p>
+    <section id="after-experiments" ref="manifestoSection" class="manifesto" @pointermove="updateManifestoPointer" @pointerleave="resetManifestoPointer">
+      <article class="manifesto-statement manifesto-statement-left"><span>01 · Release the category</span><p>I do not begin by asking which field a problem belongs to.</p></article>
+      <span class="manifesto-seam" aria-hidden="true"><span /></span>
+      <article class="manifesto-statement manifesto-statement-right"><span>02 · Name the experience</span><p>I begin by asking what experience should exist.</p></article>
     </section>
 
     <footer class="footer"><span>AI design experiments by Bum-Boo</span><a href="https://bumboo.fun">bumboo.fun ↗</a></footer>
