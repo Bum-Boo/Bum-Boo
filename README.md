@@ -31,7 +31,7 @@ I tend to begin with friction that is easy to overlook: a change that cannot be 
 - Playful interfaces that make serious tools less intimidating
 - Cross-disciplinary experiments without a fixed medium or product category
 
-<img src="lab/public/assets/material-field.webp" width="100%" alt="Paper, film, thread, and metal arranged as a cross-disciplinary material study" />
+<img src="assets/research-tabletop.webp" width="100%" alt="An open blank notebook surrounded by tracing film, textile, paper prototypes, tools, and studio materials" />
 
 <details>
 <summary><strong>Open lab notebook — hypotheses, tensions, and unfinished questions</strong></summary>
