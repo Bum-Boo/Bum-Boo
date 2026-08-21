@@ -1,39 +1,42 @@
 # Bum-Boo
 
-I design and build local-first AI tools for everyday work.
+## I build the part between “AI can do it” and “a person can safely use it.”
 
-My projects usually begin with a concrete friction: a folder that is hard to manage, an agent change that is difficult to review, a language barrier, or a repeated action that should take one button. I use AI where it helps, but keep state, scope, and ownership visible.
+I design local-first tools where changes can be inspected, data stays close to its owner, and a person can still understand what happened. The work moves between interaction design, software, cognition, and media—but usually begins with one ordinary friction that has been ignored for too long.
 
-[Live Lab](https://bum-boo.github.io/Bum-Boo/) · [한국어](docs/readme/README.ko.md) · [日本語](docs/readme/README.ja.md) · [简体中文](docs/readme/README.zh-CN.md)
+[**Enter the Live Lab →**](https://bum-boo.github.io/Bum-Boo/)
 
-## Selected work
+<img src="lab/public/assets/experiment-change-gate-poster.webp" width="100%" alt="A manual review gate made from metal, paper, and translucent film" />
 
-- [**Hermes Skill Library**](https://github.com/Bum-Boo/hermes-skill-library) — reusable skills for practical, grounded agent workflows.
-- [**BIGLOADER with AI Agent**](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent) — a Windows workspace for collecting and organizing media without turning the workflow into a developer tool.
-- [**Agent Change Gate**](https://github.com/Bum-Boo/agent-change-gate) — a review-before-write layer for scoped, inspectable, and reversible agent changes.
-- [**Hermes Desktop Korean**](https://github.com/Bum-Boo/hermes-desktop-korean) — Korean localization backed by automated coverage and type verification.
-- [**BBCC**](https://github.com/Bum-Boo/BBCC) — controller shortcuts for repeated creative and media actions.
-- [**BTS Sec**](https://github.com/Bum-Boo/BTS_sec) — defensive review utilities for authorized projects.
+<sub>Material study for Agent Change Gate: a physical boundary before a durable change.</sub>
 
-Other small tools include [Vaultwright](https://github.com/Bum-Boo/Vaultwright), [BB TxT](https://github.com/Bum-Boo/BBTxT), and [Bumboo Build Inspector](https://github.com/Bum-Boo/bumboo-build-inspector).
+## Three lines of work
 
-## Current questions
+### 01 — Agents that show their work
 
-- How can an AI tool make its state, scope, and uncertainty easier to see?
-- How can automation reduce work without making human control disappear?
-- How do tools reshape attention, learning, and confidence in everyday use?
-- Which small frustrations are easy to ignore but worth redesigning?
+[Hermes Skill Library](https://github.com/Bum-Boo/hermes-skill-library) collects reusable behaviors for practical agent workflows. [Agent Change Gate](https://github.com/Bum-Boo/agent-change-gate) explores the moment before an agent writes: what changed, where it will land, and whether a person still has a clear way to stop or reverse it.
 
-## How I work
+### 02 — Tools for ordinary friction
 
-- Keep personal workflow data local when possible.
-- Inspect and propose before making durable changes.
-- Prefer backups, branches, drafts, and clear rollback paths.
-- Choose the medium after understanding the problem.
-- Describe experiments and limitations honestly.
+[BIGLOADER with AI Agent](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent) turns media collection and organization into a usable Windows workspace instead of a developer-only pipeline. [BBCC](https://github.com/Bum-Boo/BBCC) maps repeated creative and media actions to a controller so routine work becomes physical memory.
 
-## Tools
+### 03 — Access and boundaries
 
-Most of my work uses Python, TypeScript, JavaScript, Node.js, Electron, PowerShell, GitHub Actions, Obsidian, and Hermes Agent. They are working materials rather than the point of the profile.
+[Hermes Desktop Korean](https://github.com/Bum-Boo/hermes-desktop-korean) treats localization as access design and verifies it with coverage and type checks. [BTS Sec](https://github.com/Bum-Boo/BTS_sec) provides defensive review utilities for work that is explicitly authorized.
 
-The [Live Lab](https://bum-boo.github.io/Bum-Boo/) is a working index of current experiments. More finished work and notes live at [bumboo.fun](https://bumboo.fun).
+## What I keep asking
+
+- Can an AI tool expose its state, scope, and uncertainty without becoming another dashboard?
+- Can automation remove effort without making human control disappear?
+- How do tools change attention, learning, and confidence in everyday use?
+- Which small frustrations are easy to overlook but meaningful enough to redesign?
+
+## Working rules
+
+Keep personal data local when possible. Inspect and propose before making durable changes. Prefer backups, branches, drafts, and clear rollback paths. Choose the medium after understanding the problem, and describe unfinished work honestly.
+
+Most projects are built with Python, TypeScript, JavaScript, Node.js, Electron, PowerShell, GitHub Actions, Obsidian, and Hermes Agent. They are working materials, not the identity of the practice.
+
+---
+
+[한국어](docs/readme/README.ko.md) · [日本語](docs/readme/README.ja.md) · [简体中文](docs/readme/README.zh-CN.md) · [More work and notes](https://bumboo.fun)
