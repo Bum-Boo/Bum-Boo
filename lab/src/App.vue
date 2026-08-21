@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
 const researchNodes = [
   { id: "ai", label: "AI", angle: -90, color: "vermilion", question: "How can intelligence become a material for everyday experience?" },
@@ -10,19 +10,37 @@ const researchNodes = [
   { id: "daily-life", label: "Daily life", angle: 210, color: "viridian", question: "What small friction is worth redesigning today?" },
 ];
 
+const assetUrl = (file) => `${import.meta.env.BASE_URL}assets/${file}`;
+
 const experiments = [
-  { id: "skill-library", mark: "H/S", variant: "variant-library", accent: "#ee695d", title: "Hermes Skill Library", category: "agents", status: "Growing library", description: "Reusable behaviors that turn an agent into a practical collaborator.", url: "https://github.com/Bum-Boo/hermes-skill-library", signal: "Workflow intelligence" },
-  { id: "bigloader", mark: "B+", variant: "variant-loader", accent: "#4b8e78", title: "BIGLOADER with AI Agent", category: "everyday", status: "Field test", description: "A non-developer-friendly Windows workspace for collecting and organizing media.", url: "https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent", signal: "Less workflow friction" },
-  { id: "change-gate", mark: "A|G", variant: "variant-gate", accent: "#9e3658", title: "Agent Change Gate", category: "agents", status: "Prototype", description: "A review-before-write layer that keeps durable AI changes inspectable.", url: "https://github.com/Bum-Boo/agent-change-gate", signal: "Human choice stays visible" },
-  { id: "desktop-korean", mark: "KR", variant: "variant-language", accent: "#4b8e78", title: "Hermes Desktop Korean", category: "access", status: "Verified", description: "Localization as access design, backed by coverage and type checks.", url: "https://github.com/Bum-Boo/hermes-desktop-korean", signal: "Language as interface" },
-  { id: "bbcc", mark: "×4", variant: "variant-control", accent: "#ee695d", title: "BBCC", category: "everyday", status: "Working tool", description: "Controller shortcuts that turn repeated creative actions into muscle memory.", url: "https://github.com/Bum-Boo/BBCC", signal: "Physical interaction" },
-  { id: "bts-sec", mark: "B/S", variant: "variant-safety", accent: "#8b2345", title: "BTS Sec", category: "safety", status: "Toolkit", description: "Defensive review tools for authorized projects and visible risk boundaries.", url: "https://github.com/Bum-Boo/BTS_sec", signal: "Trust by inspection" },
+  { id: "skill-library", title: "Hermes Skill Library", category: "agents", status: "Growing library", description: "Reusable behaviors that turn an agent into a practical collaborator.", url: "https://github.com/Bum-Boo/hermes-skill-library", signal: "Workflow intelligence", video: assetUrl("experiment-material-loop.mp4"), poster: assetUrl("experiment-material-loop-poster.webp"), visualPosition: "center" },
+  { id: "bigloader", title: "BIGLOADER with AI Agent", category: "everyday", status: "Field test", description: "A non-developer-friendly Windows workspace for collecting and organizing media.", url: "https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent", signal: "Less workflow friction", video: assetUrl("experiment-bigloader-relay-loop.mp4"), poster: assetUrl("experiment-bigloader-relay-poster.webp"), visualPosition: "46% center" },
+  { id: "change-gate", title: "Agent Change Gate", category: "agents", status: "Prototype", description: "A review-before-write layer that keeps durable AI changes inspectable.", url: "https://github.com/Bum-Boo/agent-change-gate", signal: "Human choice stays visible", video: assetUrl("experiment-change-gate-loop.mp4"), poster: assetUrl("experiment-change-gate-poster.webp"), visualPosition: "center" },
+  { id: "desktop-korean", title: "Hermes Desktop Korean", category: "access", status: "Verified", description: "Localization as access design, backed by coverage and type checks.", url: "https://github.com/Bum-Boo/hermes-desktop-korean", signal: "Language as interface", video: null, poster: assetUrl("experiment-language-hanji-poster.webp"), visualPosition: "56% center" },
+  { id: "bbcc", title: "BBCC", category: "everyday", status: "Working tool", description: "Controller shortcuts that turn repeated creative actions into muscle memory.", url: "https://github.com/Bum-Boo/BBCC", signal: "Physical interaction", video: assetUrl("experiment-bbcc-sukajan-loop.mp4"), poster: assetUrl("experiment-bbcc-sukajan-poster.webp"), visualPosition: "center" },
+  { id: "bts-sec", title: "BTS Sec", category: "safety", status: "Toolkit", description: "Defensive review tools for authorized projects and visible risk boundaries.", url: "https://github.com/Bum-Boo/BTS_sec", signal: "Trust by inspection", video: assetUrl("experiment-bts-tiger-v2-loop.mp4"), poster: assetUrl("experiment-bts-tiger-v2-poster.webp"), visualPosition: "58% center" },
 ];
 
 const filters = ["all", "agents", "everyday", "access", "safety"];
 const activeNode = ref("daily-life");
 const activeFilter = ref("all");
 const activeExperiment = ref(experiments[0].id);
+const prefersReducedMotion = ref(false);
+let motionPreference;
+const syncMotionPreference = (event) => {
+  prefersReducedMotion.value = event?.matches ?? motionPreference?.matches ?? false;
+};
+onMounted(() => {
+  motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  syncMotionPreference(motionPreference);
+  if (motionPreference.addEventListener) motionPreference.addEventListener("change", syncMotionPreference);
+  else motionPreference.addListener(syncMotionPreference);
+});
+onBeforeUnmount(() => {
+  if (!motionPreference) return;
+  if (motionPreference.removeEventListener) motionPreference.removeEventListener("change", syncMotionPreference);
+  else motionPreference.removeListener(syncMotionPreference);
+});
 const selectedNode = computed(() => researchNodes.find((node) => node.id === activeNode.value));
 const visibleExperiments = computed(() => experiments.filter((item) => activeFilter.value === "all" || item.category === activeFilter.value));
 const featuredExperiment = computed(() => visibleExperiments.value.find((item) => item.id === activeExperiment.value) ?? visibleExperiments.value[0]);
@@ -101,14 +119,15 @@ const nodePosition = (node) => {
             <span class="experiment-arrow" aria-hidden="true">→</span>
           </button>
         </div>
-        <Transition name="project-shift" mode="out-in">
-          <article :key="featuredExperiment.id" class="experiment-focus" :class="featuredExperiment.variant" :style="{ '--project-accent': featuredExperiment.accent }">
-            <div class="experiment-visual" aria-hidden="true">
-              <span class="project-mark">{{ featuredExperiment.mark }}</span>
-              <i class="project-shape project-shape-a" /><i class="project-shape project-shape-b" />
-              <span class="project-category">{{ featuredExperiment.category }}</span>
-            </div>
-            <div class="experiment-story">
+        <article class="experiment-focus">
+          <div class="experiment-visual" :style="{ '--visual-position': featuredExperiment.visualPosition }" aria-hidden="true">
+            <video v-if="!prefersReducedMotion && featuredExperiment.video" :key="featuredExperiment.video" class="experiment-video" autoplay muted loop playsinline preload="metadata" :poster="featuredExperiment.poster" tabindex="-1">
+              <source :src="featuredExperiment.video" type="video/mp4">
+            </video>
+            <img v-else :key="featuredExperiment.poster" class="experiment-video-poster" :src="featuredExperiment.poster" alt="" draggable="false">
+          </div>
+          <Transition name="project-shift" mode="out-in">
+            <div :key="featuredExperiment.id" class="experiment-story">
               <div class="experiment-story-main">
                 <p class="eyebrow">Project {{ experimentNumber(featuredExperiment) }} of {{ String(experiments.length).padStart(2, "0") }}</p>
                 <h3>{{ featuredExperiment.title }}</h3>
@@ -121,8 +140,8 @@ const nodePosition = (node) => {
                 <div><dt>Field</dt><dd>{{ featuredExperiment.category }}</dd></div>
               </dl>
             </div>
-          </article>
-        </Transition>
+          </Transition>
+        </article>
       </div>
     </section>
 
