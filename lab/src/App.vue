@@ -33,7 +33,6 @@ const activeNode = ref("daily-life");
 const activePracticeMode = ref(practiceModes[0].id);
 const activeFilter = ref("all");
 const activeExperiment = ref(experiments[0].id);
-const prefersReducedMotion = ref(false);
 const viewportWidth = ref(1280);
 const scrubTrack = ref(null);
 const scrubVideo = ref(null);
@@ -44,7 +43,6 @@ const manifestoSection = ref(null);
 const scrubProgress = ref(0);
 const compositorReady = ref(false);
 const compositorBackend = ref("media");
-let motionPreference;
 let pointerMotionPreference;
 let scrollAnimationFrame = 0;
 let trackObserver = null;
@@ -104,7 +102,7 @@ const orbitStageStyle = computed(() => {
 });
 const visibleExperiments = computed(() => experiments.filter((item) => activeFilter.value === "all" || item.category === activeFilter.value));
 const featuredExperiment = computed(() => visibleExperiments.value.find((item) => item.id === activeExperiment.value) ?? visibleExperiments.value[0]);
-const hasScrubVideo = computed(() => !prefersReducedMotion.value && Boolean(featuredExperiment.value.video));
+const hasScrubVideo = computed(() => Boolean(featuredExperiment.value.video));
 const activeVideoSource = computed(() => viewportWidth.value >= 900 && featuredExperiment.value.videoFull
   ? featuredExperiment.value.videoFull
   : featuredExperiment.value.video);
@@ -485,8 +483,7 @@ const pointerCoordinates = (event) => {
   };
 };
 
-const allowsPointerMotion = (event) => !prefersReducedMotion.value
-  && event.pointerType !== "touch"
+const allowsPointerMotion = (event) => event.pointerType !== "touch"
   && (pointerMotionPreference?.matches ?? false);
 
 const renderHeroPointer = () => {
@@ -564,15 +561,6 @@ const activateResearchNode = (node, event) => {
   if (event.type === "focus" || event.type === "click" || event.pointerType !== "touch") activeNode.value = node.id;
 };
 
-const syncMotionPreference = (event) => {
-  resetFrameCompositor();
-  prefersReducedMotion.value = event?.matches ?? motionPreference?.matches ?? false;
-  nextTick(() => {
-    scheduleScrub();
-    schedulePageMotion();
-  });
-};
-
 const syncViewport = () => {
   viewportWidth.value = window.innerWidth;
   scheduleScrub();
@@ -618,11 +606,7 @@ watch(() => [featuredExperiment.value.id, activeVideoSource.value], async () => 
 });
 
 onMounted(() => {
-  motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
   pointerMotionPreference = window.matchMedia("(hover: hover) and (pointer: fine)");
-  syncMotionPreference(motionPreference);
-  if (motionPreference.addEventListener) motionPreference.addEventListener("change", syncMotionPreference);
-  else motionPreference.addListener(syncMotionPreference);
   viewportWidth.value = window.innerWidth;
   window.addEventListener("scroll", scheduleScrub, { passive: true });
   window.addEventListener("scroll", schedulePageMotion, { passive: true });
@@ -652,9 +636,6 @@ onBeforeUnmount(() => {
   window.removeEventListener("scroll", schedulePageMotion);
   window.removeEventListener("resize", syncViewport);
   trackObserver?.disconnect();
-  if (!motionPreference) return;
-  if (motionPreference.removeEventListener) motionPreference.removeEventListener("change", syncMotionPreference);
-  else motionPreference.removeListener(syncMotionPreference);
 });
 </script>
 
@@ -785,7 +766,6 @@ onBeforeUnmount(() => {
             </div>
           </div>
           <a class="stage-skip" href="#after-experiments">Continue <span aria-hidden="true">↓</span></a>
-          <p v-if="prefersReducedMotion && featuredExperiment.video" class="motion-note">Motion is reduced. A still frame is shown instead.</p>
         </div>
       </article>
     </section>
