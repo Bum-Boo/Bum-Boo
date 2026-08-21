@@ -31,7 +31,7 @@ I tend to begin with friction that is easy to overlook: a change that cannot be 
 - Playful interfaces that make serious tools less intimidating
 - Cross-disciplinary experiments without a fixed medium or product category
 
-<img src="assets/research-orbit-map.svg?v=2" width="100%" alt="A research map connecting AI, cognition, development, design, tools, media, play, and daily life" />
+<img src="assets/research-map.svg" width="100%" alt="A research map connecting AI, cognition, development, design, tools, media, play, and daily life" />
 
 <details>
 <summary><strong>Open lab notebook — hypotheses, tensions, and unfinished questions</strong></summary>
