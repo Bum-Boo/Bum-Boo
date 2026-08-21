@@ -8,7 +8,7 @@
     <style>.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.label{font:13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#988d88;letter-spacing:1.4px}.value{font:700 34px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#f1e7e0}.name{font:600 15px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#e8ddd6}.meta{font:13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#8e817e}</style>
   </defs>
   <rect width="1200" height="390" rx="24" fill="url(#bg)"/><rect x="1" y="1" width="1198" height="388" rx="23" fill="none" stroke="#56383d"/>
-  <circle cx="30" cy="28" r="5" fill="#e34234" filter="url(#glow)"/><text x="48" y="33" class="label">LIVE LAB STATUS / GENERATED 2026-08-20 UTC</text>
+  <circle cx="30" cy="28" r="5" fill="#e34234" filter="url(#glow)"/><text x="48" y="33" class="label">LIVE LAB STATUS / GENERATED 2026-08-21 UTC</text>
   <rect x="48" y="68" width="1104" height="5" rx="2.5" fill="url(#bar)"/>
   <g transform="translate(48 116)"><text class="label">PUBLIC EXPERIMENTS</text><text y="48" class="value">21</text></g>
   <g transform="translate(350 116)"><text class="label">ACTIVE / 30 DAYS</text><text y="48" class="value">7</text></g>
@@ -18,7 +18,7 @@
   <g transform="translate(48 232)">
     <circle cx="5" cy="-5" r="5" fill="#e34234"/>
     <text x="24" y="0" class="name">Bum-Boo</text>
-    <text x="430" y="0" text-anchor="end" class="meta">JavaScript</text>
+    <text x="430" y="0" text-anchor="end" class="meta">Vue</text>
   </g>
   <g transform="translate(48 270)">
     <circle cx="5" cy="-5" r="5" fill="#40826d"/>
@@ -30,6 +30,6 @@
     <text x="24" y="0" class="name">hermes-skill-library</text>
     <text x="430" y="0" text-anchor="end" class="meta">Shell</text>
   </g>
-  <text x="650" y="244" class="label">LANGUAGE CONSTELLATION</text><text x="650" y="280" class="name">TypeScript 8  ·  JavaScript 4  ·  Python 4  ·  Shell 2</text>
+  <text x="650" y="244" class="label">LANGUAGE CONSTELLATION</text><text x="650" y="280" class="name">TypeScript 8  ·  Python 4  ·  JavaScript 3  ·  Shell 2</text>
   <text x="650" y="326" class="label">CURRENT HYPOTHESIS</text><text x="650" y="356" class="name">AI should expand capability without hiding human choice.</text>
 </svg>
