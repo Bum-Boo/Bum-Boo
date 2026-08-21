@@ -20,10 +20,7 @@ async function github(path) {
   return response.json();
 }
 
-const [profile, repositories] = await Promise.all([
-  github(`/users/${encodeURIComponent(username)}`),
-  github(`/users/${encodeURIComponent(username)}/repos?type=owner&sort=pushed&per_page=100`),
-]);
+const repositories = await github(`/users/${encodeURIComponent(username)}/repos?type=owner&sort=pushed&per_page=100`);
 
 const publicRepos = repositories.filter((repo) => !repo.private && !repo.fork && !repo.archived);
 const now = Date.now();
@@ -36,32 +33,37 @@ for (const repo of publicRepos) {
 const topLanguages = [...languages.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4);
 const updated = new Intl.DateTimeFormat("en-CA", { timeZone: "UTC", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
 const recentRows = latest.map((repo, index) => `
-  <g transform="translate(48 ${232 + index * 38})">
-    <circle cx="5" cy="-5" r="5" fill="${["#e34234", "#40826d", "#800020"][index]}"/>
+  <g transform="translate(632 ${156 + index * 38})">
+    <circle cx="5" cy="-5" r="5" fill="${["#7b2d3e", "#315b4e", "#b7523a"][index]}"/>
     <text x="24" y="0" class="name">${escapeXml(repo.name)}</text>
-    <text x="430" y="0" text-anchor="end" class="meta">${escapeXml(repo.language || "mixed")}</text>
+    <text x="486" y="0" text-anchor="end" class="meta">${escapeXml(repo.language || "mixed")}</text>
   </g>`).join("");
 const languageText = topLanguages.map(([name, count]) => `${name} ${count}`).join("  ·  ") || "exploring";
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="390" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
-  <title id="title">Bum-Boo live lab status</title>
-  <desc id="desc">Current public repository activity generated from GitHub data.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171014"/><stop offset=".55" stop-color="#10231d"/><stop offset="1" stop-color="#22100f"/></linearGradient>
-    <linearGradient id="bar"><stop stop-color="#800020"/><stop offset=".52" stop-color="#40826d"/><stop offset="1" stop-color="#e34234"/></linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <style>.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.label{font:13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#988d88;letter-spacing:1.4px}.value{font:700 34px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#f1e7e0}.name{font:600 15px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#e8ddd6}.meta{font:13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#8e817e}</style>
-  </defs>
-  <rect width="1200" height="390" rx="24" fill="url(#bg)"/><rect x="1" y="1" width="1198" height="388" rx="23" fill="none" stroke="#56383d"/>
-  <circle cx="30" cy="28" r="5" fill="#e34234" filter="url(#glow)"/><text x="48" y="33" class="label">LIVE LAB STATUS / GENERATED ${escapeXml(updated)} UTC</text>
-  <rect x="48" y="68" width="1104" height="5" rx="2.5" fill="url(#bar)"/>
-  <g transform="translate(48 116)"><text class="label">PUBLIC EXPERIMENTS</text><text y="48" class="value">${publicRepos.length}</text></g>
-  <g transform="translate(350 116)"><text class="label">ACTIVE / 30 DAYS</text><text y="48" class="value">${active.length}</text></g>
-  <g transform="translate(650 116)"><text class="label">FOLLOWERS</text><text y="48" class="value">${profile.followers}</text></g>
-  <g transform="translate(930 116)"><text class="label">LAB MODE</text><text y="48" class="value" fill="#e34234">OPEN</text></g>
-  <text x="48" y="205" class="label">LATEST PUBLIC SIGNALS</text>${recentRows}
-  <text x="650" y="244" class="label">LANGUAGE CONSTELLATION</text><text x="650" y="280" class="name">${escapeXml(languageText)}</text>
-  <text x="650" y="326" class="label">CURRENT HYPOTHESIS</text><text x="650" y="356" class="name">AI should expand capability without hiding human choice.</text>
+  <title id="title">Bum-Boo studio note</title>
+  <desc id="desc">A factual snapshot of current public repository work generated from GitHub data.</desc>
+  <style>
+    .serif{font-family:Georgia,"Times New Roman",serif;fill:#28241f}
+    .sans{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#59534b}
+    .label{font-size:14px}.date{font-size:14px}.value{font:36px Georgia,"Times New Roman",serif;fill:#28241f}
+    .name{font:600 15px Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#35312c}
+    .meta{font:14px Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#746c62}
+  </style>
+  <rect x="1" y="1" width="1198" height="388" rx="6" fill="#f3efe6" stroke="#cec5b8" stroke-width="2"/>
+  <text x="56" y="58" class="serif" font-size="34">Studio note</text>
+  <text x="1144" y="58" text-anchor="end" class="sans date">Generated ${escapeXml(updated)} UTC from public GitHub data</text>
+  <line x1="56" y1="82" x2="1144" y2="82" stroke="#c9c0b4"/>
+  <g transform="translate(56 122)"><text class="sans label">Public repositories</text><text y="52" class="value">${publicRepos.length}</text></g>
+  <g transform="translate(300 122)"><text class="sans label">Active in the last 30 days</text><text y="52" class="value">${active.length}</text></g>
+  <line x1="566" y1="108" x2="566" y2="334" stroke="#c9c0b4"/>
+  <text x="56" y="246" class="sans label">Current working question</text>
+  <text x="56" y="284" class="serif" font-size="22">How can AI expand capability</text>
+  <text x="56" y="314" class="serif" font-size="22">without hiding human choice?</text>
+  <text x="632" y="120" class="sans label">Recent public work</text>${recentRows}
+  <text x="632" y="286" class="sans label">Working languages</text>
+  <text x="632" y="320" class="name">${escapeXml(languageText)}</text>
+  <rect x="56" y="354" width="64" height="6" fill="#7b2d3e"/><rect x="126" y="354" width="64" height="6" fill="#315b4e"/><rect x="196" y="354" width="64" height="6" fill="#b7523a"/>
 </svg>`;
 
 await mkdir(new URL("../assets/", import.meta.url), { recursive: true });

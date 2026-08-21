@@ -1,4 +1,4 @@
-name: Refresh Live Lab Status
+name: Refresh Studio Note
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: lab-status
+  group: studio-note
   cancel-in-progress: true
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 22
-      - name: Generate status panel from public GitHub data
+      - name: Generate studio note from public GitHub data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_PROFILE_USER: Bum-Boo
@@ -32,11 +32,11 @@ jobs:
       - name: Commit only when the panel changed
         run: |
           if git diff --quiet -- assets/lab-status.svg; then
-            echo "Lab status is already current."
+            echo "Studio note is already current."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/lab-status.svg
-          git commit -m "chore: refresh live lab status"
+          git commit -m "chore: refresh studio note"
           git push

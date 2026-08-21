@@ -1,17 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="230" viewBox="0 0 1200 230" role="img" aria-labelledby="title desc">
-  <title id="title">Enter the Bum-Boo AI Design Live Lab</title>
-  <desc id="desc">Open an interactive Vue laboratory of research nodes, protocols, and public experiments.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2c0f19"/><stop offset=".55" stop-color="#10231d"/><stop offset="1" stop-color="#2a110f"/></linearGradient>
-    <linearGradient id="signal"><stop stop-color="#800020"/><stop offset=".5" stop-color="#40826d"/><stop offset="1" stop-color="#e34234"/></linearGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <style>.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.small{font-size:13px;fill:#b7aaa4;letter-spacing:1.5px}.title{font-size:36px;font-weight:700;fill:#f2e9e3}.copy{font-size:16px;fill:#cfc3bd}</style>
-  </defs>
-  <rect width="1200" height="230" rx="24" fill="url(#bg)"/><rect x="1" y="1" width="1198" height="228" rx="23" fill="none" stroke="#70454e"/>
-  <circle cx="36" cy="34" r="6" fill="#e34234" filter="url(#glow)"/><text x="55" y="39" class="mono small">INTERACTIVE VUE ENVIRONMENT / ONLINE</text>
-  <text x="55" y="105" class="mono title">ENTER THE AI DESIGN LIVE LAB</text>
-  <text x="55" y="142" class="copy">Touch the research orbit · shift the protocol · filter the prototype archive</text>
-  <rect x="55" y="174" width="560" height="4" rx="2" fill="url(#signal)"/>
-  <g transform="translate(1005 115)" fill="none" stroke="#e34234" stroke-width="3" filter="url(#glow)"><circle r="56"/><path d="M-20 0 H22 M8-14 L22 0 L8 14"/></g>
-  <text x="1120" y="205" text-anchor="end" class="mono small">OPEN LAB ↗</text>
+  <title id="title">Open the Bum-Boo Live Lab</title>
+  <desc id="desc">A link to six current experiments in an interactive project index.</desc>
+  <style>
+    .serif{font-family:Georgia,"Times New Roman",serif;fill:#26231f}
+    .sans{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#544e47}
+    .small{font-size:15px}.title{font-size:42px}.copy{font-size:18px}
+  </style>
+  <rect x="1" y="1" width="1198" height="228" rx="6" fill="#f2eee5" stroke="#cbc2b5" stroke-width="2"/>
+  <rect x="0" y="0" width="14" height="230" fill="#7b2d3e"/>
+  <text x="58" y="58" class="sans small">Interactive project index</text>
+  <text x="58" y="112" class="serif title">Live Lab</text>
+  <text x="58" y="151" class="sans copy">Six current experiments, their working questions, and the materials behind them.</text>
+  <text x="58" y="190" class="sans small">agents  ·  everyday tools  ·  access  ·  safety</text>
+  <line x1="870" y1="58" x2="1140" y2="58" stroke="#b7aea2"/>
+  <text x="870" y="104" class="serif" font-size="24">Open the interactive index</text>
+  <path d="M870 148 H1116 M1095 126 L1118 148 L1095 170" fill="none" stroke="#315b4e" stroke-width="3"/>
+  <rect x="870" y="186" width="76" height="8" fill="#7b2d3e"/><rect x="952" y="186" width="76" height="8" fill="#315b4e"/><rect x="1034" y="186" width="84" height="8" fill="#b7523a"/>
 </svg>
