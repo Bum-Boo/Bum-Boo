@@ -1,5 +1,6 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { Input, MP4, UrlSource, VideoSampleSink } from "mediabunny";
 
 const researchNodes = [
   { id: "ai", label: "AI", angle: -90, color: "vermilion", question: "How can intelligence become a material for everyday experience?" },
@@ -28,19 +29,47 @@ const prefersReducedMotion = ref(false);
 const viewportWidth = ref(1280);
 const scrubTrack = ref(null);
 const scrubVideo = ref(null);
+const scrubCanvas = ref(null);
 const scrubProgress = ref(0);
+const compositorReady = ref(false);
+const compositorBackend = ref("media");
 let motionPreference;
 let scrollAnimationFrame = 0;
 let trackObserver = null;
 let trackInRange = true;
 let targetProgress = 0;
 let lastScrubTimestamp = 0;
+let scrubVelocity = 0;
+let decoderGeneration = 0;
+let activeSeekToken = 0;
+let seekInFlight = false;
+let pendingMediaTime = 0;
+let frameCallbackId = null;
+let seekFallbackFrame = 0;
+let compositorContext = null;
+let compositorStats = { issued: 0, committed: 0, dropped: 0, coalesced: 0 };
+let compositorDuration = 0;
+let webCodecInput = null;
+let webCodecSink = null;
+let webCodecInFlight = false;
+let webCodecInitializing = false;
+let webCodecSource = null;
+let webCodecLastFrame = -1;
+
+const SEEK_THRESHOLD = 1 / 48;
+const STALE_FRAME_TOLERANCE = 0.45;
+const MAX_WEB_CODEC_FRAME_LEAP = 36;
+const SPRING_STIFFNESS = 185;
+const SPRING_DAMPING = 2 * Math.sqrt(SPRING_STIFFNESS);
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const selectedNode = computed(() => researchNodes.find((node) => node.id === activeNode.value));
 const visibleExperiments = computed(() => experiments.filter((item) => activeFilter.value === "all" || item.category === activeFilter.value));
 const featuredExperiment = computed(() => visibleExperiments.value.find((item) => item.id === activeExperiment.value) ?? visibleExperiments.value[0]);
 const hasScrubVideo = computed(() => !prefersReducedMotion.value && Boolean(featuredExperiment.value.video));
+const activeVideoSource = computed(() => viewportWidth.value >= 900 && featuredExperiment.value.videoFull
+  ? featuredExperiment.value.videoFull
+  : featuredExperiment.value.video);
 const totalFrames = computed(() => Math.max(1, featuredExperiment.value.frames || 1));
 const scrubPercent = computed(() => Math.round(scrubProgress.value * 100));
 const scrubDistance = computed(() => {
@@ -77,34 +106,288 @@ const stageMotionStyle = computed(() => {
 });
 const experimentNumber = (item) => String(experiments.findIndex((experiment) => experiment.id === item.id) + 1).padStart(2, "0");
 
+const updateCompositorMetrics = () => {
+  const track = scrubTrack.value;
+  if (!track) return;
+  track.dataset.compositor = compositorBackend.value;
+  track.dataset.mediaTime = Number.isFinite(pendingMediaTime) ? pendingMediaTime.toFixed(3) : "0.000";
+  track.dataset.seekIssued = String(compositorStats.issued);
+  track.dataset.frameCommitted = String(compositorStats.committed);
+  track.dataset.frameDropped = String(compositorStats.dropped);
+  track.dataset.seekCoalesced = String(compositorStats.coalesced);
+};
+
+const resetFrameCompositor = () => {
+  const video = scrubVideo.value;
+  decoderGeneration += 1;
+  activeSeekToken += 1;
+  if (video && frameCallbackId !== null && video.cancelVideoFrameCallback) {
+    video.cancelVideoFrameCallback(frameCallbackId);
+  }
+  if (seekFallbackFrame) window.cancelAnimationFrame(seekFallbackFrame);
+  frameCallbackId = null;
+  seekFallbackFrame = 0;
+  seekInFlight = false;
+  pendingMediaTime = 0;
+  compositorDuration = 0;
+  compositorContext = null;
+  webCodecInput?.dispose();
+  webCodecInput = null;
+  webCodecSink = null;
+  webCodecInFlight = false;
+  webCodecInitializing = false;
+  webCodecSource = null;
+  webCodecLastFrame = -1;
+  compositorBackend.value = "media";
+  compositorReady.value = false;
+  compositorStats = { issued: 0, committed: 0, dropped: 0, coalesced: 0 };
+  updateCompositorMetrics();
+};
+
+const prepareCompositorContext = (width, height) => {
+  const canvas = scrubCanvas.value;
+  if (!canvas || !width || !height) return null;
+  if (canvas.width !== width || canvas.height !== height) {
+    canvas.width = width;
+    canvas.height = height;
+    compositorContext = null;
+  }
+  compositorContext ??= canvas.getContext("2d", { alpha: false, desynchronized: true });
+  return compositorContext;
+};
+
+const commitCompositorFrame = (mediaTime) => {
+  compositorReady.value = true;
+  compositorStats.committed += 1;
+  const track = scrubTrack.value;
+  if (track) track.dataset.committedTime = mediaTime.toFixed(3);
+};
+
+const drawDecodedFrame = (video, mediaTime = video.currentTime) => {
+  const compositor = prepareCompositorContext(video.videoWidth, video.videoHeight);
+  const canvas = scrubCanvas.value;
+  if (!compositor || !canvas) return false;
+  compositor.drawImage(video, 0, 0, canvas.width, canvas.height);
+  commitCompositorFrame(mediaTime);
+  return true;
+};
+
+const drawWebCodecFrame = (sample) => {
+  const compositor = prepareCompositorContext(sample.displayWidth, sample.displayHeight);
+  const canvas = scrubCanvas.value;
+  if (!compositor || !canvas) return false;
+  sample.draw(compositor, 0, 0, canvas.width, canvas.height);
+  commitCompositorFrame(sample.timestamp);
+  return true;
+};
+
+const pumpFrameDecoder = () => {
+  const video = scrubVideo.value;
+  if (compositorBackend.value === "webcodecs" || !video || !hasScrubVideo.value || video.readyState < 1 || !Number.isFinite(video.duration) || seekInFlight || video.seeking) return;
+  const desiredTime = clamp(pendingMediaTime, 0, Math.max(0, video.duration - 0.021));
+  if (Math.abs(video.currentTime - desiredTime) <= SEEK_THRESHOLD) {
+    if (!compositorReady.value && video.readyState >= 2) drawDecodedFrame(video, video.currentTime);
+    updateCompositorMetrics();
+    return;
+  }
+
+  seekInFlight = true;
+  const generation = decoderGeneration;
+  const token = ++activeSeekToken;
+  compositorStats.issued += 1;
+  updateCompositorMetrics();
+
+  const finishDecodedFrame = (mediaTime) => {
+    if (generation !== decoderGeneration || token !== activeSeekToken || video !== scrubVideo.value || !seekInFlight) return;
+    if (frameCallbackId !== null && video.cancelVideoFrameCallback) video.cancelVideoFrameCallback(frameCallbackId);
+    if (seekFallbackFrame) window.cancelAnimationFrame(seekFallbackFrame);
+    frameCallbackId = null;
+    seekFallbackFrame = 0;
+    const stale = compositorReady.value && Math.abs(pendingMediaTime - mediaTime) > STALE_FRAME_TOLERANCE;
+    if (stale) compositorStats.dropped += 1;
+    else drawDecodedFrame(video, mediaTime);
+    seekInFlight = false;
+    updateCompositorMetrics();
+    if (Math.abs(pendingMediaTime - mediaTime) > SEEK_THRESHOLD) {
+      window.requestAnimationFrame(pumpFrameDecoder);
+    }
+  };
+
+  if (video.requestVideoFrameCallback) {
+    frameCallbackId = video.requestVideoFrameCallback((_now, metadata) => finishDecodedFrame(metadata.mediaTime));
+  }
+  video.addEventListener("seeked", () => {
+    if (generation !== decoderGeneration || token !== activeSeekToken) return;
+    if (!seekInFlight) {
+      window.requestAnimationFrame(pumpFrameDecoder);
+      return;
+    }
+    seekFallbackFrame = window.requestAnimationFrame(() => finishDecodedFrame(video.currentTime));
+  }, { once: true });
+
+  try {
+    video.currentTime = desiredTime;
+  } catch {
+    seekInFlight = false;
+    frameCallbackId = null;
+  }
+};
+
+const useMediaFallback = (generation) => {
+  if (generation !== decoderGeneration) return;
+  webCodecInput?.dispose();
+  webCodecInput = null;
+  webCodecSink = null;
+  webCodecInFlight = false;
+  webCodecInitializing = false;
+  webCodecSource = null;
+  webCodecLastFrame = -1;
+  compositorBackend.value = "media";
+  const video = scrubVideo.value;
+  if (video && Number.isFinite(video.duration)) compositorDuration = video.duration;
+  updateCompositorMetrics();
+  pumpFrameDecoder();
+};
+
+const pumpWebCodecDecoder = async () => {
+  if (compositorBackend.value !== "webcodecs" || !webCodecSink || webCodecInFlight || !hasScrubVideo.value) return;
+  const generation = decoderGeneration;
+  const frameCount = totalFrames.value;
+  const frameDuration = compositorDuration / frameCount;
+  const targetFrame = clamp(Math.round(pendingMediaTime / frameDuration), 0, frameCount - 1);
+  const targetDelta = targetFrame - webCodecLastFrame;
+  const requestFrame = webCodecLastFrame >= 0 && Math.abs(targetDelta) > MAX_WEB_CODEC_FRAME_LEAP
+    ? webCodecLastFrame + Math.sign(targetDelta) * MAX_WEB_CODEC_FRAME_LEAP
+    : targetFrame;
+  if (requestFrame === webCodecLastFrame && compositorReady.value) return;
+  const requestTime = Math.min(compositorDuration - 0.001, (requestFrame + 0.5) * frameDuration);
+  webCodecInFlight = true;
+  compositorStats.issued += 1;
+  updateCompositorMetrics();
+
+  let sample = null;
+  try {
+    sample = await webCodecSink.getSample(requestTime);
+    if (generation !== decoderGeneration || compositorBackend.value !== "webcodecs") return;
+    if (!sample) throw new Error("No decoded frame returned");
+    const latestFrame = clamp(Math.round(pendingMediaTime / frameDuration), 0, frameCount - 1);
+    const stale = webCodecLastFrame >= 0
+      && Math.abs(latestFrame - requestFrame) >= Math.abs(latestFrame - webCodecLastFrame);
+    if (stale) compositorStats.dropped += 1;
+    else {
+      drawWebCodecFrame(sample);
+      webCodecLastFrame = requestFrame;
+    }
+  } catch (error) {
+    if (import.meta.env.DEV) console.warn("WebCodecs frame decode fell back to media", error);
+    if (generation === decoderGeneration) useMediaFallback(generation);
+    return;
+  } finally {
+    sample?.close();
+    if (generation === decoderGeneration) webCodecInFlight = false;
+  }
+
+  updateCompositorMetrics();
+  const latestFrame = clamp(Math.round(pendingMediaTime / frameDuration), 0, frameCount - 1);
+  if (latestFrame !== requestFrame) {
+    window.requestAnimationFrame(pumpWebCodecDecoder);
+  }
+};
+
+const initializeWebCodecCompositor = async () => {
+  const source = activeVideoSource.value;
+  const supportsWebCodecs = typeof window.VideoDecoder === "function" && typeof window.VideoFrame === "function";
+  if (!supportsWebCodecs || !source || !hasScrubVideo.value || webCodecInitializing || webCodecSource === source) return;
+
+  const generation = decoderGeneration;
+  const input = new Input({ formats: [MP4], source: new UrlSource(source) });
+  webCodecInitializing = true;
+  webCodecSource = source;
+  compositorBackend.value = "initializing";
+  updateCompositorMetrics();
+
+  try {
+    if (!await input.canRead()) throw new Error("Unreadable MP4 input");
+    const track = await input.getPrimaryVideoTrack();
+    if (!track || !await track.canDecode()) throw new Error("Unsupported video decoder");
+    const [width, height, metadataDuration] = await Promise.all([
+      track.getDisplayWidth(),
+      track.getDisplayHeight(),
+      track.getDurationFromMetadata(),
+    ]);
+    const duration = metadataDuration ?? await track.computeDuration();
+    if (generation !== decoderGeneration || source !== activeVideoSource.value) {
+      input.dispose();
+      return;
+    }
+
+    const video = scrubVideo.value;
+    activeSeekToken += 1;
+    if (video && frameCallbackId !== null && video.cancelVideoFrameCallback) video.cancelVideoFrameCallback(frameCallbackId);
+    if (seekFallbackFrame) window.cancelAnimationFrame(seekFallbackFrame);
+    frameCallbackId = null;
+    seekFallbackFrame = 0;
+    seekInFlight = false;
+
+    webCodecInput?.dispose();
+    webCodecInput = input;
+    webCodecSink = new VideoSampleSink(track, { optimizeForLatency: true });
+    compositorDuration = duration;
+    compositorBackend.value = "webcodecs";
+    prepareCompositorContext(width, height);
+    pendingMediaTime = scrubProgress.value * Math.max(0, duration - 0.021);
+    updateCompositorMetrics();
+    pumpWebCodecDecoder();
+  } catch (error) {
+    if (import.meta.env.DEV) console.warn("WebCodecs compositor initialization fell back to media", error);
+    input.dispose();
+    useMediaFallback(generation);
+  } finally {
+    if (generation === decoderGeneration) webCodecInitializing = false;
+  }
+};
+
+const requestCompositeFrame = (mediaTime) => {
+  const previousTarget = pendingMediaTime;
+  pendingMediaTime = mediaTime;
+  if (seekInFlight && Math.abs(previousTarget - mediaTime) > SEEK_THRESHOLD) compositorStats.coalesced += 1;
+  if (webCodecInFlight && Math.abs(previousTarget - mediaTime) > SEEK_THRESHOLD) compositorStats.coalesced += 1;
+  updateCompositorMetrics();
+  if (compositorBackend.value === "webcodecs") pumpWebCodecDecoder();
+  else pumpFrameDecoder();
+};
+
 const updateScrub = (timestamp) => {
   scrollAnimationFrame = 0;
   const track = scrubTrack.value;
-  const video = scrubVideo.value;
-  if (!track || !video || !hasScrubVideo.value) {
+  if (!track || !hasScrubVideo.value) {
     lastScrubTimestamp = 0;
     return;
   }
   const distance = Math.max(1, track.offsetHeight - window.innerHeight);
   targetProgress = clamp(-track.getBoundingClientRect().top / distance, 0, 1);
-  const elapsed = lastScrubTimestamp ? Math.min(64, timestamp - lastScrubTimestamp) : 16;
+  const elapsed = lastScrubTimestamp ? Math.min(50, timestamp - lastScrubTimestamp) : 16;
   lastScrubTimestamp = timestamp;
-  const easing = 1 - Math.exp(-elapsed / 110);
-  const progressDelta = targetProgress - scrubProgress.value;
-  const easedDelta = progressDelta * easing;
-  const maxProgressStep = elapsed / 720;
-  const appliedDelta = clamp(easedDelta, -maxProgressStep, maxProgressStep);
-  scrubProgress.value = Math.abs(progressDelta) < 0.0004 ? targetProgress : scrubProgress.value + appliedDelta;
-  let videoPending = false;
-  if (video.readyState >= 1 && Number.isFinite(video.duration)) {
-    const desiredTime = scrubProgress.value * Math.max(0, video.duration - 0.021);
-    const videoDelta = desiredTime - video.currentTime;
-    videoPending = Math.abs(videoDelta) > 0.012;
-    if (!video.seeking && videoPending) {
-      video.currentTime += clamp(videoDelta, -0.32, 0.32);
-    }
+  const totalDelta = elapsed / 1000;
+  const steps = Math.max(1, Math.ceil(totalDelta / (1 / 120)));
+  const stepDelta = totalDelta / steps;
+  let progress = scrubProgress.value;
+  for (let index = 0; index < steps; index += 1) {
+    const acceleration = SPRING_STIFFNESS * (targetProgress - progress) - SPRING_DAMPING * scrubVelocity;
+    scrubVelocity += acceleration * stepDelta;
+    progress += scrubVelocity * stepDelta;
   }
-  if (trackInRange && (Math.abs(targetProgress - scrubProgress.value) > 0.0005 || videoPending)) {
+  progress = clamp(progress, 0, 1);
+  const springSettled = Math.abs(targetProgress - progress) < 0.0004 && Math.abs(scrubVelocity) < 0.001;
+  if (springSettled) {
+    progress = targetProgress;
+    scrubVelocity = 0;
+  }
+  scrubProgress.value = progress;
+  if (compositorDuration > 0) {
+    requestCompositeFrame(progress * Math.max(0, compositorDuration - 0.021));
+  }
+  if (trackInRange && !springSettled) {
     scrollAnimationFrame = window.requestAnimationFrame(updateScrub);
   } else {
     lastScrubTimestamp = 0;
@@ -119,6 +402,7 @@ const scheduleScrub = () => {
 };
 
 const syncMotionPreference = (event) => {
+  resetFrameCompositor();
   prefersReducedMotion.value = event?.matches ?? motionPreference?.matches ?? false;
   nextTick(scheduleScrub);
 };
@@ -132,6 +416,15 @@ const onVideoMetadata = () => {
   const video = scrubVideo.value;
   if (!video) return;
   video.pause();
+  compositorDuration = video.duration;
+  initializeWebCodecCompositor();
+  scheduleScrub();
+};
+
+const onVideoData = () => {
+  const video = scrubVideo.value;
+  if (!video) return;
+  if (compositorBackend.value !== "webcodecs") drawDecodedFrame(video, video.currentTime);
   scheduleScrub();
 };
 
@@ -146,11 +439,14 @@ const nodePosition = (node) => {
   return { left: `${50 + Math.cos(radians) * radius}%`, top: `${50 + Math.sin(radians) * radius}%` };
 };
 
-watch(() => featuredExperiment.value.id, async () => {
+watch(() => [featuredExperiment.value.id, activeVideoSource.value], async () => {
+  resetFrameCompositor();
   targetProgress = 0;
   scrubProgress.value = 0;
+  scrubVelocity = 0;
   lastScrubTimestamp = 0;
   await nextTick();
+  initializeWebCodecCompositor();
   scheduleScrub();
 });
 
@@ -176,6 +472,7 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
+  resetFrameCompositor();
   if (scrollAnimationFrame) window.cancelAnimationFrame(scrollAnimationFrame);
   window.removeEventListener("scroll", scheduleScrub);
   window.removeEventListener("resize", syncViewport);
@@ -251,11 +548,14 @@ onBeforeUnmount(() => {
       <article ref="scrubTrack" class="experiment-scroll-track" :class="{ 'is-static': !hasScrubVideo }" :style="scrubTrackStyle" :data-progress="scrubProgress.toFixed(3)">
         <div class="experiment-focus" :style="stageMotionStyle">
           <div class="experiment-visual" :style="{ '--visual-position': featuredExperiment.visualPosition }" aria-hidden="true">
-            <video v-if="hasScrubVideo" ref="scrubVideo" :key="featuredExperiment.id" class="experiment-video" muted playsinline preload="auto" :poster="featuredExperiment.poster" tabindex="-1" @loadedmetadata="onVideoMetadata" @loadeddata="scheduleScrub">
-              <source v-if="featuredExperiment.videoFull" :src="featuredExperiment.videoFull" media="(min-width: 900px)" type="video/mp4">
-              <source :src="featuredExperiment.video" type="video/mp4">
-            </video>
-            <img v-else :key="featuredExperiment.poster" class="experiment-video-poster" :src="featuredExperiment.poster" alt="" draggable="false">
+            <div class="experiment-media-layer">
+              <template v-if="hasScrubVideo">
+                <img :key="`${featuredExperiment.id}-fallback`" class="experiment-video-poster experiment-frame-fallback" :src="featuredExperiment.poster" alt="" draggable="false">
+                <canvas ref="scrubCanvas" :key="`${featuredExperiment.id}-canvas`" class="experiment-frame-canvas" :class="{ ready: compositorReady }" />
+                <video ref="scrubVideo" :key="`${featuredExperiment.id}-${activeVideoSource}`" class="experiment-video-source" :src="activeVideoSource" muted playsinline preload="metadata" :poster="featuredExperiment.poster" tabindex="-1" @loadedmetadata="onVideoMetadata" @loadeddata="onVideoData" />
+              </template>
+              <img v-else :key="featuredExperiment.poster" class="experiment-video-poster" :src="featuredExperiment.poster" alt="" draggable="false">
+            </div>
             <div class="experiment-wash" />
             <div class="experiment-visual-shade" />
             <p class="kinetic-word">{{ featuredExperiment.motionWord }}</p>
