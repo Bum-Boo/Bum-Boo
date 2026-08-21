@@ -11,19 +11,26 @@ const researchNodes = [
 ];
 
 const experiments = [
-  { title: "Hermes Skill Library", category: "agents", status: "Growing library", description: "Reusable behaviors that turn an agent into a practical collaborator.", url: "https://github.com/Bum-Boo/hermes-skill-library", signal: "Workflow intelligence" },
-  { title: "BIGLOADER with AI Agent", category: "everyday", status: "Field test", description: "A non-developer-friendly Windows workspace for collecting and organizing media.", url: "https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent", signal: "Less workflow friction" },
-  { title: "Agent Change Gate", category: "agents", status: "Prototype", description: "A review-before-write layer that keeps durable AI changes inspectable.", url: "https://github.com/Bum-Boo/agent-change-gate", signal: "Human choice stays visible" },
-  { title: "Hermes Desktop Korean", category: "access", status: "Verified", description: "Localization as access design, backed by coverage and type checks.", url: "https://github.com/Bum-Boo/hermes-desktop-korean", signal: "Language as interface" },
-  { title: "BBCC", category: "everyday", status: "Working tool", description: "Controller shortcuts that turn repeated creative actions into muscle memory.", url: "https://github.com/Bum-Boo/BBCC", signal: "Physical interaction" },
-  { title: "BTS Sec", category: "safety", status: "Toolkit", description: "Defensive review tools for authorized projects and visible risk boundaries.", url: "https://github.com/Bum-Boo/BTS_sec", signal: "Trust by inspection" },
+  { id: "skill-library", mark: "H/S", variant: "variant-library", accent: "#ee695d", title: "Hermes Skill Library", category: "agents", status: "Growing library", description: "Reusable behaviors that turn an agent into a practical collaborator.", url: "https://github.com/Bum-Boo/hermes-skill-library", signal: "Workflow intelligence" },
+  { id: "bigloader", mark: "B+", variant: "variant-loader", accent: "#4b8e78", title: "BIGLOADER with AI Agent", category: "everyday", status: "Field test", description: "A non-developer-friendly Windows workspace for collecting and organizing media.", url: "https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent", signal: "Less workflow friction" },
+  { id: "change-gate", mark: "A|G", variant: "variant-gate", accent: "#9e3658", title: "Agent Change Gate", category: "agents", status: "Prototype", description: "A review-before-write layer that keeps durable AI changes inspectable.", url: "https://github.com/Bum-Boo/agent-change-gate", signal: "Human choice stays visible" },
+  { id: "desktop-korean", mark: "KR", variant: "variant-language", accent: "#4b8e78", title: "Hermes Desktop Korean", category: "access", status: "Verified", description: "Localization as access design, backed by coverage and type checks.", url: "https://github.com/Bum-Boo/hermes-desktop-korean", signal: "Language as interface" },
+  { id: "bbcc", mark: "×4", variant: "variant-control", accent: "#ee695d", title: "BBCC", category: "everyday", status: "Working tool", description: "Controller shortcuts that turn repeated creative actions into muscle memory.", url: "https://github.com/Bum-Boo/BBCC", signal: "Physical interaction" },
+  { id: "bts-sec", mark: "B/S", variant: "variant-safety", accent: "#8b2345", title: "BTS Sec", category: "safety", status: "Toolkit", description: "Defensive review tools for authorized projects and visible risk boundaries.", url: "https://github.com/Bum-Boo/BTS_sec", signal: "Trust by inspection" },
 ];
 
 const filters = ["all", "agents", "everyday", "access", "safety"];
 const activeNode = ref("daily-life");
 const activeFilter = ref("all");
+const activeExperiment = ref(experiments[0].id);
 const selectedNode = computed(() => researchNodes.find((node) => node.id === activeNode.value));
 const visibleExperiments = computed(() => experiments.filter((item) => activeFilter.value === "all" || item.category === activeFilter.value));
+const featuredExperiment = computed(() => visibleExperiments.value.find((item) => item.id === activeExperiment.value) ?? visibleExperiments.value[0]);
+const experimentNumber = (item) => String(experiments.findIndex((experiment) => experiment.id === item.id) + 1).padStart(2, "0");
+const setExperimentFilter = (filter) => {
+  activeFilter.value = filter;
+  activeExperiment.value = experiments.find((item) => filter === "all" || item.category === filter)?.id;
+};
 const nodePosition = (node) => {
   const radius = 41;
   const radians = node.angle * Math.PI / 180;
@@ -83,12 +90,39 @@ const nodePosition = (node) => {
         <h2>Selected experiments</h2>
         <p>Small, working attempts to remove friction or make a complex system easier to understand.</p>
       </div>
-      <div class="filter-bar"><button v-for="item in filters" :key="item" :class="{ selected: activeFilter === item }" @click="activeFilter = item">{{ item }}</button></div>
-      <div class="experiment-grid">
-        <a v-for="item in visibleExperiments" :key="item.title" class="experiment-card" :href="item.url" target="_blank" rel="noreferrer">
-          <p class="card-meta">{{ item.status }} · {{ item.signal }}</p>
-          <h3>{{ item.title }}</h3><p>{{ item.description }}</p><span>View project ↗</span>
-        </a>
+      <div class="filter-bar" aria-label="Filter experiments">
+        <button v-for="item in filters" :key="item" :class="{ selected: activeFilter === item }" :aria-pressed="activeFilter === item" @click="setExperimentFilter(item)">{{ item }}</button>
+      </div>
+      <div class="experiment-lab">
+        <div class="experiment-index" aria-label="Choose an experiment">
+          <button v-for="item in visibleExperiments" :key="item.id" class="experiment-select" :class="{ selected: featuredExperiment.id === item.id }" :aria-pressed="featuredExperiment.id === item.id" @click="activeExperiment = item.id">
+            <span class="experiment-number">{{ experimentNumber(item) }}</span>
+            <span class="experiment-label"><strong>{{ item.title }}</strong><small>{{ item.signal }}</small></span>
+            <span class="experiment-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+        <Transition name="project-shift" mode="out-in">
+          <article :key="featuredExperiment.id" class="experiment-focus" :class="featuredExperiment.variant" :style="{ '--project-accent': featuredExperiment.accent }">
+            <div class="experiment-visual" aria-hidden="true">
+              <span class="project-mark">{{ featuredExperiment.mark }}</span>
+              <i class="project-shape project-shape-a" /><i class="project-shape project-shape-b" />
+              <span class="project-category">{{ featuredExperiment.category }}</span>
+            </div>
+            <div class="experiment-story">
+              <div class="experiment-story-main">
+                <p class="eyebrow">Project {{ experimentNumber(featuredExperiment) }} of {{ String(experiments.length).padStart(2, "0") }}</p>
+                <h3>{{ featuredExperiment.title }}</h3>
+                <p>{{ featuredExperiment.description }}</p>
+                <a :href="featuredExperiment.url" target="_blank" rel="noreferrer">Open repository <span aria-hidden="true">→</span></a>
+              </div>
+              <dl class="experiment-facts">
+                <div><dt>State</dt><dd>{{ featuredExperiment.status }}</dd></div>
+                <div><dt>Focus</dt><dd>{{ featuredExperiment.signal }}</dd></div>
+                <div><dt>Field</dt><dd>{{ featuredExperiment.category }}</dd></div>
+              </dl>
+            </div>
+          </article>
+        </Transition>
       </div>
     </section>
 
