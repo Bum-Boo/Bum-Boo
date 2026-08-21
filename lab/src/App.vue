@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
 
 const researchNodes = [
   { id: "ai", label: "AI", angle: -90, color: "vermilion", question: "How can intelligence become a material for everyday experience?" },
@@ -10,15 +10,16 @@ const researchNodes = [
   { id: "daily-life", label: "Daily life", angle: 210, color: "viridian", question: "What small friction is worth redesigning today?" },
 ];
 
-const assetUrl = (file) => `${import.meta.env.BASE_URL}assets/${file}`;
+const assetUrl = (file) => new URL(`${import.meta.env.BASE_URL}assets/${file}`, document.baseURI).href;
+const SCRUB_FPS = 24;
 
 const experiments = [
-  { id: "skill-library", title: "Hermes Skill Library", category: "agents", status: "Growing library", description: "Reusable behaviors that turn an agent into a practical collaborator.", url: "https://github.com/Bum-Boo/hermes-skill-library", signal: "Workflow intelligence", video: assetUrl("experiment-material-loop.mp4"), poster: assetUrl("experiment-material-loop-poster.webp"), visualPosition: "center" },
-  { id: "bigloader", title: "BIGLOADER with AI Agent", category: "everyday", status: "Field test", description: "A non-developer-friendly Windows workspace for collecting and organizing media.", url: "https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent", signal: "Less workflow friction", video: assetUrl("experiment-bigloader-relay-loop.mp4"), poster: assetUrl("experiment-bigloader-relay-poster.webp"), visualPosition: "46% center" },
-  { id: "change-gate", title: "Agent Change Gate", category: "agents", status: "Prototype", description: "A review-before-write layer that keeps durable AI changes inspectable.", url: "https://github.com/Bum-Boo/agent-change-gate", signal: "Human choice stays visible", video: assetUrl("experiment-change-gate-loop.mp4"), poster: assetUrl("experiment-change-gate-poster.webp"), visualPosition: "center" },
-  { id: "desktop-korean", title: "Hermes Desktop Korean", category: "access", status: "Verified", description: "Localization as access design, backed by coverage and type checks.", url: "https://github.com/Bum-Boo/hermes-desktop-korean", signal: "Language as interface", video: null, poster: assetUrl("experiment-language-hanji-poster.webp"), visualPosition: "56% center" },
-  { id: "bbcc", title: "BBCC", category: "everyday", status: "Working tool", description: "Controller shortcuts that turn repeated creative actions into muscle memory.", url: "https://github.com/Bum-Boo/BBCC", signal: "Physical interaction", video: assetUrl("experiment-bbcc-sukajan-loop.mp4"), poster: assetUrl("experiment-bbcc-sukajan-poster.webp"), visualPosition: "center" },
-  { id: "bts-sec", title: "BTS Sec", category: "safety", status: "Toolkit", description: "Defensive review tools for authorized projects and visible risk boundaries.", url: "https://github.com/Bum-Boo/BTS_sec", signal: "Trust by inspection", video: assetUrl("experiment-bts-tiger-v2-loop.mp4"), poster: assetUrl("experiment-bts-tiger-v2-poster.webp"), visualPosition: "58% center" },
+  { id: "skill-library", title: "Hermes Skill Library", category: "agents", status: "Growing library", description: "Reusable behaviors that turn an agent into a practical collaborator.", url: "https://github.com/Bum-Boo/hermes-skill-library", signal: "Workflow intelligence", video: assetUrl("experiment-material-loop.mp4"), videoFull: assetUrl("experiment-material-scroll-1080.mp4"), poster: assetUrl("experiment-material-loop-poster.webp"), visualPosition: "center", frames: 240 },
+  { id: "bigloader", title: "BIGLOADER with AI Agent", category: "everyday", status: "Field test", description: "A non-developer-friendly Windows workspace for collecting and organizing media.", url: "https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent", signal: "Less workflow friction", video: assetUrl("experiment-bigloader-relay-loop.mp4"), videoFull: assetUrl("experiment-bigloader-relay-scroll-1080.mp4"), poster: assetUrl("experiment-bigloader-relay-poster.webp"), visualPosition: "46% center", frames: 240 },
+  { id: "change-gate", title: "Agent Change Gate", category: "agents", status: "Prototype", description: "A review-before-write layer that keeps durable AI changes inspectable.", url: "https://github.com/Bum-Boo/agent-change-gate", signal: "Human choice stays visible", video: assetUrl("experiment-change-gate-loop.mp4"), videoFull: assetUrl("experiment-change-gate-scroll-1080.mp4"), poster: assetUrl("experiment-change-gate-poster.webp"), visualPosition: "center", frames: 214 },
+  { id: "desktop-korean", title: "Hermes Desktop Korean", category: "access", status: "Verified", description: "Localization as access design, backed by coverage and type checks.", url: "https://github.com/Bum-Boo/hermes-desktop-korean", signal: "Language as interface", video: null, videoFull: null, poster: assetUrl("experiment-language-hanji-poster.webp"), visualPosition: "56% center", frames: 0 },
+  { id: "bbcc", title: "BBCC", category: "everyday", status: "Working tool", description: "Controller shortcuts that turn repeated creative actions into muscle memory.", url: "https://github.com/Bum-Boo/BBCC", signal: "Physical interaction", video: assetUrl("experiment-bbcc-sukajan-loop.mp4"), videoFull: assetUrl("experiment-bbcc-sukajan-scroll-1080.mp4"), poster: assetUrl("experiment-bbcc-sukajan-poster.webp"), visualPosition: "center", frames: 234 },
+  { id: "bts-sec", title: "BTS Sec", category: "safety", status: "Toolkit", description: "Defensive review tools for authorized projects and visible risk boundaries.", url: "https://github.com/Bum-Boo/BTS_sec", signal: "Trust by inspection", video: assetUrl("experiment-bts-tiger-v2-loop.mp4"), videoFull: assetUrl("experiment-bts-tiger-v2-scroll-1080.mp4"), poster: assetUrl("experiment-bts-tiger-v2-poster.webp"), visualPosition: "58% center", frames: 240 },
 ];
 
 const filters = ["all", "agents", "everyday", "access", "safety"];
@@ -26,39 +27,138 @@ const activeNode = ref("daily-life");
 const activeFilter = ref("all");
 const activeExperiment = ref(experiments[0].id);
 const prefersReducedMotion = ref(false);
+const viewportWidth = ref(1280);
+const scrubTrack = ref(null);
+const scrubVideo = ref(null);
+const scrubProgress = ref(0);
+const scrubFrameNumber = ref(1);
 let motionPreference;
-const syncMotionPreference = (event) => {
-  prefersReducedMotion.value = event?.matches ?? motionPreference?.matches ?? false;
-};
-onMounted(() => {
-  motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
-  syncMotionPreference(motionPreference);
-  if (motionPreference.addEventListener) motionPreference.addEventListener("change", syncMotionPreference);
-  else motionPreference.addListener(syncMotionPreference);
-});
-onBeforeUnmount(() => {
-  if (!motionPreference) return;
-  if (motionPreference.removeEventListener) motionPreference.removeEventListener("change", syncMotionPreference);
-  else motionPreference.removeListener(syncMotionPreference);
-});
+let scrollAnimationFrame = 0;
+let monitoredVideo = null;
+let videoFrameCallbackId = null;
+let trackObserver = null;
+let trackInRange = true;
+
+const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const selectedNode = computed(() => researchNodes.find((node) => node.id === activeNode.value));
 const visibleExperiments = computed(() => experiments.filter((item) => activeFilter.value === "all" || item.category === activeFilter.value));
 const featuredExperiment = computed(() => visibleExperiments.value.find((item) => item.id === activeExperiment.value) ?? visibleExperiments.value[0]);
+const hasScrubVideo = computed(() => !prefersReducedMotion.value && Boolean(featuredExperiment.value.video));
+const totalFrames = computed(() => Math.max(1, featuredExperiment.value.frames || 1));
+const scrubPercent = computed(() => Math.round(scrubProgress.value * 100));
+const scrubDistance = computed(() => hasScrubVideo.value ? totalFrames.value * (viewportWidth.value < 700 ? 8 : 11) : 0);
+const scrubTrackStyle = computed(() => ({ "--scrub-distance": `${scrubDistance.value}px` }));
 const experimentNumber = (item) => String(experiments.findIndex((experiment) => experiment.id === item.id) + 1).padStart(2, "0");
+
+const stopFrameMonitor = () => {
+  if (monitoredVideo && videoFrameCallbackId !== null && monitoredVideo.cancelVideoFrameCallback) {
+    monitoredVideo.cancelVideoFrameCallback(videoFrameCallbackId);
+  }
+  monitoredVideo = null;
+  videoFrameCallbackId = null;
+};
+
+const startFrameMonitor = (video) => {
+  stopFrameMonitor();
+  if (!video?.requestVideoFrameCallback) return;
+  monitoredVideo = video;
+  const observeFrame = (_now, metadata) => {
+    if (video !== scrubVideo.value) return;
+    const presentedFrame = Math.round(metadata.mediaTime * SCRUB_FPS) + 1;
+    scrubFrameNumber.value = clamp(presentedFrame, 1, totalFrames.value);
+    videoFrameCallbackId = video.requestVideoFrameCallback(observeFrame);
+  };
+  videoFrameCallbackId = video.requestVideoFrameCallback(observeFrame);
+};
+
+const updateScrub = () => {
+  scrollAnimationFrame = 0;
+  const track = scrubTrack.value;
+  const video = scrubVideo.value;
+  if (!track || !video || !hasScrubVideo.value) return;
+  const distance = Math.max(1, track.offsetHeight - window.innerHeight);
+  const progress = clamp(-track.getBoundingClientRect().top / distance, 0, 1);
+  const targetFrame = Math.min(totalFrames.value - 1, Math.round(progress * (totalFrames.value - 1)));
+  scrubProgress.value = progress;
+  scrubFrameNumber.value = targetFrame + 1;
+  if (video.readyState < 1 || !Number.isFinite(video.duration)) return;
+  const frameTime = targetFrame === 0 ? 0 : (targetFrame + 0.5) / SCRUB_FPS;
+  const targetTime = Math.min(Math.max(0, video.duration - 0.001), frameTime);
+  if (Math.abs(video.currentTime - targetTime) > 1 / (SCRUB_FPS * 2)) video.currentTime = targetTime;
+};
+
+const scheduleScrub = () => {
+  if (trackInRange && !scrollAnimationFrame) scrollAnimationFrame = window.requestAnimationFrame(updateScrub);
+};
+
+const syncMotionPreference = (event) => {
+  prefersReducedMotion.value = event?.matches ?? motionPreference?.matches ?? false;
+  nextTick(scheduleScrub);
+};
+
+const syncViewport = () => {
+  viewportWidth.value = window.innerWidth;
+  scheduleScrub();
+};
+
+const onVideoMetadata = () => {
+  const video = scrubVideo.value;
+  if (!video) return;
+  video.pause();
+  startFrameMonitor(video);
+  scheduleScrub();
+};
+
 const setExperimentFilter = (filter) => {
   activeFilter.value = filter;
   activeExperiment.value = experiments.find((item) => filter === "all" || item.category === filter)?.id;
 };
+
 const nodePosition = (node) => {
   const radius = 41;
   const radians = node.angle * Math.PI / 180;
   return { left: `${50 + Math.cos(radians) * radius}%`, top: `${50 + Math.sin(radians) * radius}%` };
 };
+
+watch(() => featuredExperiment.value.id, async () => {
+  stopFrameMonitor();
+  scrubProgress.value = 0;
+  scrubFrameNumber.value = 1;
+  await nextTick();
+  scheduleScrub();
+});
+
+onMounted(() => {
+  motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  syncMotionPreference(motionPreference);
+  if (motionPreference.addEventListener) motionPreference.addEventListener("change", syncMotionPreference);
+  else motionPreference.addListener(syncMotionPreference);
+  viewportWidth.value = window.innerWidth;
+  window.addEventListener("scroll", scheduleScrub, { passive: true });
+  window.addEventListener("resize", syncViewport, { passive: true });
+  trackObserver = new IntersectionObserver(([entry]) => {
+    trackInRange = entry.isIntersecting;
+    if (trackInRange) scheduleScrub();
+  }, { rootMargin: "100% 0px" });
+  if (scrubTrack.value) trackObserver.observe(scrubTrack.value);
+  scheduleScrub();
+});
+
+onBeforeUnmount(() => {
+  stopFrameMonitor();
+  if (scrollAnimationFrame) window.cancelAnimationFrame(scrollAnimationFrame);
+  window.removeEventListener("scroll", scheduleScrub);
+  window.removeEventListener("resize", syncViewport);
+  trackObserver?.disconnect();
+  if (!motionPreference) return;
+  if (motionPreference.removeEventListener) motionPreference.removeEventListener("change", syncMotionPreference);
+  else motionPreference.removeListener(syncMotionPreference);
+});
 </script>
 
 <template>
   <main>
-    <header class="hero">
+    <header class="hero" :style="{ '--hero-image': `url(${assetUrl('banner.webp')})` }">
       <nav><a href="https://github.com/Bum-Boo">Bum-Boo on GitHub</a></nav>
       <div class="hero-copy">
         <p class="eyebrow">Independent AI design practice</p>
@@ -89,11 +189,11 @@ const nodePosition = (node) => {
 
     <section class="material-study">
       <figure class="material-field">
-        <img src="/assets/material-field.webp" alt="Tactile collage of paper, copper wire, circuit traces, and colored material samples">
+        <img :src="assetUrl('material-field.webp')" alt="Tactile collage of paper, copper wire, circuit traces, and colored material samples">
         <figcaption>Material study 01 · Signals, surfaces, and imperfect connections</figcaption>
       </figure>
       <figure class="material-sample">
-        <img src="/assets/material-study.webp" alt="Tabletop study of vellum, graphite, thread, circuit fragments, and hand-cut paper">
+        <img :src="assetUrl('material-study.webp')" alt="Tabletop study of vellum, graphite, thread, circuit fragments, and hand-cut paper">
       </figure>
       <div class="material-copy">
         <p class="eyebrow">Working with more than screens</p>
@@ -106,25 +206,27 @@ const nodePosition = (node) => {
     <section id="experiments" class="experiment-section">
       <div class="section-intro projects-intro">
         <h2>Selected experiments</h2>
-        <p>Small, working attempts to remove friction or make a complex system easier to understand.</p>
+        <p>Choose a project, then scroll through its film one frame at a time. The scene stays fixed until the sequence is complete.</p>
       </div>
       <div class="filter-bar" aria-label="Filter experiments">
         <button v-for="item in filters" :key="item" :class="{ selected: activeFilter === item }" :aria-pressed="activeFilter === item" @click="setExperimentFilter(item)">{{ item }}</button>
       </div>
-      <div class="experiment-lab">
-        <div class="experiment-index" aria-label="Choose an experiment">
-          <button v-for="item in visibleExperiments" :key="item.id" class="experiment-select" :class="{ selected: featuredExperiment.id === item.id }" :aria-pressed="featuredExperiment.id === item.id" @click="activeExperiment = item.id">
-            <span class="experiment-number">{{ experimentNumber(item) }}</span>
-            <span class="experiment-label"><strong>{{ item.title }}</strong><small>{{ item.signal }}</small></span>
-            <span class="experiment-arrow" aria-hidden="true">→</span>
-          </button>
-        </div>
-        <article class="experiment-focus">
+      <div class="experiment-index" aria-label="Choose an experiment">
+        <button v-for="item in visibleExperiments" :key="item.id" class="experiment-select" :class="{ selected: featuredExperiment.id === item.id }" :aria-pressed="featuredExperiment.id === item.id" @click="activeExperiment = item.id">
+          <span class="experiment-number">{{ experimentNumber(item) }}</span>
+          <span class="experiment-label"><strong>{{ item.title }}</strong><small>{{ item.signal }}</small></span>
+          <span class="experiment-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+      <article ref="scrubTrack" class="experiment-scroll-track" :class="{ 'is-static': !hasScrubVideo }" :style="scrubTrackStyle" :data-progress="scrubProgress.toFixed(3)" :data-frame="scrubFrameNumber">
+        <div class="experiment-focus">
           <div class="experiment-visual" :style="{ '--visual-position': featuredExperiment.visualPosition }" aria-hidden="true">
-            <video v-if="!prefersReducedMotion && featuredExperiment.video" :key="featuredExperiment.video" class="experiment-video" autoplay muted loop playsinline preload="metadata" :poster="featuredExperiment.poster" tabindex="-1">
+            <video v-if="hasScrubVideo" ref="scrubVideo" :key="featuredExperiment.id" class="experiment-video" muted playsinline preload="auto" :poster="featuredExperiment.poster" tabindex="-1" @loadedmetadata="onVideoMetadata" @loadeddata="scheduleScrub">
+              <source v-if="featuredExperiment.videoFull" :src="featuredExperiment.videoFull" media="(min-width: 900px)" type="video/mp4">
               <source :src="featuredExperiment.video" type="video/mp4">
             </video>
             <img v-else :key="featuredExperiment.poster" class="experiment-video-poster" :src="featuredExperiment.poster" alt="" draggable="false">
+            <div class="experiment-visual-shade" />
           </div>
           <Transition name="project-shift" mode="out-in">
             <div :key="featuredExperiment.id" class="experiment-story">
@@ -141,8 +243,16 @@ const nodePosition = (node) => {
               </dl>
             </div>
           </Transition>
-        </article>
-      </div>
+          <div v-if="hasScrubVideo" class="scrub-controls" :class="{ active: scrubProgress > 0.02 }">
+            <span class="scrub-instruction">Scroll to move through the film</span>
+            <div class="scrub-progress" role="progressbar" aria-label="Film scroll progress" :aria-valuemin="0" :aria-valuemax="100" :aria-valuenow="scrubPercent" :aria-valuetext="`Frame ${scrubFrameNumber} of ${totalFrames}`">
+              <span :style="{ transform: `scaleX(${scrubProgress})` }" />
+            </div>
+            <span class="scrub-frame">{{ String(scrubFrameNumber).padStart(3, "0") }} / {{ String(totalFrames).padStart(3, "0") }}</span>
+          </div>
+          <p v-else-if="prefersReducedMotion && featuredExperiment.video" class="motion-note">Motion is reduced. A still frame is shown instead.</p>
+        </div>
+      </article>
     </section>
 
     <section class="manifesto">
