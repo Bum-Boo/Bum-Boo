@@ -91,8 +91,11 @@ h1{font-size:clamp(54px,7vw,112px);line-height:.96;letter-spacing:-.055em;margin
 .filter-bar button{background:none;border:0;border-bottom:1px solid transparent;padding:5px 0;color:var(--muted);text-transform:capitalize;cursor:pointer}
 .filter-bar button:hover,.filter-bar button.selected{color:#ece6e1;border-bottom-color:#ece6e1}
 .filter-bar button:focus-visible,.experiment-select:focus-visible,.experiment-story a:focus-visible,.stage-skip:focus-visible{outline:2px solid var(--vermilion);outline-offset:4px}
-.experiment-index{position:relative;z-index:2;display:flex;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:#655d5a transparent;margin:0 clamp(24px,5vw,96px);border-block:1px solid var(--line);background:#100f0f}
-.experiment-select{position:relative;display:grid;grid-template-columns:36px minmax(0,1fr) auto;flex:1 0 clamp(220px,21vw,330px);gap:14px;align-items:center;min-height:112px;padding:22px 24px;border:0;border-right:1px solid var(--line);background:transparent;color:#d2c9c4;text-align:left;scroll-snap-align:start;cursor:pointer;transition:background .35s,color .35s,transform .35s}
+.experiment-index{position:relative;z-index:2;display:flex;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none;-ms-overflow-style:none;margin:0 clamp(24px,5vw,96px);border-block:1px solid var(--line);background:#100f0f;cursor:grab;user-select:none}
+.experiment-index::-webkit-scrollbar{display:none}
+.experiment-index.is-dragging{cursor:grabbing}
+.experiment-index .experiment-select{cursor:inherit}
+.experiment-select{position:relative;display:grid;grid-template-columns:36px minmax(0,1fr) auto;flex:1 0 clamp(220px,21vw,330px);gap:14px;align-items:center;min-height:112px;padding:22px 24px;border:0;border-right:1px solid var(--line);background:transparent;color:#d2c9c4;text-align:left;cursor:pointer;transition:background .35s,color .35s,transform .35s}
 .experiment-select::before{content:"";position:absolute;left:18px;right:18px;top:-1px;height:3px;background:var(--item-accent);transform:scaleX(0);transform-origin:left;transition:transform .35s}
 .experiment-select:hover{background:#171414;transform:translateY(-3px)}
 .experiment-select.selected{z-index:3;transform:translateY(-7px);background:#171414;background:color-mix(in srgb,var(--item-accent) 16%,#111);color:#f4efeb}

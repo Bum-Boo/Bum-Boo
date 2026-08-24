@@ -37,6 +37,7 @@ const viewportWidth = ref(1280);
 const scrubTrack = ref(null);
 const scrubVideo = ref(null);
 const scrubCanvas = ref(null);
+const experimentIndex = ref(null);
 const heroSection = ref(null);
 const materialStudy = ref(null);
 const manifestoSection = ref(null);
@@ -72,6 +73,12 @@ let pageMotionFrame = 0;
 let heroPointerTarget = { x: 0, y: 0 };
 let materialPointerTarget = { x: 0, y: 0 };
 let manifestoPointerTarget = { x: 0, y: 0 };
+let experimentDragPointerId = null;
+let experimentDragStartX = 0;
+let experimentDragStartScroll = 0;
+let experimentDragMoved = false;
+let suppressExperimentSelection = false;
+let suppressExperimentSelectionTimer = 0;
 
 const SEEK_THRESHOLD = 1 / 48;
 const STALE_FRAME_TOLERANCE = 0.45;
@@ -588,6 +595,59 @@ const setExperimentFilter = (filter) => {
   activeExperiment.value = experiments.find((item) => filter === "all" || item.category === filter)?.id;
 };
 
+const startExperimentDrag = (event) => {
+  const scroller = experimentIndex.value;
+  if (!scroller || event.pointerType === "touch" || event.button !== 0) return;
+  experimentDragPointerId = event.pointerId;
+  experimentDragStartX = event.clientX;
+  experimentDragStartScroll = scroller.scrollLeft;
+  experimentDragMoved = false;
+  window.addEventListener("pointermove", moveExperimentDrag, { passive: false });
+  window.addEventListener("pointerup", finishExperimentDrag);
+  window.addEventListener("pointercancel", finishExperimentDrag);
+};
+
+const moveExperimentDrag = (event) => {
+  const scroller = experimentIndex.value;
+  if (!scroller || event.pointerId !== experimentDragPointerId) return;
+  const delta = event.clientX - experimentDragStartX;
+  if (Math.abs(delta) > 4) {
+    if (!experimentDragMoved) {
+      experimentDragMoved = true;
+      scroller.classList.add("is-dragging");
+    }
+    event.preventDefault();
+  }
+  scroller.scrollLeft = experimentDragStartScroll - delta;
+};
+
+const finishExperimentDrag = (event) => {
+  const scroller = experimentIndex.value;
+  if (!scroller || event.pointerId !== experimentDragPointerId) return;
+  const moved = experimentDragMoved;
+  experimentDragPointerId = null;
+  experimentDragMoved = false;
+  scroller.classList.remove("is-dragging");
+  window.removeEventListener("pointermove", moveExperimentDrag);
+  window.removeEventListener("pointerup", finishExperimentDrag);
+  window.removeEventListener("pointercancel", finishExperimentDrag);
+  if (!moved) return;
+  suppressExperimentSelection = true;
+  if (suppressExperimentSelectionTimer) window.clearTimeout(suppressExperimentSelectionTimer);
+  suppressExperimentSelectionTimer = window.setTimeout(() => {
+    suppressExperimentSelection = false;
+    suppressExperimentSelectionTimer = 0;
+  }, 0);
+};
+
+const selectExperiment = (id, event) => {
+  if (suppressExperimentSelection) {
+    event.preventDefault();
+    return;
+  }
+  activeExperiment.value = id;
+};
+
 const nodePosition = (node) => {
   const radius = 41;
   const radians = node.angle * Math.PI / 180;
@@ -632,6 +692,10 @@ onBeforeUnmount(() => {
   if (materialPointerFrame) window.cancelAnimationFrame(materialPointerFrame);
   if (manifestoPointerFrame) window.cancelAnimationFrame(manifestoPointerFrame);
   if (pageMotionFrame) window.cancelAnimationFrame(pageMotionFrame);
+  if (suppressExperimentSelectionTimer) window.clearTimeout(suppressExperimentSelectionTimer);
+  window.removeEventListener("pointermove", moveExperimentDrag);
+  window.removeEventListener("pointerup", finishExperimentDrag);
+  window.removeEventListener("pointercancel", finishExperimentDrag);
   window.removeEventListener("scroll", scheduleScrub);
   window.removeEventListener("scroll", schedulePageMotion);
   window.removeEventListener("resize", syncViewport);
@@ -722,8 +786,8 @@ onBeforeUnmount(() => {
       <div class="filter-bar" aria-label="Filter experiments">
         <button v-for="item in filters" :key="item" :class="{ selected: activeFilter === item }" :aria-pressed="activeFilter === item" @click="setExperimentFilter(item)">{{ item }}</button>
       </div>
-      <div class="experiment-index" aria-label="Choose an experiment">
-        <button v-for="item in visibleExperiments" :key="item.id" class="experiment-select" :class="{ selected: featuredExperiment.id === item.id }" :style="{ '--item-accent': item.accent }" :aria-pressed="featuredExperiment.id === item.id" @click="activeExperiment = item.id">
+      <div ref="experimentIndex" class="experiment-index" aria-label="Choose an experiment" @pointerdown="startExperimentDrag">
+        <button v-for="item in visibleExperiments" :key="item.id" class="experiment-select" :class="{ selected: featuredExperiment.id === item.id }" :style="{ '--item-accent': item.accent }" :aria-pressed="featuredExperiment.id === item.id" @click="selectExperiment(item.id, $event)">
           <span class="experiment-number">{{ experimentNumber(item) }}</span>
           <span class="experiment-label"><strong>{{ item.title }}</strong><small>{{ item.signal }}</small></span>
           <span class="experiment-arrow" aria-hidden="true">→</span>
