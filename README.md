@@ -1,5 +1,7 @@
 # Bum-Boo
 
+[English](README.md) | [한국어](docs/readme/README.ko.md) | [日本語](docs/readme/README.ja.md) | [中文](docs/readme/README.zh-CN.md)
+
 <p align="center">
   <img src="assets/ai-design-lab-banner.webp" width="100%" alt="A design studio filled with paper, tools, screens, and experimental materials" />
 </p>
@@ -8,7 +10,7 @@ I’m building a practice in **AI experience design**: making AI useful beyond d
 
 My work moves between design, cognition, technology, media, and everyday routines. A desktop utility, an agent workflow, a local archive, a controller, or a small interface can all become ways to make an ordinary experience lighter and more capable.
 
-[**Enter the Live Lab →**](https://bum-boo.github.io/Bum-Boo/) · [한국어](docs/readme/README.ko.md) · [日本語](docs/readme/README.ja.md) · [简体中文](docs/readme/README.zh-CN.md)
+[**Enter the Live Lab →**](https://bum-boo.github.io/Bum-Boo/)
 
 <a href="https://bum-boo.github.io/Bum-Boo/">
   <img src="assets/live-lab-entry.svg" width="100%" alt="Open the interactive Bum-Boo Live Lab" />
@@ -128,6 +130,10 @@ The panel below is generated from public repository data. It shows a small factu
 - **Reversible by design.** Prefer drafts, branches, backups, and clear exits.
 - **Open-ended research.** Let the question choose the discipline and medium.
 - **Everyday delight.** Serious technology can still feel playful and humane.
+
+## Sharing and adaptation
+
+If you adapt or share this work, I’d appreciate a mention of [@Bum-Boo](https://github.com/Bum-Boo) and a link to the [original repository](https://github.com/Bum-Boo/Bum-Boo). This is a courteous request, separate from any applicable legal license requirements.
 
 ---
 
