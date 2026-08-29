@@ -10,7 +10,7 @@
   </style>
   <rect x="1" y="1" width="1198" height="388" rx="6" fill="#f3efe6" stroke="#cec5b8" stroke-width="2"/>
   <text x="56" y="58" class="serif" font-size="34">Studio note</text>
-  <text x="1144" y="58" text-anchor="end" class="sans date">Generated 2026-08-28 UTC from public GitHub data</text>
+  <text x="1144" y="58" text-anchor="end" class="sans date">Generated 2026-08-29 UTC from public GitHub data</text>
   <line x1="56" y1="82" x2="1144" y2="82" stroke="#c9c0b4"/>
   <g transform="translate(56 122)"><text class="sans label">Public repositories</text><text y="52" class="value">23</text></g>
   <g transform="translate(300 122)"><text class="sans label">Active in the last 30 days</text><text y="52" class="value">15</text></g>
@@ -21,18 +21,18 @@
   <text x="632" y="120" class="sans label">Recent public work</text>
   <g transform="translate(632 156)">
     <circle cx="5" cy="-5" r="5" fill="#7b2d3e"/>
-    <text x="24" y="0" class="name">kakaotalk-local-mcp</text>
-    <text x="486" y="0" text-anchor="end" class="meta">Python</text>
+    <text x="24" y="0" class="name">Bum-Boo</text>
+    <text x="486" y="0" text-anchor="end" class="meta">Vue</text>
   </g>
   <g transform="translate(632 194)">
     <circle cx="5" cy="-5" r="5" fill="#315b4e"/>
-    <text x="24" y="0" class="name">Himmel</text>
+    <text x="24" y="0" class="name">kakaotalk-local-mcp</text>
     <text x="486" y="0" text-anchor="end" class="meta">Python</text>
   </g>
   <g transform="translate(632 232)">
     <circle cx="5" cy="-5" r="5" fill="#b7523a"/>
-    <text x="24" y="0" class="name">Vaultwright</text>
-    <text x="486" y="0" text-anchor="end" class="meta">TypeScript</text>
+    <text x="24" y="0" class="name">Himmel</text>
+    <text x="486" y="0" text-anchor="end" class="meta">Python</text>
   </g>
   <text x="632" y="286" class="sans label">Working languages</text>
   <text x="632" y="320" class="name">TypeScript 8  ·  Python 6  ·  JavaScript 3  ·  Shell 2</text>
