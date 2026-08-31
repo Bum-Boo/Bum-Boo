@@ -10,7 +10,7 @@
   </style>
   <rect x="1" y="1" width="1198" height="388" rx="6" fill="#f3efe6" stroke="#cec5b8" stroke-width="2"/>
   <text x="56" y="58" class="serif" font-size="34">Studio note</text>
-  <text x="1144" y="58" text-anchor="end" class="sans date">Generated 2026-08-30 UTC from public GitHub data</text>
+  <text x="1144" y="58" text-anchor="end" class="sans date">Generated 2026-08-31 UTC from public GitHub data</text>
   <line x1="56" y1="82" x2="1144" y2="82" stroke="#c9c0b4"/>
   <g transform="translate(56 122)"><text class="sans label">Public repositories</text><text y="52" class="value">23</text></g>
   <g transform="translate(300 122)"><text class="sans label">Active in the last 30 days</text><text y="52" class="value">15</text></g>
