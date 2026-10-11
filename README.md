@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=Bum-Boo&label=visitors&color=8a2230&style=flat-square" alt="visitors" />
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=Bum-Boo.Bum-Boo&left_text=visitors&left_color=%230b3d2e&right_color=%238a2230" alt="visitors" />
   <a href="https://github.com/Bum-Boo?tab=followers"><img src="https://img.shields.io/github/followers/Bum-Boo?label=followers&style=flat-square&color=0b3d2e" alt="followers" /></a>
   <a href="https://github.com/Bum-Boo?tab=repositories"><img src="https://img.shields.io/github/stars/Bum-Boo?label=stars&style=flat-square&color=c9a046" alt="stars" /></a>
   <a href="docs/readme/README.ko.md"><img src="https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-README-1f7a5c?style=flat-square" alt="Korean README" /></a>
@@ -43,12 +43,12 @@ now: teaching robots to walk in the browser (ssok)
 <p align="center"><b><a href="https://bum-boo.github.io/ssok/">🎮 Play ssok in your browser</a></b>: snap parts together, wire the servos, write a few lines and press Run.</p>
 
 <p align="center">
-  <a href="https://github.com/Bum-Boo/ssok"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=ssok&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="ssok" /></a>
-  <a href="https://github.com/Bum-Boo/kakaotalk-local-mcp"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=kakaotalk-local-mcp&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="kakaotalk-local-mcp" /></a>
-  <a href="https://github.com/Bum-Boo/agent-change-gate"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=agent-change-gate&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="agent-change-gate" /></a>
-  <a href="https://github.com/Bum-Boo/hermes-comfyui-maker"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=hermes-comfyui-maker&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="hermes-comfyui-maker" /></a>
-  <a href="https://github.com/Bum-Boo/calmhome-sensor"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=calmhome-sensor&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="calmhome-sensor" /></a>
-  <a href="https://github.com/Bum-Boo/BBCC"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=BBCC&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="BBCC" /></a>
+  <a href="https://github.com/Bum-Boo/tamagent"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=tamagent&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="tamagent" /></a>
+  <a href="https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=BIGLOADER-with-Ai-agent&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="BIGLOADER-with-Ai-agent" /></a>
+  <a href="https://github.com/Bum-Boo/Vaultwright"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=Vaultwright&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="Vaultwright" /></a>
+  <a href="https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=Naver-Cafe-Posts-Downloader&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="Naver-Cafe-Posts-Downloader" /></a>
+  <a href="https://github.com/Bum-Boo/hermes-desktop-korean"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=hermes-desktop-korean&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="hermes-desktop-korean" /></a>
+  <a href="https://github.com/Bum-Boo/BBTxT"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=BBTxT&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="BBTxT" /></a>
 </p>
 
 <details>
@@ -57,14 +57,10 @@ now: teaching robots to walk in the browser (ssok)
 
 | | |
 |---|---|
-| 📥 [BIGLOADER](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent) | Saves public Instagram posts into tidy local folders. Made for office staff. |
-| 📚 [Naver Cafe Posts Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | Keeps cafe posts you can read as offline pages. |
-| 🔎 [BB TxT](https://github.com/Bum-Boo/BBTxT) | Searches text across a folder, fast. |
-| 🗂️ [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | Lets Codex review an Obsidian vault without editing your notes. |
-| 🐣 [Tamagent](https://github.com/Bum-Boo/tamagent) | Pixel companions that show what each Claude Code agent is doing. |
-| 🇰🇷 [hermes-desktop-korean](https://github.com/Bum-Boo/hermes-desktop-korean) | Korean translation for Hermes Desktop. |
 | 🧠 [hermes-skill-library](https://github.com/Bum-Boo/hermes-skill-library) | Skills for Hermes Agent, grouped by purpose. |
 | 💻 [frieren-os](https://github.com/Bum-Boo/frieren-os) | My Arch Linux and KDE Plasma desktop as a bootable ISO. |
+| 🎵 [mp32json](https://github.com/Bum-Boo/mp32json) | Turns audio into per-frame JSON for web visualizers. |
+| 🛡️ [BTS_sec](https://github.com/Bum-Boo/BTS_sec) | Defensive audit toolkit for web and local projects you are allowed to test. |
 
 </details>
 

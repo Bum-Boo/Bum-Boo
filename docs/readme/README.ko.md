@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=Bum-Boo&label=visitors&color=8a2230&style=flat-square" alt="visitors" />
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=Bum-Boo.Bum-Boo&left_text=visitors&left_color=%230b3d2e&right_color=%238a2230" alt="visitors" />
   <a href="https://github.com/Bum-Boo?tab=followers"><img src="https://img.shields.io/github/followers/Bum-Boo?label=followers&style=flat-square&color=0b3d2e" alt="followers" /></a>
   <a href="https://github.com/Bum-Boo?tab=repositories"><img src="https://img.shields.io/github/stars/Bum-Boo?label=stars&style=flat-square&color=c9a046" alt="stars" /></a>
   <a href="../../README.md"><img src="https://img.shields.io/badge/English-README-1f7a5c?style=flat-square" alt="English README" /></a>
@@ -43,12 +43,12 @@ now: teaching robots to walk in the browser (ssok)
 <p align="center"><b><a href="https://bum-boo.github.io/ssok/">🎮 브라우저에서 쏙 해 보기</a></b>: 부품을 끼우고 서보를 연결한 다음, 코드 몇 줄 쓰고 실행하면 로봇이 움직여요.</p>
 
 <p align="center">
-  <a href="https://github.com/Bum-Boo/ssok"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=ssok&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="ssok" /></a>
-  <a href="https://github.com/Bum-Boo/kakaotalk-local-mcp"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=kakaotalk-local-mcp&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="kakaotalk-local-mcp" /></a>
-  <a href="https://github.com/Bum-Boo/agent-change-gate"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=agent-change-gate&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="agent-change-gate" /></a>
-  <a href="https://github.com/Bum-Boo/hermes-comfyui-maker"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=hermes-comfyui-maker&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="hermes-comfyui-maker" /></a>
-  <a href="https://github.com/Bum-Boo/calmhome-sensor"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=calmhome-sensor&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="calmhome-sensor" /></a>
-  <a href="https://github.com/Bum-Boo/BBCC"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=BBCC&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="BBCC" /></a>
+  <a href="https://github.com/Bum-Boo/tamagent"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=tamagent&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="tamagent" /></a>
+  <a href="https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=BIGLOADER-with-Ai-agent&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="BIGLOADER-with-Ai-agent" /></a>
+  <a href="https://github.com/Bum-Boo/Vaultwright"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=Vaultwright&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="Vaultwright" /></a>
+  <a href="https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=Naver-Cafe-Posts-Downloader&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="Naver-Cafe-Posts-Downloader" /></a>
+  <a href="https://github.com/Bum-Boo/hermes-desktop-korean"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=hermes-desktop-korean&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="hermes-desktop-korean" /></a>
+  <a href="https://github.com/Bum-Boo/BBTxT"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=BBTxT&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="BBTxT" /></a>
 </p>
 
 <details>
@@ -57,14 +57,10 @@ now: teaching robots to walk in the browser (ssok)
 
 | | |
 |---|---|
-| 📥 [BIGLOADER](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent) | 인스타그램 공개 게시물을 계정별, 날짜별 폴더에 저장해요. 사무실 직원분용이에요. |
-| 📚 [Naver Cafe Posts Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | 읽을 수 있는 카페 글을 오프라인으로 볼 수 있게 저장해요. |
-| 🔎 [BB TxT](https://github.com/Bum-Boo/BBTxT) | 폴더 안의 글자를 빠르게 찾아요. |
-| 🗂️ [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | Codex가 옵시디언 볼트를 살펴보되 노트는 건드리지 않아요. |
-| 🐣 [Tamagent](https://github.com/Bum-Boo/tamagent) | Claude Code 에이전트가 뭘 하는지 픽셀 친구들이 보여 줘요. |
-| 🇰🇷 [hermes-desktop-korean](https://github.com/Bum-Boo/hermes-desktop-korean) | Hermes Desktop 한국어 번역이에요. |
 | 🧠 [hermes-skill-library](https://github.com/Bum-Boo/hermes-skill-library) | Hermes Agent용 스킬을 쓰임새별로 모았어요. |
 | 💻 [frieren-os](https://github.com/Bum-Boo/frieren-os) | 제 Arch Linux와 KDE Plasma 데스크톱을 부팅 가능한 ISO로 만들었어요. |
+| 🎵 [mp32json](https://github.com/Bum-Boo/mp32json) | 음악 파일을 웹 시각화용 프레임 JSON으로 바꿔요. |
+| 🛡️ [BTS_sec](https://github.com/Bum-Boo/BTS_sec) | 허가받은 웹과 로컬 프로젝트를 점검하는 방어용 도구예요. |
 
 </details>
 
