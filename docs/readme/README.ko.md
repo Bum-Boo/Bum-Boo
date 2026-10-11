@@ -7,10 +7,10 @@
 
 ## 쏙 (ssok)
 
-<a href="https://bum-boo.github.io/ssok/"><img src="../../assets/shots/ssok.webp" width="100%" alt="쏙 작업 화면. 빔과 서보로 조립한 인간형 로봇, 왼쪽 부품 목록, 오른쪽 서보 프로그램" /></a>
+<a href="https://bum-boo.github.io/ssok/"><img src="../../assets/shots/ssok-walk.gif" width="100%" alt="쏙 작업 화면 녹화. W 키를 누르는 동안 학습된 이족 로봇이 앞으로 걸어요. 왼쪽 부품 목록, 오른쪽 조작 패널" /></a>
 
 부품을 끼워 로봇을 만들고 서보를 연결한 다음, 코드 몇 줄(또는 블록)을 짜서 실행해 보세요.
-Godot로 만든 로봇 공작실이고 브라우저에서 바로 열려요.
+Godot로 만든 로봇 공작실이고 브라우저에서 바로 열려요. 위 영상은 학습된 걸음새를 W 키로 움직이는 장면이에요.
 **[브라우저에서 해 보기](https://bum-boo.github.io/ssok/)** 또는 [소스 보기](https://github.com/Bum-Boo/ssok).
 
 ## 데스크톱 도구

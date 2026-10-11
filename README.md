@@ -7,10 +7,10 @@ Most of them run on your own computer and ask before they change anything.
 
 ## ssok
 
-<a href="https://bum-boo.github.io/ssok/"><img src="assets/shots/ssok.webp" width="100%" alt="ssok workshop: a humanoid robot built from beams and servos, the parts library on the left and a servo program on the right" /></a>
+<a href="https://bum-boo.github.io/ssok/"><img src="assets/shots/ssok-walk.gif" width="100%" alt="ssok workshop recording: the learned biped walks forward while W is held, with the parts library on the left and the controls panel on the right" /></a>
 
 Snap parts together, wire the servos, write a few lines (or use blocks) and press Run.
-A robotics workshop made in Godot that runs in the browser.
+A robotics workshop made in Godot that runs in the browser. Above is a learned walking gait, driven with the W key.
 **[Play it in the browser](https://bum-boo.github.io/ssok/)** or [read the source](https://github.com/Bum-Boo/ssok).
 
 ## Desktop tools
