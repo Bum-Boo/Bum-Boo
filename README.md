@@ -25,4 +25,4 @@
 | [hermes-skill-library](https://github.com/Bum-Boo/hermes-skill-library) | Skills for Hermes Agent, grouped by purpose. |
 | [frieren-os](https://github.com/Bum-Boo/frieren-os) | My Arch Linux + KDE Plasma desktop as a bootable ISO. |
 
-<sub>[YouTube](https://www.youtube.com/@Bum_boo-b8k) · [bumboo.fun](https://bumboo.fun) · [Live Lab](https://bum-boo.github.io/Bum-Boo/)</sub>
+<sub>[YouTube](https://www.youtube.com/@Bum_boo-b8k) · [bumboo.fun](https://bumboo.fun)</sub>

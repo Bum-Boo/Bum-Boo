@@ -27,4 +27,4 @@
 | [hermes-skill-library](https://github.com/Bum-Boo/hermes-skill-library) | Hermes Agent용 스킬을 쓰임새별로 모았어요. |
 | [frieren-os](https://github.com/Bum-Boo/frieren-os) | 제가 쓰는 Arch Linux + KDE Plasma 데스크톱을 부팅 가능한 ISO로 만들었어요. |
 
-<sub>[유튜브](https://www.youtube.com/@Bum_boo-b8k) · [bumboo.fun](https://bumboo.fun) · [Live Lab](https://bum-boo.github.io/Bum-Boo/)</sub>
+<sub>[유튜브](https://www.youtube.com/@Bum_boo-b8k) · [bumboo.fun](https://bumboo.fun)</sub>
