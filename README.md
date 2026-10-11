@@ -1,28 +1,35 @@
-<img src="assets/cards/banner.webp" width="100%" alt="Bum-Boo. An embroidered tiger patch reading Boo to the world, next to the line: I make AI tools for people who don't write code, and the little utilities I wanted for myself." />
+<img src="assets/banner.webp" width="100%" alt="Back of a green satin souvenir jacket with my embroidered patch: a leaping tiger, the word Boo, and the handwritten line to the world." />
 
-<p align="right"><a href="README.md">English</a> · <a href="docs/readme/README.ko.md">한국어</a></p>
+<p align="right"><a href="README.md">English</a> | <a href="docs/readme/README.ko.md">한국어</a></p>
 
-## On the workbench
+I make AI tools for people who don't write code, plus small utilities I wanted for myself.
+Most of them run on your own computer and ask before they change anything.
 
-<a href="https://bum-boo.github.io/ssok/"><img src="assets/cards/ssok.webp" width="49%" alt="ssok: build a robot from parts, wire the servos, press Run. Godot, plays in the browser." /></a>
-<a href="https://github.com/Bum-Boo/kakaotalk-local-mcp"><img src="assets/cards/kakao.webp" width="49%" alt="KakaoTalk MCP: Claude reads the KakaoTalk rooms you allow. Replies wait for your OK." /></a>
-<a href="https://github.com/Bum-Boo/agent-change-gate"><img src="assets/cards/gate.webp" width="49%" alt="Change Gate: an Obsidian plugin that shows the agent's edit as a diff before it touches your note." /></a>
-<a href="https://github.com/Bum-Boo/BBCC"><img src="assets/cards/bbcc.webp" width="49%" alt="BBCC: a game controller that becomes a shortcut pad for whatever app is in front." /></a>
-<a href="https://github.com/Bum-Boo/calmhome-sensor"><img src="assets/cards/calm.webp" width="49%" alt="CalmHome: room presence and long inactivity with radar instead of cameras. Home Assistant and ESPHome." /></a>
-<a href="https://github.com/Bum-Boo/hermes-comfyui-maker"><img src="assets/cards/comfy.webp" width="49%" alt="ComfyUI Maker: ask for an image in Telegram or Discord and get it back from your own GPU." /></a>
+## ssok
 
-**[Play ssok in the browser →](https://bum-boo.github.io/ssok/)**
+<a href="https://bum-boo.github.io/ssok/"><img src="assets/shots/ssok.webp" width="100%" alt="ssok workshop: a humanoid robot built from beams and servos, the parts library on the left and a servo program on the right" /></a>
 
-## Also in the drawer
+Snap parts together, wire the servos, write a few lines (or use blocks) and press Run.
+A robotics workshop made in Godot that runs in the browser.
+**[Play it in the browser](https://bum-boo.github.io/ssok/)** or [read the source](https://github.com/Bum-Boo/ssok).
 
-| Tool | What it does |
-|---|---|
-| [BIGLOADER](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent) | Saves public Instagram posts into tidy local folders. Built for office staff. |
-| [Naver Cafe Posts Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | Keeps Naver Cafe posts you can read as offline pages. |
-| [BB TxT](https://github.com/Bum-Boo/BBTxT) | Searches text across a folder, fast. |
-| [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | Lets Codex review an Obsidian vault without editing your notes. |
-| [hermes-desktop-korean](https://github.com/Bum-Boo/hermes-desktop-korean) | Korean translation for Hermes Desktop. |
-| [hermes-skill-library](https://github.com/Bum-Boo/hermes-skill-library) | Skills for Hermes Agent, grouped by purpose. |
-| [frieren-os](https://github.com/Bum-Boo/frieren-os) | My Arch Linux + KDE Plasma desktop as a bootable ISO. |
+## Desktop tools
 
-<sub>[YouTube](https://www.youtube.com/@Bum_boo-b8k) · [bumboo.fun](https://bumboo.fun)</sub>
+<a href="https://github.com/Bum-Boo/BBCC"><img src="assets/shots/bbcc.webp" width="49%" alt="BBCC with an 8BitDo Zero 2 connected and its YouTube button mappings" /></a>
+<a href="https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent"><img src="assets/shots/bigloader.webp" width="49%" alt="BIGLOADER feed view with demo posts and download buttons" /></a>
+
+- **[BBCC](https://github.com/Bum-Boo/BBCC)** turns a small game controller into a shortcut pad that switches with the app in front.
+- **[BIGLOADER](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent)** saves public Instagram posts into tidy local folders. I made it for office staff.
+- **[Naver Cafe Posts Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader)** keeps cafe posts you can read as offline pages.
+- **[BB TxT](https://github.com/Bum-Boo/BBTxT)** searches text across a folder, fast.
+
+## Agents and home
+
+- **[kakaotalk-local-mcp](https://github.com/Bum-Boo/kakaotalk-local-mcp)** lets Claude read the KakaoTalk rooms you allow. Replies wait for your approval.
+- **[agent-change-gate](https://github.com/Bum-Boo/agent-change-gate)** is an Obsidian plugin that shows the agent's edit as a diff before writing it.
+- **[calmhome-sensor](https://github.com/Bum-Boo/calmhome-sensor)** tells you whether someone is in the room, or still for too long, with radar instead of cameras.
+- **[hermes-comfyui-maker](https://github.com/Bum-Boo/hermes-comfyui-maker)** takes an image request from Telegram or Discord and answers from your own GPU.
+- **[Vaultwright](https://github.com/Bum-Boo/Vaultwright)** lets Codex review an Obsidian vault without editing your notes.
+- **[frieren-os](https://github.com/Bum-Boo/frieren-os)** is my Arch Linux and KDE Plasma desktop, built as a bootable ISO.
+
+<sub>Elsewhere: [YouTube](https://www.youtube.com/@Bum_boo-b8k), [bumboo.fun](https://bumboo.fun)</sub>
