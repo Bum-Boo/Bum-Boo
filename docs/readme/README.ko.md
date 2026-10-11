@@ -1,43 +1,121 @@
-<img src="../../assets/banner.webp" width="100%" alt="초록 새틴 스카잔 뒤판에 놓인 제 자수 패치. 뛰어오르는 호랑이와 Boo 글자, to the world 손글씨" />
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0b3d2e,55:1f7a5c,100:8a2230&height=210&section=header&text=Boo%20to%20the%20world&fontSize=54&fontColor=f1e7d0&fontAlignY=36&desc=Bum-Boo%27s%20workbench%20%F0%9F%90%AF&descSize=20&descAlignY=58&animation=fadeIn" width="100%" alt="Boo to the world" />
+</p>
 
-<p align="right"><a href="../../README.md">English</a> | <a href="README.ko.md">한국어</a></p>
+<p align="center">
+  <a href="https://github.com/Bum-Boo"><img src="https://readme-typing-svg.demolab.com?font=IBM+Plex+Sans+KR&weight=600&size=24&pause=1100&color=C9A046&center=true&vCenter=true&width=720&lines=AI+tools+for+people+who+don%27t+write+code+%F0%9F%90%AF;Robots+that+walk+in+your+browser+%F0%9F%A4%96;Runs+on+your+machine.+Asks+before+it+acts.+%F0%9F%8F%A0;%EC%BD%94%EB%93%9C+%EB%AA%B0%EB%9D%BC%EB%8F%84+%EC%93%B0%EB%8A%94+AI%EB%A5%BC+%EB%A7%8C%EB%93%A4%EC%96%B4%EC%9A%94+%E2%9C%A8" alt="Typing intro" /></a>
+</p>
 
-코드를 몰라도 쓸 수 있는 AI 도구와, 제가 필요해서 만든 작은 프로그램들이에요.
-대부분 내 컴퓨터에서 돌아가고, 무언가 바꾸기 전에 먼저 물어봐요.
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Bum-Boo&label=visitors&color=8a2230&style=flat-square" alt="visitors" />
+  <a href="https://github.com/Bum-Boo?tab=followers"><img src="https://img.shields.io/github/followers/Bum-Boo?label=followers&style=flat-square&color=0b3d2e" alt="followers" /></a>
+  <a href="https://github.com/Bum-Boo?tab=repositories"><img src="https://img.shields.io/github/stars/Bum-Boo?label=stars&style=flat-square&color=c9a046" alt="stars" /></a>
+  <a href="../../README.md"><img src="https://img.shields.io/badge/English-README-1f7a5c?style=flat-square" alt="English README" /></a>
+</p>
 
-## 제가 만들고 싶은 것
+<img src="../../assets/banner.webp" width="100%" alt="Back of a green satin souvenir jacket with my embroidered patch: a leaping tiger, the word Boo, and the handwritten line to the world." />
 
-<img src="../../assets/direction.webp" width="100%" alt="초록 새틴 위 자수 패치 세 개. 맞닿으려는 호랑이 발과 로봇 손, 노트에 체크 표시를 하는 호랑이, 불 켜진 작은 집 안에서 자는 호랑이" />
+## 🐯 소개
 
-- **호랑이 발과 로봇 손.** 코드를 몰라도 집어 들고 쓸 수 있는 AI.
-- **연필과 체크 표시.** 바꾸기 전에 무엇을 바꿀지 먼저 보여 주고 허락을 기다려요.
-- **불 켜진 창.** 내 컴퓨터에서 돌아가고, 내 데이터는 집에 그대로 있어요.
+```yaml
+name: Bum-Boo
+motto: boo to the world
+builds: AI tools for people who don't write code
+also_makes: [a robot workshop, desktop utilities, home sensors]
+house_rules:
+  - it runs on your own computer
+  - it shows the change, then asks
+  - it should feel a little playful
+now: teaching robots to walk in the browser (ssok)
+```
 
-## 쏙 (ssok)
+- 🧵 귀찮게 반복되는 일을 버튼 하나, 문장 하나로 줄이는 걸 좋아해요.
+- 🤖 제 도구는 대부분 사람과 AI 에이전트 사이에서, 결정은 사람이 하게 해요.
+- 🏠 내 컴퓨터 우선. 노트, 대화, 파일이 내 컴퓨터에 그대로 있어요.
+- ⭐ 시간을 아껴 준 게 있었다면 별 하나로 인사해 주세요.
 
-<a href="https://bum-boo.github.io/ssok/"><img src="../../assets/shots/ssok-walk.gif" width="100%" alt="쏙 작업 화면 녹화. W 키를 누르는 동안 학습된 이족 로봇이 앞으로 걸어요. 왼쪽 부품 목록, 오른쪽 조작 패널" /></a>
+<img src="../../assets/mood/needle.webp" width="100%" alt="Macro photo: a needle pulling burgundy thread through green satin" />
 
-부품을 끼워 로봇을 만들고 서보를 연결한 다음, 코드 몇 줄(또는 블록)을 짜서 실행해 보세요.
-Godot로 만든 로봇 공작실이고 브라우저에서 바로 열려요. 위 영상은 학습된 걸음새를 W 키로 움직이는 장면이에요.
-**[브라우저에서 해 보기](https://bum-boo.github.io/ssok/)** 또는 [소스 보기](https://github.com/Bum-Boo/ssok).
+## 🪡 지금 만드는 것
 
-## 데스크톱 도구
+<a href="https://bum-boo.github.io/ssok/"><img src="../../assets/shots/ssok-walk.gif" width="100%" alt="ssok workshop recording: the learned biped walks forward while W is held" /></a>
 
-<a href="https://github.com/Bum-Boo/BBCC"><img src="../../assets/shots/bbcc.webp" width="49%" alt="8BitDo Zero 2를 연결하고 유튜브용 버튼을 지정한 BBCC 화면" /></a>
-<a href="https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent"><img src="../../assets/shots/bigloader.webp" width="49%" alt="데모 게시물과 다운로드 버튼이 보이는 BIGLOADER 피드 화면" /></a>
+<p align="center"><b><a href="https://bum-boo.github.io/ssok/">🎮 브라우저에서 쏙 해 보기</a></b>: 부품을 끼우고 서보를 연결한 다음, 코드 몇 줄 쓰고 실행하면 로봇이 움직여요.</p>
 
-- **[BBCC](https://github.com/Bum-Boo/BBCC)**: 작은 게임 패드를 단축키 패드로 써요. 앞에 떠 있는 앱에 맞춰 버튼 설정이 바뀌어요.
-- **[BIGLOADER](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent)**: 인스타그램 공개 게시물을 계정별, 날짜별 폴더에 저장해요. 사무실 직원분용으로 만들었어요.
-- **[네이버 카페 글 보관함](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader)**: 읽을 수 있는 카페 글을 내 PC에 저장해 두고 오프라인으로 봐요.
-- **[BB TxT](https://github.com/Bum-Boo/BBTxT)**: 폴더 안의 글자를 빠르게 찾아요.
+<p align="center">
+  <a href="https://github.com/Bum-Boo/ssok"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=ssok&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="ssok" /></a>
+  <a href="https://github.com/Bum-Boo/kakaotalk-local-mcp"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=kakaotalk-local-mcp&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="kakaotalk-local-mcp" /></a>
+  <a href="https://github.com/Bum-Boo/agent-change-gate"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=agent-change-gate&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="agent-change-gate" /></a>
+  <a href="https://github.com/Bum-Boo/hermes-comfyui-maker"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=hermes-comfyui-maker&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="hermes-comfyui-maker" /></a>
+  <a href="https://github.com/Bum-Boo/calmhome-sensor"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=calmhome-sensor&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="calmhome-sensor" /></a>
+  <a href="https://github.com/Bum-Boo/BBCC"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=BBCC&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="BBCC" /></a>
+</p>
 
-## 에이전트와 집
+<details>
+<summary><b>🧰 서랍 속 도구 더 보기</b></summary>
+<br />
 
-- **[kakaotalk-local-mcp](https://github.com/Bum-Boo/kakaotalk-local-mcp)**: 허락한 카톡방만 Claude가 읽어요. 답장은 내가 승인해야 보내져요.
-- **[agent-change-gate](https://github.com/Bum-Boo/agent-change-gate)**: 에이전트가 고칠 내용을 먼저 비교 화면으로 보여 주는 옵시디언 플러그인이에요.
-- **[calmhome-sensor](https://github.com/Bum-Boo/calmhome-sensor)**: 카메라 없이 레이더로 방에 사람이 있는지, 오래 움직이지 않는지 알려 줘요.
-- **[hermes-comfyui-maker](https://github.com/Bum-Boo/hermes-comfyui-maker)**: 텔레그램이나 디스코드에서 부탁하면 내 GPU로 그린 이미지를 받아요.
-- **[Vaultwright](https://github.com/Bum-Boo/Vaultwright)**: Codex가 옵시디언 볼트를 살펴보되 기존 노트는 건드리지 않아요.
-- **[frieren-os](https://github.com/Bum-Boo/frieren-os)**: 제가 쓰는 Arch Linux와 KDE Plasma 데스크톱을 부팅 가능한 ISO로 만들었어요.
+| | |
+|---|---|
+| 📥 [BIGLOADER](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent) | 인스타그램 공개 게시물을 계정별, 날짜별 폴더에 저장해요. 사무실 직원분용이에요. |
+| 📚 [Naver Cafe Posts Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | 읽을 수 있는 카페 글을 오프라인으로 볼 수 있게 저장해요. |
+| 🔎 [BB TxT](https://github.com/Bum-Boo/BBTxT) | 폴더 안의 글자를 빠르게 찾아요. |
+| 🗂️ [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | Codex가 옵시디언 볼트를 살펴보되 노트는 건드리지 않아요. |
+| 🐣 [Tamagent](https://github.com/Bum-Boo/tamagent) | Claude Code 에이전트가 뭘 하는지 픽셀 친구들이 보여 줘요. |
+| 🇰🇷 [hermes-desktop-korean](https://github.com/Bum-Boo/hermes-desktop-korean) | Hermes Desktop 한국어 번역이에요. |
+| 🧠 [hermes-skill-library](https://github.com/Bum-Boo/hermes-skill-library) | Hermes Agent용 스킬을 쓰임새별로 모았어요. |
+| 💻 [frieren-os](https://github.com/Bum-Boo/frieren-os) | 제 Arch Linux와 KDE Plasma 데스크톱을 부팅 가능한 ISO로 만들었어요. |
 
-<sub>다른 곳: [유튜브](https://www.youtube.com/@Bum_boo-b8k), [bumboo.fun](https://bumboo.fun)</sub>
+</details>
+
+<img src="../../assets/mood/thread.webp" width="100%" alt="A single gold thread lying across dark green satin folds" />
+
+## 🛠️ 자주 쓰는 도구
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=py,ts,js,nodejs,react,vue,electron,godot,java,cs,powershell,bash,linux,arch,git,githubactions,obsidian,blender,figma,sqlite&perline=10" alt="Tech stack" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Claude_Code-0b3d2e?style=flat-square&logo=claude&logoColor=c9a046" alt="Claude Code" />
+  <img src="https://img.shields.io/badge/Codex-0b3d2e?style=flat-square&logo=openai&logoColor=c9a046" alt="Codex" />
+  <img src="https://img.shields.io/badge/Hermes_Agent-0b3d2e?style=flat-square&logoColor=c9a046" alt="Hermes Agent" />
+  <img src="https://img.shields.io/badge/MCP-0b3d2e?style=flat-square&logo=modelcontextprotocol&logoColor=c9a046" alt="MCP" />
+  <img src="https://img.shields.io/badge/Home_Assistant-0b3d2e?style=flat-square&logo=homeassistant&logoColor=c9a046" alt="Home Assistant" />
+  <img src="https://img.shields.io/badge/ComfyUI-0b3d2e?style=flat-square&logoColor=c9a046" alt="ComfyUI" />
+  <img src="https://img.shields.io/badge/KDE_Plasma-0b3d2e?style=flat-square&logo=kdeplasma&logoColor=c9a046" alt="KDE Plasma" />
+</p>
+
+## 📊 활동
+
+<p align="center">
+  <img height="170" src="https://github-readme-stats.vercel.app/api?username=Bum-Boo&show_icons=true&include_all_commits=true&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&rank_icon=github" alt="GitHub stats" />
+  <img height="170" src="https://streak-stats.demolab.com/?user=Bum-Boo&background=0B3D2E&border=1F7A5C&stroke=C9A046&ring=8A2230&fire=C9A046&currStreakNum=F1E7D0&sideNums=F1E7D0&currStreakLabel=C9A046&sideLabels=D8CFBC&dates=A89F8C" alt="Streak stats" />
+  <br />
+  <img width="55%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Bum-Boo&layout=compact&langs_count=8&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&border_color=1f7a5c" alt="Top languages" />
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Bum-Boo/Bum-Boo/output/snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Bum-Boo/Bum-Boo/output/snake-light.svg" />
+    <img src="https://raw.githubusercontent.com/Bum-Boo/Bum-Boo/output/snake-dark.svg" alt="A tiger-colored snake eating my contribution graph" />
+  </picture>
+</p>
+
+<img src="../../assets/mood/stripes.webp" width="100%" alt="Close-up of embroidered tiger fur stitches meeting plain green satin" />
+
+## 🫶 인사해요
+
+<p align="center">
+  <a href="https://www.youtube.com/@Bum_boo-b8k"><img src="https://img.shields.io/badge/YouTube-8a2230?style=for-the-badge&logo=youtube&logoColor=f1e7d0" alt="YouTube" /></a>
+  <a href="https://www.instagram.com/boo_to_world/"><img src="https://img.shields.io/badge/Instagram-8a2230?style=for-the-badge&logo=instagram&logoColor=f1e7d0" alt="Instagram" /></a>
+  <a href="https://bumboo.fun"><img src="https://img.shields.io/badge/bumboo.fun-0b3d2e?style=for-the-badge&logo=firefoxbrowser&logoColor=c9a046" alt="bumboo.fun" /></a>
+  <a href="https://github.com/Bum-Boo"><img src="https://img.shields.io/badge/Follow_on_GitHub-0b3d2e?style=for-the-badge&logo=github&logoColor=c9a046" alt="Follow on GitHub" /></a>
+</p>
+
+<p align="center"><i>⭐ 마음에 드는 저장소에 별을 눌러 주면 호랑이가 좋아해요. 🐯</i></p>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8a2230,45:1f7a5c,100:0b3d2e&height=120&section=footer&text=thanks%20for%20stopping%20by&fontSize=22&fontColor=f1e7d0&fontAlignY=68&animation=fadeIn" width="100%" alt="thanks for stopping by" />
+</p>

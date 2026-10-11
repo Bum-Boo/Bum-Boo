@@ -1,43 +1,121 @@
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0b3d2e,55:1f7a5c,100:8a2230&height=210&section=header&text=Boo%20to%20the%20world&fontSize=54&fontColor=f1e7d0&fontAlignY=36&desc=Bum-Boo%27s%20workbench%20%F0%9F%90%AF&descSize=20&descAlignY=58&animation=fadeIn" width="100%" alt="Boo to the world" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/Bum-Boo"><img src="https://readme-typing-svg.demolab.com?font=IBM+Plex+Sans+KR&weight=600&size=24&pause=1100&color=C9A046&center=true&vCenter=true&width=720&lines=AI+tools+for+people+who+don%27t+write+code+%F0%9F%90%AF;Robots+that+walk+in+your+browser+%F0%9F%A4%96;Runs+on+your+machine.+Asks+before+it+acts.+%F0%9F%8F%A0;%EC%BD%94%EB%93%9C+%EB%AA%B0%EB%9D%BC%EB%8F%84+%EC%93%B0%EB%8A%94+AI%EB%A5%BC+%EB%A7%8C%EB%93%A4%EC%96%B4%EC%9A%94+%E2%9C%A8" alt="Typing intro" /></a>
+</p>
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Bum-Boo&label=visitors&color=8a2230&style=flat-square" alt="visitors" />
+  <a href="https://github.com/Bum-Boo?tab=followers"><img src="https://img.shields.io/github/followers/Bum-Boo?label=followers&style=flat-square&color=0b3d2e" alt="followers" /></a>
+  <a href="https://github.com/Bum-Boo?tab=repositories"><img src="https://img.shields.io/github/stars/Bum-Boo?label=stars&style=flat-square&color=c9a046" alt="stars" /></a>
+  <a href="docs/readme/README.ko.md"><img src="https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-README-1f7a5c?style=flat-square" alt="Korean README" /></a>
+</p>
+
 <img src="assets/banner.webp" width="100%" alt="Back of a green satin souvenir jacket with my embroidered patch: a leaping tiger, the word Boo, and the handwritten line to the world." />
 
-<p align="right"><a href="README.md">English</a> | <a href="docs/readme/README.ko.md">한국어</a></p>
+## 🐯 About me
 
-I make AI tools for people who don't write code, plus small utilities I wanted for myself.
-Most of them run on your own computer and ask before they change anything.
+```yaml
+name: Bum-Boo
+motto: boo to the world
+builds: AI tools for people who don't write code
+also_makes: [a robot workshop, desktop utilities, home sensors]
+house_rules:
+  - it runs on your own computer
+  - it shows the change, then asks
+  - it should feel a little playful
+now: teaching robots to walk in the browser (ssok)
+```
 
-## What I'm after
+- 🧵 I like turning a fiddly, repeated chore into one button or one sentence.
+- 🤖 Most of my tools sit between a person and an AI agent and keep the human in charge.
+- 🏠 Local first: your notes, chats and files stay on your machine.
+- ⭐ If something here saves you time, a star is the nicest way to say hi.
 
-<img src="assets/direction.webp" width="100%" alt="Three embroidered patches on green satin: a tiger paw and a robot hand about to touch, a tiger checking off a page in a notebook, and a tiger asleep inside a small house with a lit window." />
+<img src="assets/mood/needle.webp" width="100%" alt="Macro photo: a needle pulling burgundy thread through green satin" />
 
-- **Paw meets robot hand.** AI that people who don't write code can pick up and use.
-- **Pencil and check mark.** The tool shows what it wants to change and waits for a yes.
-- **Lit window.** It runs on your own computer, and your data stays at home.
+## 🪡 What I'm building
 
-## ssok
+<a href="https://bum-boo.github.io/ssok/"><img src="assets/shots/ssok-walk.gif" width="100%" alt="ssok workshop recording: the learned biped walks forward while W is held" /></a>
 
-<a href="https://bum-boo.github.io/ssok/"><img src="assets/shots/ssok-walk.gif" width="100%" alt="ssok workshop recording: the learned biped walks forward while W is held, with the parts library on the left and the controls panel on the right" /></a>
+<p align="center"><b><a href="https://bum-boo.github.io/ssok/">🎮 Play ssok in your browser</a></b>: snap parts together, wire the servos, write a few lines and press Run.</p>
 
-Snap parts together, wire the servos, write a few lines (or use blocks) and press Run.
-A robotics workshop made in Godot that runs in the browser. Above is a learned walking gait, driven with the W key.
-**[Play it in the browser](https://bum-boo.github.io/ssok/)** or [read the source](https://github.com/Bum-Boo/ssok).
+<p align="center">
+  <a href="https://github.com/Bum-Boo/ssok"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=ssok&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="ssok" /></a>
+  <a href="https://github.com/Bum-Boo/kakaotalk-local-mcp"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=kakaotalk-local-mcp&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="kakaotalk-local-mcp" /></a>
+  <a href="https://github.com/Bum-Boo/agent-change-gate"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=agent-change-gate&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="agent-change-gate" /></a>
+  <a href="https://github.com/Bum-Boo/hermes-comfyui-maker"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=hermes-comfyui-maker&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="hermes-comfyui-maker" /></a>
+  <a href="https://github.com/Bum-Boo/calmhome-sensor"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=calmhome-sensor&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="calmhome-sensor" /></a>
+  <a href="https://github.com/Bum-Boo/BBCC"><img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Bum-Boo&repo=BBCC&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&description_lines_count=2" alt="BBCC" /></a>
+</p>
 
-## Desktop tools
+<details>
+<summary><b>🧰 More from the drawer</b></summary>
+<br />
 
-<a href="https://github.com/Bum-Boo/BBCC"><img src="assets/shots/bbcc.webp" width="49%" alt="BBCC with an 8BitDo Zero 2 connected and its YouTube button mappings" /></a>
-<a href="https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent"><img src="assets/shots/bigloader.webp" width="49%" alt="BIGLOADER feed view with demo posts and download buttons" /></a>
+| | |
+|---|---|
+| 📥 [BIGLOADER](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent) | Saves public Instagram posts into tidy local folders. Made for office staff. |
+| 📚 [Naver Cafe Posts Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader) | Keeps cafe posts you can read as offline pages. |
+| 🔎 [BB TxT](https://github.com/Bum-Boo/BBTxT) | Searches text across a folder, fast. |
+| 🗂️ [Vaultwright](https://github.com/Bum-Boo/Vaultwright) | Lets Codex review an Obsidian vault without editing your notes. |
+| 🐣 [Tamagent](https://github.com/Bum-Boo/tamagent) | Pixel companions that show what each Claude Code agent is doing. |
+| 🇰🇷 [hermes-desktop-korean](https://github.com/Bum-Boo/hermes-desktop-korean) | Korean translation for Hermes Desktop. |
+| 🧠 [hermes-skill-library](https://github.com/Bum-Boo/hermes-skill-library) | Skills for Hermes Agent, grouped by purpose. |
+| 💻 [frieren-os](https://github.com/Bum-Boo/frieren-os) | My Arch Linux and KDE Plasma desktop as a bootable ISO. |
 
-- **[BBCC](https://github.com/Bum-Boo/BBCC)** turns a small game controller into a shortcut pad that switches with the app in front.
-- **[BIGLOADER](https://github.com/Bum-Boo/BIGLOADER-with-Ai-agent)** saves public Instagram posts into tidy local folders. I made it for office staff.
-- **[Naver Cafe Posts Downloader](https://github.com/Bum-Boo/Naver-Cafe-Posts-Downloader)** keeps cafe posts you can read as offline pages.
-- **[BB TxT](https://github.com/Bum-Boo/BBTxT)** searches text across a folder, fast.
+</details>
 
-## Agents and home
+<img src="assets/mood/thread.webp" width="100%" alt="A single gold thread lying across dark green satin folds" />
 
-- **[kakaotalk-local-mcp](https://github.com/Bum-Boo/kakaotalk-local-mcp)** lets Claude read the KakaoTalk rooms you allow. Replies wait for your approval.
-- **[agent-change-gate](https://github.com/Bum-Boo/agent-change-gate)** is an Obsidian plugin that shows the agent's edit as a diff before writing it.
-- **[calmhome-sensor](https://github.com/Bum-Boo/calmhome-sensor)** tells you whether someone is in the room, or still for too long, with radar instead of cameras.
-- **[hermes-comfyui-maker](https://github.com/Bum-Boo/hermes-comfyui-maker)** takes an image request from Telegram or Discord and answers from your own GPU.
-- **[Vaultwright](https://github.com/Bum-Boo/Vaultwright)** lets Codex review an Obsidian vault without editing your notes.
-- **[frieren-os](https://github.com/Bum-Boo/frieren-os)** is my Arch Linux and KDE Plasma desktop, built as a bootable ISO.
+## 🛠️ Tools I reach for
 
-<sub>Elsewhere: [YouTube](https://www.youtube.com/@Bum_boo-b8k), [bumboo.fun](https://bumboo.fun)</sub>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=py,ts,js,nodejs,react,vue,electron,godot,java,cs,powershell,bash,linux,arch,git,githubactions,obsidian,blender,figma,sqlite&perline=10" alt="Tech stack" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Claude_Code-0b3d2e?style=flat-square&logo=claude&logoColor=c9a046" alt="Claude Code" />
+  <img src="https://img.shields.io/badge/Codex-0b3d2e?style=flat-square&logo=openai&logoColor=c9a046" alt="Codex" />
+  <img src="https://img.shields.io/badge/Hermes_Agent-0b3d2e?style=flat-square&logoColor=c9a046" alt="Hermes Agent" />
+  <img src="https://img.shields.io/badge/MCP-0b3d2e?style=flat-square&logo=modelcontextprotocol&logoColor=c9a046" alt="MCP" />
+  <img src="https://img.shields.io/badge/Home_Assistant-0b3d2e?style=flat-square&logo=homeassistant&logoColor=c9a046" alt="Home Assistant" />
+  <img src="https://img.shields.io/badge/ComfyUI-0b3d2e?style=flat-square&logoColor=c9a046" alt="ComfyUI" />
+  <img src="https://img.shields.io/badge/KDE_Plasma-0b3d2e?style=flat-square&logo=kdeplasma&logoColor=c9a046" alt="KDE Plasma" />
+</p>
+
+## 📊 Activity
+
+<p align="center">
+  <img height="170" src="https://github-readme-stats.vercel.app/api?username=Bum-Boo&show_icons=true&include_all_commits=true&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&rank_icon=github" alt="GitHub stats" />
+  <img height="170" src="https://streak-stats.demolab.com/?user=Bum-Boo&background=0B3D2E&border=1F7A5C&stroke=C9A046&ring=8A2230&fire=C9A046&currStreakNum=F1E7D0&sideNums=F1E7D0&currStreakLabel=C9A046&sideLabels=D8CFBC&dates=A89F8C" alt="Streak stats" />
+  <br />
+  <img width="55%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Bum-Boo&layout=compact&langs_count=8&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&border_color=1f7a5c" alt="Top languages" />
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Bum-Boo/Bum-Boo/output/snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Bum-Boo/Bum-Boo/output/snake-light.svg" />
+    <img src="https://raw.githubusercontent.com/Bum-Boo/Bum-Boo/output/snake-dark.svg" alt="A tiger-colored snake eating my contribution graph" />
+  </picture>
+</p>
+
+<img src="assets/mood/stripes.webp" width="100%" alt="Close-up of embroidered tiger fur stitches meeting plain green satin" />
+
+## 🫶 Say hi
+
+<p align="center">
+  <a href="https://www.youtube.com/@Bum_boo-b8k"><img src="https://img.shields.io/badge/YouTube-8a2230?style=for-the-badge&logo=youtube&logoColor=f1e7d0" alt="YouTube" /></a>
+  <a href="https://www.instagram.com/boo_to_world/"><img src="https://img.shields.io/badge/Instagram-8a2230?style=for-the-badge&logo=instagram&logoColor=f1e7d0" alt="Instagram" /></a>
+  <a href="https://bumboo.fun"><img src="https://img.shields.io/badge/bumboo.fun-0b3d2e?style=for-the-badge&logo=firefoxbrowser&logoColor=c9a046" alt="bumboo.fun" /></a>
+  <a href="https://github.com/Bum-Boo"><img src="https://img.shields.io/badge/Follow_on_GitHub-0b3d2e?style=for-the-badge&logo=github&logoColor=c9a046" alt="Follow on GitHub" /></a>
+</p>
+
+<p align="center"><i>⭐ Star a repo if you like it. It makes the tiger happy. 🐯</i></p>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8a2230,45:1f7a5c,100:0b3d2e&height=120&section=footer&text=thanks%20for%20stopping%20by&fontSize=22&fontColor=f1e7d0&fontAlignY=68&animation=fadeIn" width="100%" alt="thanks for stopping by" />
+</p>
