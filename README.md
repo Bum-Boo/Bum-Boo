@@ -5,6 +5,14 @@
 I make AI tools for people who don't write code, plus small utilities I wanted for myself.
 Most of them run on your own computer and ask before they change anything.
 
+## What I'm after
+
+<img src="assets/direction.webp" width="100%" alt="Three embroidered patches on green satin: a tiger paw and a robot hand about to touch, a tiger checking off a page in a notebook, and a tiger asleep inside a small house with a lit window." />
+
+- **Paw meets robot hand.** AI that people who don't write code can pick up and use.
+- **Pencil and check mark.** The tool shows what it wants to change and waits for a yes.
+- **Lit window.** It runs on your own computer, and your data stays at home.
+
 ## ssok
 
 <a href="https://bum-boo.github.io/ssok/"><img src="assets/shots/ssok-walk.gif" width="100%" alt="ssok workshop recording: the learned biped walks forward while W is held, with the parts library on the left and the controls panel on the right" /></a>
