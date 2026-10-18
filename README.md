@@ -3,35 +3,24 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Bum-Boo"><img src="https://readme-typing-svg.demolab.com?font=IBM+Plex+Sans+KR&weight=600&size=24&pause=1100&color=C9A046&center=true&vCenter=true&width=720&lines=AI+tools+for+people+who+don%27t+write+code;Robots+that+walk+in+your+browser;Runs+on+your+machine.+Asks+before+it+acts.;%EC%BD%94%EB%93%9C+%EB%AA%B0%EB%9D%BC%EB%8F%84+%EC%93%B0%EB%8A%94+AI%EB%A5%BC+%EB%A7%8C%EB%93%A4%EC%96%B4%EC%9A%94" alt="Typing intro" /></a>
+  <a href="https://github.com/Bum-Boo"><img src="https://readme-typing-svg.demolab.com?font=IBM+Plex+Sans&weight=600&size=24&pause=1100&color=C9A046&center=true&vCenter=true&width=720&lines=AI+tools+for+people+who+don%27t+write+code;Robots+that+walk+in+your+browser;Runs+on+your+machine.+Asks+before+it+acts." alt="Typing intro" /></a>
 </p>
 
 <p align="center">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=Bum-Boo.Bum-Boo&left_text=visitors&left_color=%230b3d2e&right_color=%238a2230" alt="visitors" />
-  <a href="https://github.com/Bum-Boo?tab=followers"><img src="https://img.shields.io/github/followers/Bum-Boo?label=followers&style=flat-square&color=0b3d2e" alt="followers" /></a>
-  <a href="https://github.com/Bum-Boo?tab=repositories"><img src="https://img.shields.io/github/stars/Bum-Boo?label=stars&style=flat-square&color=c9a046" alt="stars" /></a>
-  <a href="docs/readme/README.ko.md"><img src="https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-README-1f7a5c?style=flat-square" alt="Korean README" /></a>
+  <a href="https://bum-boo.github.io/ssok/"><img src="https://img.shields.io/badge/Play_ssok-8a2230?style=for-the-badge&logo=godotengine&logoColor=f1e7d0" alt="Play ssok" /></a>
+  <a href="https://bum-boo.github.io/Bum-Boo/"><img src="https://img.shields.io/badge/Live_Lab-0b3d2e?style=for-the-badge&logo=vuedotjs&logoColor=c9a046" alt="Live Lab" /></a>
+  <a href="https://bumboo.fun"><img src="https://img.shields.io/badge/bumboo.fun-0b3d2e?style=for-the-badge&logo=firefoxbrowser&logoColor=c9a046" alt="bumboo.fun" /></a>
 </p>
 
 <img src="assets/banner.webp" width="100%" alt="Back of a green satin souvenir jacket with my embroidered patch: a leaping tiger, the word Boo, and the handwritten line to the world." />
 
 ## About me
 
-```yaml
-name: Bum-Boo
-motto: boo to the world
-builds: AI tools for people who don't write code
-also_makes: [a robot workshop, desktop utilities, home sensors]
-house_rules:
-  - it runs on your own computer
-  - it shows the change, then asks
-  - it should feel a little playful
-now: teaching robots to walk in the browser (ssok)
-```
+<img src="assets/about.svg" width="100%" alt="Bum-Boo builds AI tools for people who don't write code, plus a robot workshop, desktop utilities and home sensors. House rules: runs on your own computer, shows the change then asks, feels a little playful. Now teaching robots to walk in the browser with ssok." />
 
 - I like turning a fiddly, repeated chore into one button or one sentence.
 - Most of my tools sit between a person and an AI agent and keep the human in charge.
-- Local first: your notes, chats and files stay on your machine.
+- Local first: your files live on your machine, and you choose what goes to an AI provider.
 - If something here saves you time, a star is the nicest way to say hi.
 
 <img src="assets/mood/needle.webp" width="100%" alt="Macro photo: a needle pulling burgundy thread through green satin" />
@@ -64,6 +53,16 @@ now: teaching robots to walk in the browser (ssok)
 
 </details>
 
+## From the Live Lab
+
+<p align="center">
+  <a href="https://bum-boo.github.io/Bum-Boo/"><img width="32%" src="lab/public/assets/experiment-bbcc-sukajan-poster.webp" alt="Embroidered tiger on burgundy satin, the poster for the BBCC controller experiment" /></a>
+  <a href="https://bum-boo.github.io/Bum-Boo/"><img width="32%" src="lab/public/assets/experiment-change-gate-poster.webp" alt="A metal arm holding a translucent sheet over paper, the poster for the Agent Change Gate experiment" /></a>
+  <a href="https://bum-boo.github.io/Bum-Boo/"><img width="32%" src="lab/public/assets/experiment-bts-tiger-v2-poster.webp" alt="A torn paper tiger on burgundy cloth, the poster for the BTS Sec experiment" /></a>
+</p>
+
+<p align="center"><b><a href="https://bum-boo.github.io/Bum-Boo/">Open the Live Lab</a></b>: scroll-driven experiments with paper, thread and tigers.</p>
+
 <img src="assets/mood/thread.webp" width="100%" alt="A single gold thread lying across dark green satin folds" />
 
 ## Tools I reach for
@@ -85,10 +84,8 @@ now: teaching robots to walk in the browser (ssok)
 ## Activity
 
 <p align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=Bum-Boo&show_icons=true&include_all_commits=true&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&rank_icon=github" alt="GitHub stats" />
-  <img height="170" src="https://streak-stats.demolab.com/?user=Bum-Boo&background=0B3D2E&border=1F7A5C&stroke=C9A046&ring=8A2230&fire=C9A046&currStreakNum=F1E7D0&sideNums=F1E7D0&currStreakLabel=C9A046&sideLabels=D8CFBC&dates=A89F8C" alt="Streak stats" />
-  <br />
-  <img width="55%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Bum-Boo&layout=compact&langs_count=8&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&border_color=1f7a5c" alt="Top languages" />
+  <img height="170" src="https://github-readme-stats.vercel.app/api?username=Bum-Boo&show_icons=true&include_all_commits=true&hide=contribs&card_width=437&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c&rank_icon=github" alt="GitHub stats" />
+  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Bum-Boo&langs_count=3&card_width=360&bg_color=0b3d2e&title_color=f1e7d0&text_color=d8cfbc&icon_color=c9a046&border_color=1f7a5c" alt="Top languages" />
 </p>
 
 <p align="center">

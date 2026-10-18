@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="846" height="300" viewBox="0 0 846 300" role="img" aria-labelledby="t d">
+  <title id="t">About Bum-Boo</title>
+  <desc id="d">Bum-Boo builds AI tools for people who don't write code, plus a robot workshop, desktop utilities and home sensors. House rules: it runs on your own computer, it shows the change then asks, it should feel a little playful. Now teaching robots to walk in the browser with ssok.</desc>
+  <style>
+    .sans { font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    .stitch { stroke-dasharray: 10 7; animation: sew 6s linear infinite; }
+    @keyframes sew { to { stroke-dashoffset: -170; } }
+    @media (prefers-reduced-motion: reduce) { .stitch { animation: none; } }
+  </style>
+  <defs>
+    <linearGradient id="satin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b3d2e"/>
+      <stop offset="0.6" stop-color="#0f4a37"/>
+      <stop offset="1" stop-color="#0b3d2e"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="842" height="296" rx="18" fill="url(#satin)" stroke="#1f7a5c" stroke-width="2"/>
+  <rect class="stitch" x="14" y="14" width="818" height="272" rx="12" fill="none" stroke="#c9a046" stroke-width="2"/>
+
+  <!-- left: name tag -->
+  <g class="sans">
+    <text x="48" y="86" fill="#f1e7d0" font-size="44" font-weight="800" letter-spacing="1">Bum-Boo</text>
+    <text x="50" y="118" fill="#c9a046" font-size="18" font-style="italic">boo to the world</text>
+
+    <text x="50" y="164" fill="#a89f8c" font-size="12" font-weight="700" letter-spacing="2">BUILDS</text>
+    <text x="50" y="186" fill="#f1e7d0" font-size="16">AI tools for people who don't write code</text>
+
+    <text x="50" y="222" fill="#a89f8c" font-size="12" font-weight="700" letter-spacing="2">ALSO MAKES</text>
+    <text x="50" y="244" fill="#f1e7d0" font-size="16">a robot workshop, desktop utilities, home sensors</text>
+  </g>
+
+  <!-- divider -->
+  <line x1="480" y1="44" x2="480" y2="214" stroke="#1f7a5c" stroke-width="1.5"/>
+
+  <!-- right: house rules -->
+  <g class="sans">
+    <text x="510" y="64" fill="#a89f8c" font-size="12" font-weight="700" letter-spacing="2">HOUSE RULES</text>
+
+    <circle cx="526" cy="98" r="15" fill="#8a2230"/>
+    <text x="526" y="103" fill="#f1e7d0" font-size="13" font-weight="700" text-anchor="middle">01</text>
+    <text x="552" y="103" fill="#f1e7d0" font-size="16">runs on your own computer</text>
+
+    <circle cx="526" cy="144" r="15" fill="#8a2230"/>
+    <text x="526" y="149" fill="#f1e7d0" font-size="13" font-weight="700" text-anchor="middle">02</text>
+    <text x="552" y="149" fill="#f1e7d0" font-size="16">shows the change, then asks</text>
+
+    <circle cx="526" cy="190" r="15" fill="#8a2230"/>
+    <text x="526" y="195" fill="#f1e7d0" font-size="13" font-weight="700" text-anchor="middle">03</text>
+    <text x="552" y="195" fill="#f1e7d0" font-size="16">feels a little playful</text>
+  </g>
+
+  <!-- now strip -->
+  <rect x="496" y="226" width="312" height="38" rx="19" fill="#c9a046"/>
+  <circle cx="518" cy="245" r="5" fill="#8a2230">
+    <animate attributeName="opacity" values="1;0.25;1" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+  <text class="sans" x="532" y="250" fill="#0b3d2e" font-size="14" font-weight="700">NOW<tspan dx="10" font-weight="600">teaching robots to walk · ssok</tspan></text>
+</svg>
